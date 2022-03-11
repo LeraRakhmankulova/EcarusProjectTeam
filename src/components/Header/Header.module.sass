@@ -1,0 +1,63 @@
+.header
+  box-shadow: 0px 0.5px 0px rgba(0, 0, 0, 0.12)
+  padding-bottom: 0.5em
+.header_content_wrapper
+  padding-top: 1em
+  color: black
+  display: grid
+  grid-template-rows: 1fr
+  grid-template-columns: 1fr 8fr 3fr
+  grid-template-areas: "logo lside rside"
+  margin: 0 10em 0 10em
+  font-size: 14px
+  white-space: nowrap
+  .header_logo_wrapper
+    grid-area: logo
+    padding: 1em 
+  ul 
+    li
+      display: inline
+      padding: 2.3em 1em
+      cursor: pointer
+      a
+        color: black
+        text-decoration: none
+        &:hover
+          text-shadow: 2px 2px 3px #c2bcbc
+      &:hover
+        font-weight: bold
+        border-bottom: 3px solid #07C88E
+      &:active
+        font-weight: bold
+        border-bottom: 3px solid #07C88E
+        border-spacing: 5px
+      
+
+.left_side_nav
+  grid-area: lside
+    
+.right_side_nav
+  font-weight: normal
+  font-size: 14px
+  grid-area: rside
+  display: flex
+  li
+    display: flex
+    padding-right: 1em
+    .wrapper_icon
+      margin: 1em 0.5em
+  .right_side_nav_pin
+    padding: 0 1.5em
+.wrapper_click_button
+  button
+    border: none
+    padding-top: 1.25em
+    background: white
+    cursor: pointer
+    font-family: 'Montserrat', sans-serif
+    font-weight: normal
+    &:hover
+        font-weight: bold
+        text-shadow: 2px 2px 3px #c2bcbc
+    
+  

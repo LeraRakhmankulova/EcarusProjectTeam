@@ -1,0 +1,30 @@
+.page_wrapper
+    margin: 1em 10em
+    display: grid
+    grid-template-rows: 1fr
+    grid-template-columns: 4fr 8fr
+    grid-template-areas: "left_block right_block"
+    hr
+      thin: 1px solid rgba(18, 34, 88, 0.12)
+
+    
+    .content_wrapper
+        grid-area: right_block
+        margin: 7em 0
+ 
+.nav_link
+    li
+      display: inline
+      padding: 8px 1em
+      a
+        color: black
+        text-decoration: none
+      &:hover
+        font-weight: bold
+        border-bottom: 3px solid #07C88E
+      &:active
+        font-weight: bold
+        border-bottom: 3px solid #07C88E
+.wrapper_avatar
+  margin: 0 auto
+    
