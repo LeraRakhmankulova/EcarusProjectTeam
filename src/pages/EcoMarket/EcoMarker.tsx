@@ -19,4 +19,3 @@ const EcoMarket = observer(() => {
 });
 
 export default EcoMarket;
-

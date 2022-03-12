@@ -1,8 +1,5 @@
-import ModalButton from '../ui/modal-button/button'
 import style from './Modal.module.sass';
 import { FC } from 'react';
-import Input from '../ui/input/input';
-import Icon from '../Icon/Icon';
 
 interface Props {
 }

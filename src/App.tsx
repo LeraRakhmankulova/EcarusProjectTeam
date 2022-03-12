@@ -1,30 +1,11 @@
 import styles from './App.module.sass';
-// import Modal from './components/modal/Modal';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import PersonalArea from './pages/PersonalArea/PersonalArea';
 import MainPage from './pages/MainPage/MainPage';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
-import EcoMarket from './pages/EcoMarket/EcoMarker';
-import {ModalSign} from "./components/modal/ModalSign/ModalSign";
-import Modal from "./components/modal/Modal";
-import {ModalSignOrRegistration} from "./components/modal/ModalSignOrRegistration/ModalSignOrRegistration";
-import {ModalInputCode} from "./components/modal/ModalInputCode/ModalInputCode";
-import {ModalSignForCompany} from "./components/modal/ModalSignForCompany/ModalSignForCompany";
-import {ModalSignOrRegistrationForCompany} from "./components/modal/ModalSignOrRegistrationForCompany/ModalSignOrRegistrationForCompany";
-import {useStore} from "./utils/use-stores-hook";
 
 const App = () => {
-  // const [isOpen, setIsOpen] = useState<boolean>(true);
-  //
-  // const handleModal = () => {
-  //   setIsOpen(!isOpen)
-  // }
-  // const { modalStore: { setCurrentModal } } = useStore()
-  // const handleModal = () => {
-  //   setCurrentModal(<Modal children={<ModalSign/>}></Modal>)
-  // }
   return (
     <div className={styles.wrapper}>
       <Router>

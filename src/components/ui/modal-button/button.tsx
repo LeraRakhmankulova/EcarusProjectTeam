@@ -7,13 +7,12 @@ interface Props {
     background: string | number;
     width: number | string;
     disabled:any;
-    onSubmit:any;
     onClick: any;
     type:any;
 }
 
 const ModalButton: FC<Props> = ({ text, color, background, width ,
-                                    disabled, onSubmit, onClick, type}) => {
+                                    disabled, onClick, type}) => {
     return (
         <div className={styles.button}>
             <div className={styles.button_wrapper}>
@@ -22,7 +21,7 @@ const ModalButton: FC<Props> = ({ text, color, background, width ,
                         width: `${width}`,
                         color: `${color}`,
                         background: `${background}`
-                    }} disabled={disabled} onSubmit={onSubmit} onClick={onClick} type={type}>{text}</button>
+                    }} disabled={disabled} onClick={onClick} type={type}>{text}</button>
             </div>
         </div>
     );
