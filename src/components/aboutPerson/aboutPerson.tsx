@@ -26,7 +26,7 @@ const AboutPerson:FC<Props> = ({name, phone, email, picture}) => {
                 </ul>
                 <div>
                     <ModalButton text='Редактировать' color='black' background='rgba(62, 80, 114, 0.08);' width='22em'
-                    disabled='' onClick='' type=''/>
+                    disabled='' onClick='' type='' onSubmit=''/>
                 </div>
             </div>
         </div>

@@ -13,13 +13,18 @@ import {ModalSignOrRegistration} from "./components/modal/ModalSignOrRegistratio
 import {ModalInputCode} from "./components/modal/ModalInputCode/ModalInputCode";
 import {ModalSignForCompany} from "./components/modal/ModalSignForCompany/ModalSignForCompany";
 import {ModalSignOrRegistrationForCompany} from "./components/modal/ModalSignOrRegistrationForCompany/ModalSignOrRegistrationForCompany";
+import {useStore} from "./utils/use-stores-hook";
 
 const App = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-
-  const handleModal = () => {
-    setIsOpen(!isOpen)
-  }
+  // const [isOpen, setIsOpen] = useState<boolean>(true);
+  //
+  // const handleModal = () => {
+  //   setIsOpen(!isOpen)
+  // }
+  // const { modalStore: { setCurrentModal } } = useStore()
+  // const handleModal = () => {
+  //   setCurrentModal(<Modal children={<ModalSign/>}></Modal>)
+  // }
   return (
     <div className={styles.wrapper}>
       <Router>
@@ -28,14 +33,14 @@ const App = () => {
           <Routes>
             <Route path='/' element={<MainPage />} />
             <Route path='/ecomarket' element={<PersonalArea />} />
-            <Route path='/sign_or_registration' element={isOpen &&
-            (<Modal children={<ModalSignOrRegistration onClose={handleModal}/>}></Modal>)}/>
-            <Route path='/input_code' element={isOpen &&
-            (<Modal children={<ModalInputCode onClose={handleModal}/>}></Modal>)}/>
-            <Route path='/sign_for_company' element={isOpen &&
-            (<Modal children={<ModalSignForCompany onClose={handleModal}/>}></Modal>)}/>
-            <Route path='/sign_or_registration_for_company' element={isOpen &&
-            (<Modal children={<ModalSignOrRegistrationForCompany onClose={handleModal}/>}></Modal>)}/>
+            {/*<Route path='/sign_or_registration' element={isOpen &&*/}
+            {/*(<Modal children={<ModalSignOrRegistration onClose={handleModal}/>}></Modal>)}/>*/}
+            {/*<Route path='/input_code' element={isOpen &&*/}
+            {/*(<Modal children={<ModalInputCode onClose={handleModal}/>}></Modal>)}/>*/}
+            {/*<Route path='/sign_for_company' element={isOpen &&*/}
+            {/*(<Modal children={<ModalSignForCompany onClose={handleModal}/>}></Modal>)}/>*/}
+            {/*<Route path='/sign_or_registration_for_company' element={isOpen &&*/}
+            {/*(<Modal children={<ModalSignOrRegistrationForCompany onClose={handleModal}/>}></Modal>)}/>*/}
           </Routes>
         </div>
         <Footer />

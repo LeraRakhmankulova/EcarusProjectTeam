@@ -5,13 +5,16 @@ import ModalButton from "../../ui/modal-button/button";
 import {FC} from "react";
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import Modal from "../Modal";
+import {useStore} from "../../../utils/use-stores-hook";
+import {ModalSignOrRegistrationForCompany} from "../ModalSignOrRegistrationForCompany/ModalSignOrRegistrationForCompany";
+import {email, passw} from '../../../utils/use-data'
 
-
-interface Props {
-    onClose: () => void;
-}
-
-export const ModalSignForCompany: FC<Props> = ({onClose}) => {
+export const ModalSignForCompany = () => {
+    const handleModalSignOrRegistrationForCompany = () => {
+        setCurrentModal(<Modal children={<ModalSignOrRegistrationForCompany/>}></Modal>)
+    }
+    const { modalStore: {clearCurrentModal, setCurrentModal}, authenticationStore: {setAuthentication}} = useStore()
     const validationsSchema = yup.object().shape({
         email: yup.string().typeError('Должно быть строкой').required('Обязательно')
             .matches(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/, 'Введите верный email'),
@@ -23,20 +26,28 @@ export const ModalSignForCompany: FC<Props> = ({onClose}) => {
                 email: '',
                 password: ''
             }}
-            validateOnBlur
-            onSubmit={(values) => { console.log(values) }}
+            onSubmit={(values, errors)=>{
+                if (values.email === email && values.password === passw) {
+                    setAuthentication(true);
+                    // clearCurrentModal();
+                } else {
+                    values.email = '';
+                    values.password = '';
+                    // errors.setErrors('Неверный телефон или пароль')
+                    errors.setStatus('Неверный email или пароль');
+                }}}
             validationSchema={validationsSchema}
         >
             {({ values, errors, touched,
                   handleChange, handleBlur,
                   isValid=false, dirty =false, handleSubmit}) => (
-                      <div>
+                      <form onSubmit={handleSubmit}>
             <div className={style.wrapper_title}>
                 <div className={style.modal_title}>
                     <h3>Вход</h3>
                 </div>
                 <div className={style.wrapper_exit_button}>
-                    <button onClick={onClose}>
+                    <button onClick={clearCurrentModal}>
                         <Icon name='close' width='32' height='32' />
                     </button>
                 </div>
@@ -59,21 +70,21 @@ export const ModalSignForCompany: FC<Props> = ({onClose}) => {
                 <div className={style.button_wrapper}>
                     <div className={style.button_wrapper_content}>
                         <ModalButton text='Войти' color='white' background='#07C88E' width='100%'
-                                     disabled={isValid && dirty}
-                                     onClick={handleSubmit}
+                                     disabled={!(isValid || dirty)}
+                                     onClick='' onSubmit=''
                                      type={`submit`}/>
                     </div>
                     <div className={style.link_text_wrapper}>
                         <div>
-                            <a href=''>Войти с помощью смс</a>
+                            <a onClick={handleModalSignOrRegistrationForCompany}>Войти с помощью смс</a>
                         </div>
                         <div>
-                            <a href=''>Регистрация</a>
+                            <a onClick={handleModalSignOrRegistrationForCompany}>Регистрация</a>
                         </div>
                     </div>
                 </div>
             </div>
-                </div> )}
+                </form> )}
         </Formik>
         </div>
     );
