@@ -2,15 +2,15 @@ import { FC } from 'react';
 import style from './aboutPerson.module.sass';
 import ModalButton from '../ui/modal-button/button'
 
-interface Props{
-    name : string;
+interface Props {
+    name: string;
     phone: string;
     email: string | number;
-    picture : string;
+    picture: string;
 }
 
 
-const AboutPerson:FC<Props> = ({name, phone, email, picture}) => {
+const AboutPerson: FC<Props> = ({ name, phone, email, picture }) => {
     return (
         <div>
             <div className={style.wrapper_person_info}>
@@ -26,7 +26,7 @@ const AboutPerson:FC<Props> = ({name, phone, email, picture}) => {
                 </ul>
                 <div>
                     <ModalButton text='Редактировать' color='black' background='rgba(62, 80, 114, 0.08);' width='22em'
-                    disabled='' onClick='' type='' />
+                        disabled='' onClick='' type='' />
                 </div>
             </div>
         </div>

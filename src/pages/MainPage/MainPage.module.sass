@@ -1,41 +1,47 @@
-.page_wrapper
-    margin: auto 8.5em
+.content_wrapper
     button
+        white-space: nowrap
         &:hover
-            box-shadow: 0 0 20px rgba(0,0,0,0.2)
+            box-shadow: 0 0 20px #1f1d1d33
+            transform: translateY(-1px)
+        &:active
+            box-shadow: 0 0 32px #00000033
+            transform: translateY(-2px)
+    margin: auto 10.5em
     .swiper_wrapper
         margin: 2.5em 1em 0.5em 1em
         button
             margin-top: 1.2em
         img
-            height: 17em
+            height: 100%
+            border-radius: 20px
         h2
             font-size: 40px
+
 .inline_blocks
     display: grid
     grid-template-rows: 1fr
     grid-template-columns: 6fr 6fr
     grid-template-areas: "left_block right_block"
-    padding: 1em 0 0 1em
-    h2
-        font-size: 28px
-    button
-        margin: 4em 1em 1em 0em
-        
-    .left_block
-        white-space: break-spaces
-        grid-area: left_block
-        margin: 1.5em 0.5em 0em 0em
+    padding: 1em auto
+    div
+        height: 94%
+        margin: 0.5em
+        h2
+            font-size: 24px
+            white-space: nowrap
+        p
+            padding: 1.25em 0
+            color: rgba(0, 11, 38, 0.56)
         button
-            padding: 1em 1.17em
+            margin-left: 0
+    .left_block
+        grid-area: left_block
             
     .right_block
-        margin: 1.5em 1em 0em 0.5em
         grid-area: right_block
-        button
-            padding: 1em 1.17em
-            img
-                padding-top: 0
-        img
-            padding-top: 2em
+            
+        
+        
+        
 

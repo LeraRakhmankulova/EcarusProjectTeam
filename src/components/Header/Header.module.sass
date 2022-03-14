@@ -1,41 +1,64 @@
+@mixin indents 
+  margin: 0
+  padding: 0
+@mixin hover_links 
+  text-shadow: 5px 5px 6px #c2bcbc
+  font-weight: bold
+
 .header
   box-shadow: 0px 0.5px 0px rgba(0, 0, 0, 0.12)
   padding-bottom: 0.5em
+  width: 100%
+
 .header_content_wrapper
   padding-top: 1em
-  color: black
+  margin: 0 12.5em
+  font-size: 14px
   display: grid
+
   grid-template-rows: 1fr
   grid-template-columns: 1fr 8fr 3fr
   grid-template-areas: "logo lside rside"
-  margin: 0 10em 0 10em
-  font-size: 14px
-  white-space: nowrap
   .header_logo_wrapper
     grid-area: logo
     padding: 1em 
+    cursor: pointer
   ul 
     li
       display: inline
       padding: 2.3em 1em
-      cursor: pointer
       a
         color: black
         text-decoration: none
+        cursor: pointer
+        white-space: nowrap
         &:hover
-          text-shadow: 2px 2px 3px #c2bcbc
-      &:hover
-        font-weight: bold
-        border-bottom: 3px solid #07C88E
-      &:active
-        font-weight: bold
-        border-bottom: 3px solid #07C88E
-        border-spacing: 5px
-      
-
-.left_side_nav
+          @include hover_links
+          padding-bottom: 1.7em
+          border-bottom: 3px solid #07C88E
+        &:active
+          @include hover_links
+          padding-bottom: 1.5em
+          font-size: 15px
+          border-bottom: 3px solid #07C88E
+        
+.navbar
   grid-area: lside
-    
+.side_part
+  ul
+    @include indents
+    display: flex
+    li
+      margin: 0 1em
+      padding: 0
+      display: flex
+      align-items: center
+      cursor: pointer
+      p
+        padding: 0 0.4em
+        &:hover
+          @include hover_links
+
 .right_side_nav
   font-weight: normal
   font-size: 14px
@@ -44,20 +67,25 @@
   li
     display: flex
     padding-right: 1em
-    .wrapper_icon
+    .icon
       margin: 1em 0.5em
-  .right_side_nav_pin
+  .navbar_indent_block
     padding: 0 1.5em
-.wrapper_click_button
-  button
-    border: none
-    padding-top: 1.25em
-    background: white
-    cursor: pointer
-    font-family: 'Montserrat', sans-serif
-    font-weight: normal
-    &:hover
-        font-weight: bold
-        text-shadow: 2px 2px 3px #c2bcbc
-    
+
+button
+  border: none
+  background: white
+  cursor: pointer
+  font-family: 'Montserrat', sans-serif
+  font-weight: normal
+  &:hover
+    font-weight: bold
+    text-shadow: 2px 2px 3px #c2bcbc
+
+@media screen and (max-width: 350px)
+  .header
+    .header_logo_wrapper
+      left: 0
+      right: auto
+
   

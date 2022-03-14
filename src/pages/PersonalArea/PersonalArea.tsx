@@ -10,8 +10,7 @@ const PersonalArea = () => {
                 <div className={style.wrapper_title}>
                     <p>Личный кабинет</p>
                     <div>
-                    <AboutPerson name='' phone='' email='' picture=''/>
-
+                        <AboutPerson name='' phone='' email='' picture='' />
                     </div>
                 </div>
             </div>
@@ -24,7 +23,6 @@ const PersonalArea = () => {
                             <hr />
                         </ul>
                     </nav>
-
                 </div>
             </div>
         </div>

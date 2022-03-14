@@ -10,7 +10,7 @@ interface Props {
     main_background: string | number;
     button_color: string | number;
     button_text: string;
-    pict_button:string;
+    pict_button: string;
 }
 
 const Card: FC<Props> = ({ title, text, main_picture, main_background, button_color, button_text, pict_button }) => {
@@ -23,9 +23,9 @@ const Card: FC<Props> = ({ title, text, main_picture, main_background, button_co
                 <h2>{title}</h2>
                 <p>{text}</p>
                 <div className={styles.card_button_wrapper}>
-                    <CardButton content={button_text} 
-                                background={button_color} 
-                                picture={pict_button} />
+                    <CardButton content={button_text}
+                        background={button_color}
+                        picture={pict_button} />
                 </div>
             </div>
             <div className={styles.card_wrapper_img}>

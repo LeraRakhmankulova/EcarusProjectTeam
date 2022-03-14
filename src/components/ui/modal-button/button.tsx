@@ -6,13 +6,13 @@ interface Props {
     color: string | number;
     background: string | number;
     width: number | string;
-    disabled:any;
+    disabled: any;
     onClick: any;
-    type:any;
+    type: any;
 }
 
-const ModalButton: FC<Props> = ({ text, color, background, width ,
-                                    disabled, onClick, type}) => {
+const ModalButton: FC<Props> = ({ text, color, background, width,
+    disabled, onClick, type }) => {
     return (
         <div className={styles.button}>
             <div className={styles.button_wrapper}>

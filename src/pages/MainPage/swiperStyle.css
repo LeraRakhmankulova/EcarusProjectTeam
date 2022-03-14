@@ -10,10 +10,12 @@
 .swiper-button-prev {
   background-image: url(../../assets//images/left.svg);
   margin-left: -45px;
+  z-index: 2;
 }
 .swiper-button-next {
   background-image: url(../../assets//images/right.svg);
   margin-right: -45px;
+  z-index: 2;
 }
 .swiper-button-prev::after, .swiper-button-next::after {
   display: none;

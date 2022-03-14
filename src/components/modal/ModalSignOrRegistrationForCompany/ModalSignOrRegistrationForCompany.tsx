@@ -9,7 +9,6 @@ import {useStore} from "../../../utils/use-stores-hook";
 import {ModalSignForCompany} from "../ModalSignForCompany/ModalSignForCompany";
 import {ModalInputCode} from "../ModalInputCode/ModalInputCode";
 
-
 export const ModalSignOrRegistrationForCompany = () => {
     const handleModalSignForCompany = () => {
         setCurrentModal(<Modal children={<ModalSignForCompany/>}/>)

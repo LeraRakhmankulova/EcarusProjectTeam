@@ -10,20 +10,18 @@ const App = () => {
     <div className={styles.wrapper}>
       <Router>
         <Header />
-        <div className={styles.wrapper_content}>
-          <Routes>
-            <Route path='/' element={<MainPage />} />
-            <Route path='/ecomarket' element={<PersonalArea />} />
-            {/*<Route path='/sign_or_registration' element={isOpen &&*/}
-            {/*(<Modal children={<ModalSignOrRegistration onClose={handleModal}/>}></Modal>)}/>*/}
-            {/*<Route path='/input_code' element={isOpen &&*/}
-            {/*(<Modal children={<ModalInputCode onClose={handleModal}/>}></Modal>)}/>*/}
-            {/*<Route path='/sign_for_company' element={isOpen &&*/}
-            {/*(<Modal children={<ModalSignForCompany onClose={handleModal}/>}></Modal>)}/>*/}
-            {/*<Route path='/sign_or_registration_for_company' element={isOpen &&*/}
-            {/*(<Modal children={<ModalSignOrRegistrationForCompany onClose={handleModal}/>}></Modal>)}/>*/}
-          </Routes>
-        </div>
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/ecomarket' element={<PersonalArea />} />
+          {/*<Route path='/sign_or_registration' element={isOpen &&*/}
+          {/*(<Modal children={<ModalSignOrRegistration onClose={handleModal}/>}></Modal>)}/>*/}
+          {/*<Route path='/input_code' element={isOpen &&*/}
+          {/*(<Modal children={<ModalInputCode onClose={handleModal}/>}></Modal>)}/>*/}
+          {/*<Route path='/sign_for_company' element={isOpen &&*/}
+          {/*(<Modal children={<ModalSignForCompany onClose={handleModal}/>}></Modal>)}/>*/}
+          {/*<Route path='/sign_or_registration_for_company' element={isOpen &&*/}
+          {/*(<Modal children={<ModalSignOrRegistrationForCompany onClose={handleModal}/>}></Modal>)}/>*/}
+        </Routes>
         <Footer />
       </Router>
     </div>

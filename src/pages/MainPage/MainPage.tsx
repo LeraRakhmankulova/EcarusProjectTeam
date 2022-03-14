@@ -20,7 +20,7 @@ import './swiperStyle.css';
 
 const MainPage = () => {
     return (
-        <div className={styles.page_wrapper}>
+        <div className={styles.content_wrapper}>
             <div className={styles.swiper_wrapper}>
                 <Swiper
                     modules={[Navigation]}
