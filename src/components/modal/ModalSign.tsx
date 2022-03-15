@@ -1,14 +1,14 @@
-import style from "../Modal.module.sass";
-import Icon from "../../Icon/Icon";
-import Input from "../../ui/input/input";
-import ModalButton from "../../ui/modal-button/button";
+import style from "../layouts/Modal.module.sass";
+import Icon from "../Icon/Icon";
+import Input from "../ui/input/input";
+import ModalButton from "../ui/modal-button/button";
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { useStore } from "../../../utils/use-stores-hook";
-import Modal from "../Modal";
-import { ModalSignOrRegistration } from "../ModalSignOrRegistration/ModalSignOrRegistration";
-import { ModalSignForCompany } from "../ModalSignForCompany/ModalSignForCompany";
-import { phone_num, passw } from "../../../utils/use-data";
+import { useStore } from "../../utils/use-stores-hook";
+import Modal from "../layouts/Modal";
+import { ModalSignOrRegistration } from "./ModalSignOrRegistration";
+import { ModalSignForCompany } from "./ModalSignForCompany";
+import { phone_num, passw } from "../../utils/use-data";
 
 
 export const ModalSign = () => {

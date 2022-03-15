@@ -6,10 +6,11 @@ import avatar from '../../assets/images/avatar.svg';
 import money from '../../assets/images/money.svg';
 import signIn from '../../assets/images/signIn.svg';
 import { observer } from 'mobx-react';
-import Modal from '../modal/Modal';
-import { ModalSign } from "../modal/ModalSign/ModalSign";
+import Modal from '../layouts/Modal';
+import { ModalSign } from "../modal/ModalSign";
 import { useStore } from "../../utils/use-stores-hook";
 import { name } from "../../utils/use-data";
+import { useState } from 'react';
 
 
 const Header = observer(() => {
@@ -17,8 +18,9 @@ const Header = observer(() => {
     const handleModal = () => {
         setCurrentModal(<Modal children={<ModalSign />} />)
     }
-    if (authentication) {
-        setCurrentModal(null)
+    const [visible, setVisible ]= useState(false);
+    // if (authentication) {
+    //     setCurrentModal(null)
         return (
             <header className={styles.header}>
                 <div className={styles.header_content_wrapper}>
@@ -34,7 +36,8 @@ const Header = observer(() => {
                         </ul>
                     </nav>
                     <nav className={styles.side_part}>
-                        <ul>
+                        { authentication ? 
+                         <ul>
                             <li>
                                 <Icon name='pin' width='24' height='24' />
                                 <p>Казань</p>
@@ -47,28 +50,7 @@ const Header = observer(() => {
                                 <img src={avatar}></img>
                                 <p>{name}</p>
                             </li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
-        )
-    }
-    else {
-        return (
-            <header className={styles.header}>
-                <div className={styles.header_content_wrapper}>
-                    <div className={styles.header_logo_wrapper}>
-                        <img src={logo} />
-                    </div>
-                    <nav className={styles.navbar}>
-                        <ul>
-                            <li><NavLink to='/'>Главная</NavLink></li>
-                            <li><NavLink to='/points'>Пункты сбора</NavLink></li>
-                            <li><NavLink to='/ecomarket'>ЭкоМаркет</NavLink></li>
-                            <li><NavLink to='/services'>О сервисе</NavLink></li>
-                        </ul>
-                    </nav>
-                    <nav className={styles.side_part}>
+                        </ul> :
                         <ul>
                             <li>
                                 <Icon name='pin' width='24' height='24' />
@@ -78,11 +60,11 @@ const Header = observer(() => {
                                 <img src={signIn}></img>
                                 <button onClick={handleModal}>Войти</button>
                             </li>
-                        </ul>
+                        </ul>}
                     </nav>
                 </div>
             </header>
         )
-    };
-});
+    }
+);
 export default Header

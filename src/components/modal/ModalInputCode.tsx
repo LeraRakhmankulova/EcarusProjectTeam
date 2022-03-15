@@ -1,21 +1,21 @@
 // @ts-ignore
 // @ts-ignore
 
-import style from "../Modal.module.sass";
-import Icon from "../../Icon/Icon";
-import Input from "../../ui/input/input";
-import ModalButton from "../../ui/modal-button/button";
-import { FC } from "react";
+import style from "../layouts/Modal.module.sass";
+import Icon from "../Icon/Icon";
+import Input from "../ui/input/input";
+import ModalButton from "../ui/modal-button/button";
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import Modal from "../Modal";
-import { ModalSignOrRegistration } from "../ModalSignOrRegistration/ModalSignOrRegistration";
-import { useStore } from "../../../utils/use-stores-hook";
-import { ModalSignForCompany } from "../ModalSignForCompany/ModalSignForCompany";
-import { code, phone_num } from "../../../utils/use-data";
+import Modal from "../layouts/Modal";
+import { ModalSignOrRegistration } from "./ModalSignOrRegistration";
+import { useStore } from "../../utils/use-stores-hook";
+import { ModalSignForCompany } from "./ModalSignForCompany";
+import { code, phone_num } from "../../utils/use-data";
 
 
 export const ModalInputCode = () => {
+    
     const handleModalInputCode = () => {
         setCurrentModal(<Modal children={<ModalSignOrRegistration />} />)
     }
