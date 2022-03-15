@@ -1,10 +1,15 @@
 @mixin indents 
   margin: 0
   padding: 0
-@mixin hover_links 
-  text-shadow: 5px 5px 6px #c2bcbc
-  font-weight: bold
 
+@mixin active_text 
+  &:hover
+    color: #000B26
+    font-weight: 500
+  &:active
+    color: #000B26
+    font-weight: 600
+    
 .header
   box-shadow: 0px 0.5px 0px rgba(0, 0, 0, 0.12)
   padding-bottom: 0.5em
@@ -15,6 +20,7 @@
   margin: 0 12.5em
   font-size: 14px
   display: grid
+  font-weight: 400
 
   grid-template-rows: 1fr
   grid-template-columns: 1fr 8fr 3fr
@@ -28,18 +34,16 @@
       display: inline
       padding: 2.3em 1em
       a
-        color: black
+        color: rgba(0, 11, 38, 0.64)
         text-decoration: none
         cursor: pointer
         white-space: nowrap
+        @include active_text
         &:hover
-          @include hover_links
           padding-bottom: 1.7em
           border-bottom: 3px solid #07C88E
         &:active
-          @include hover_links
-          padding-bottom: 1.5em
-          font-size: 15px
+          padding-bottom: 1.7em
           border-bottom: 3px solid #07C88E
         
 .navbar
@@ -49,15 +53,16 @@
     @include indents
     display: flex
     li
+      color: rgba(0, 11, 38, 0.8)
       margin: 0 1em
       padding: 0
       display: flex
       align-items: center
       cursor: pointer
+      
       p
         padding: 0 0.4em
-        &:hover
-          @include hover_links
+        @include active_text
 
 .right_side_nav
   font-weight: normal
@@ -73,19 +78,13 @@
     padding: 0 1.5em
 
 button
+  margin-top: -0.6em
   border: none
   background: white
   cursor: pointer
   font-family: 'Montserrat', sans-serif
   font-weight: normal
-  &:hover
-    font-weight: bold
-    text-shadow: 2px 2px 3px #c2bcbc
+  @include active_text
 
-@media screen and (max-width: 350px)
-  .header
-    .header_logo_wrapper
-      left: 0
-      right: auto
 
   

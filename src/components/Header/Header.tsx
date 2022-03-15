@@ -18,26 +18,24 @@ const Header = observer(() => {
     const handleModal = () => {
         setCurrentModal(<Modal children={<ModalSign />} />)
     }
-    const [visible, setVisible ]= useState(false);
-    // if (authentication) {
-    //     setCurrentModal(null)
-        return (
-            <header className={styles.header}>
-                <div className={styles.header_content_wrapper}>
-                    <div className={styles.header_logo_wrapper}>
-                        <img src={logo} />
-                    </div>
-                    <nav className={styles.navbar}>
+    const [visible, setVisible] = useState(false);
+    return (
+        <header className={styles.header}>
+            <div className={styles.header_content_wrapper}>
+                <div className={styles.header_logo_wrapper}>
+                    <img src={logo} />
+                </div>
+                <nav className={styles.navbar}>
+                    <ul>
+                        <li><NavLink to='/'>Главная</NavLink></li>
+                        <li><NavLink to='/points'>Пункты сбора</NavLink></li>
+                        <li><NavLink to='/ecomarket'>ЭкоМаркет</NavLink></li>
+                        <li><NavLink to='/services'>О сервисе</NavLink></li>
+                    </ul>
+                </nav>
+                <nav className={styles.side_part}>
+                    {authentication ?
                         <ul>
-                            <li><NavLink to='/'>Главная</NavLink></li>
-                            <li><NavLink to='/points'>Пункты сбора</NavLink></li>
-                            <li><NavLink to='/ecomarket'>ЭкоМаркет</NavLink></li>
-                            <li><NavLink to='/services'>О сервисе</NavLink></li>
-                        </ul>
-                    </nav>
-                    <nav className={styles.side_part}>
-                        { authentication ? 
-                         <ul>
                             <li>
                                 <Icon name='pin' width='24' height='24' />
                                 <p>Казань</p>
@@ -57,14 +55,16 @@ const Header = observer(() => {
                                 <p>Казань</p>
                             </li>
                             <li>
-                                <img src={signIn}></img>
-                                <button onClick={handleModal}>Войти</button>
+                                <button onClick={handleModal}>
+                                    <img src={signIn}></img>
+                                    Войти
+                                </button>
                             </li>
                         </ul>}
-                    </nav>
-                </div>
-            </header>
-        )
-    }
+                </nav>
+            </div>
+        </header>
+    )
+}
 );
 export default Header
