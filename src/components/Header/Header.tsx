@@ -18,7 +18,7 @@ const Header = observer(() => {
     const handleModal = () => {
         setCurrentModal(<Modal children={<ModalSign />} />)
     }
-    const [visible, setVisible] = useState(false);
+ 
     return (
         <header className={styles.header}>
             <div className={styles.header_content_wrapper}>
@@ -27,10 +27,10 @@ const Header = observer(() => {
                 </div>
                 <nav className={styles.navbar}>
                     <ul>
-                        <li><NavLink to='/'>Главная</NavLink></li>
-                        <li><NavLink to='/points'>Пункты сбора</NavLink></li>
-                        <li><NavLink to='/ecomarket'>ЭкоМаркет</NavLink></li>
-                        <li><NavLink to='/services'>О сервисе</NavLink></li>
+                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/'>Главная</NavLink></li>
+                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/points'>Пункты сбора</NavLink></li>
+                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/ecomarket'>ЭкоМаркет</NavLink></li>
+                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/services'>О сервисе</NavLink></li>
                     </ul>
                 </nav>
                 <nav className={styles.side_part}>
@@ -50,15 +50,12 @@ const Header = observer(() => {
                             </li>
                         </ul> :
                         <ul>
-                            <li>
+                            <li className={styles.location}>
                                 <Icon name='pin' width='24' height='24' />
                                 <p>Казань</p>
                             </li>
                             <li>
-                                <button onClick={handleModal}>
-                                    <img src={signIn}></img>
-                                    Войти
-                                </button>
+                                <button onClick={handleModal}>Войти</button>
                             </li>
                         </ul>}
                 </nav>
