@@ -10,10 +10,12 @@ const App = () => {
     <div className={styles.wrapper}>
       <Router>
         <Header />
-        <Routes>
-          <Route path='/' element={<MainPage />} />
-          <Route path='/ecomarket' element={<PersonalArea />} />
-        </Routes>
+        <div className={styles.main_content}>
+          <Routes>
+            <Route path='/' element={<MainPage />} />
+            <Route path='/ecomarket' element={<PersonalArea />} />
+          </Routes>
+        </div>
         <Footer />
       </Router>
     </div>

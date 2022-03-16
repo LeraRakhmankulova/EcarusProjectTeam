@@ -18,12 +18,14 @@ const Header = observer(() => {
     const handleModal = () => {
         setCurrentModal(<Modal children={<ModalSign />} />)
     }
- 
+
     return (
         <header className={styles.header}>
             <div className={styles.header_content_wrapper}>
                 <div className={styles.header_logo_wrapper}>
-                    <img src={logo} />
+                    <NavLink to='/'>
+                        <img src={logo} />
+                    </NavLink>
                 </div>
                 <nav className={styles.navbar}>
                     <ul>

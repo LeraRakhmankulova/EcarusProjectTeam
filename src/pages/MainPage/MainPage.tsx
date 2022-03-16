@@ -73,7 +73,8 @@ const MainPage = () => {
                 </div>
                 <div className={styles.right_block}>
                     <Card title="ЭкоМаркет"
-                        text="Используй заработанные экокоины для покупки товаровиз переработанных материалов"
+                        text="Используй заработанные
+                        экокоины для покупки товаровиз переработанных материалов"
                         main_picture={second_banner}
                         main_background="white"
                         button_color="rgba(62, 80, 114, 0.08)"
