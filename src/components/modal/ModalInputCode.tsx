@@ -1,6 +1,3 @@
-// @ts-ignore
-// @ts-ignore
-
 import style from "../layouts/Modal.module.sass";
 import Icon from "../Icon/Icon";
 import Input from "../ui/input/input";
