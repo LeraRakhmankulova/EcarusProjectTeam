@@ -1,4 +1,31 @@
+@mixin desktop 
+    @media screen and (max-width: 1280px) 
+        .swiper_wrapper
+            font-size: 1.5vh
+            padding: 0.5em 0
+            h2
+                font-size: 4vh !important
+        .inline_blocks
+            display: block       
+
+@mixin laptop 
+    @media screen and (max-width: 992px) 
+        @content
+
+@mixin tablets 
+    @media screen and (max-width: 768px) 
+        @content
+    
+@mixin phones 
+   @media screen and (max-width: 480px) 
+        @content
+
 .content_wrapper
+    @include desktop
+    @include laptop
+    @include tablets
+    @include phones
+
     button
         white-space: nowrap
         &:hover
@@ -10,16 +37,17 @@
     margin: auto 10.5em
     padding-bottom: 7em
     .swiper_wrapper
+        @include desktop
         margin: 2.5em 1em 0.5em 1em
         button
             margin-top: 1.2em
         img
-            height: 100%
             border-radius: 20px
         h2
-            font-size: 40px
+            font-size: 5vh
 
 .inline_blocks
+    @include desktop
     display: grid
     grid-template-rows: 1fr
     grid-template-columns: 6fr 6fr
@@ -40,9 +68,21 @@
         grid-area: left_block
         button
             margin-top: 2em
+            img
+                @include desktop
             
     .right_block
         grid-area: right_block
+        img
+            @include desktop
+
+
+
+
+    
+
+   
+
             
         
         
