@@ -1,0 +1,64 @@
+.page_wrapper
+    margin: auto 11.5em
+    margin-bottom: 4em
+.upper_block_container
+    padding-top: 1em
+    display: flex
+    justify-content: space-between
+    h1
+        font-style: normal
+        font-weight: 600
+        font-size: 40px
+        line-height: 48px
+    ul
+        padding-top: 1em
+        display: flex
+        list-style-type: none
+    li
+        padding-top: 0.75em
+        margin: 0 0.25em
+        
+    a
+        cursor: pointer
+        font-weight: 400
+        font-size: 14px
+        line-height: 20px
+        background: rgba(62, 80, 114, 0.08)
+        padding: 0.75em
+        border-radius: 61px
+        &:hover
+            background: rgba(6, 14, 33, 0.88)
+            color: white
+        &:active
+            box-shadow: 0px 0px 5px rgba(121, 121, 121, 0.12), 0px 4px 24px rgba(21, 45, 103, 0.12)
+            background: rgba(6, 14, 33, 0.88)
+            color: white
+
+.main_content
+    display: grid
+    grid-template-columns: 3fr 9fr
+    grid-template-areas: "search_block cards_block"
+    
+    .cards_block
+        grid-area: cards_block
+.search_block_wrapper 
+    button
+        padding: 0.85em 
+        margin-top: 1.25em
+.search_type
+    padding: 0.5em
+    h4
+        padding: 0
+        margin-top: 0.35em
+        margin-bottom: 1em
+.cards_block
+    display: flex
+    margin: 0 0 0 2em
+    flex-wrap: wrap
+    .card_product 
+        margin: 0 0.75em 3.25em 0.75em
+        width: 253px
+
+
+
+

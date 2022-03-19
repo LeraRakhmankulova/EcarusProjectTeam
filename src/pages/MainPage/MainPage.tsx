@@ -1,9 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import Card from '../../components/Card/card';
-import { observer } from "mobx-react";
-import { useState } from "react";
-import Modal from "../../components/layouts/Modal";
 
 import first_pict from '../../assets/images/first-slide-pict.svg';
 import second_pict from '../../assets/images/second-slide-pict.svg';

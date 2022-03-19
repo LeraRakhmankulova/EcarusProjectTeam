@@ -34,7 +34,7 @@
         &:active
             box-shadow: 0 0 15px #00000033
             transform: translateY(-2px)
-    margin: auto 10.5em
+    margin: auto 10em
     padding-bottom: 7em
     .swiper_wrapper
         @include desktop
@@ -52,9 +52,9 @@
     grid-template-rows: 1fr
     grid-template-columns: 6fr 6fr
     grid-template-areas: "left_block right_block"
-    padding: 1em auto
+    padding: 0 1em 0 0
     div
-        height: 94%
+        
         margin: 0.5em
         h2
             font-size: 24px
@@ -65,6 +65,7 @@
         button
             margin-left: 0
     .left_block
+        width: 100%
         grid-area: left_block
         button
             margin-top: 2em
@@ -72,6 +73,7 @@
                 @include desktop
             
     .right_block
+        width: 100%
         grid-area: right_block
         img
             @include desktop

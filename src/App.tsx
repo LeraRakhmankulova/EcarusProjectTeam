@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import PersonalArea from './pages/PersonalArea/PersonalArea';
 import MainPage from './pages/MainPage/MainPage';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
+import EcoMarket from './pages/EcoMarket/EcoMarker';
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
         <div className={styles.main_content}>
           <Routes>
             <Route path='/' element={<MainPage />} />
-            <Route path='/ecomarket' element={<PersonalArea />} />
+            <Route path='/ecomarket' element={<EcoMarket />} />
           </Routes>
         </div>
         <Footer />
