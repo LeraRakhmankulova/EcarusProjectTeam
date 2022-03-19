@@ -63,7 +63,6 @@ const EcoMarket = () => {
                             <Checkbox title="Nike" />
                             <Checkbox title="Reebok" />
                             <Checkbox title="Puma" />
-                            
                         </div>
                     </div>
                     <ModalButton text={"Сбросить фильтры"} color={"black"} background={"rgba(62, 80, 114, 0.08)"} width={'100%'} disabled='' onClick='' type='' />
