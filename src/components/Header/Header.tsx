@@ -18,7 +18,9 @@ const Header = observer(() => {
     const handleModal = () => {
         setCurrentModal(<Modal children={<ModalSign />} />)
     }
-
+    if (authentication) {
+        setCurrentModal(null)
+    }
     return (
         <header className={styles.header}>
             <div className={styles.header_content_wrapper}>
