@@ -5,6 +5,7 @@ import PersonalArea from './pages/PersonalArea/PersonalArea';
 import MainPage from './pages/MainPage/MainPage';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import EcoMarket from './pages/EcoMarket/EcoMarker';
+import CollectionPoints from "./pages/CollectionPoints/CollectionPoints";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<MainPage />} />
             <Route path='/ecomarket' element={<EcoMarket />} />
+            <Route path='/points' element={<CollectionPoints />} />
           </Routes>
         </div>
         <Footer />
