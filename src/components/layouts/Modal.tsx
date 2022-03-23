@@ -1,8 +1,7 @@
 import style from './Modal.module.sass';
 import { FC } from 'react';
 
-interface Props {
-}
+interface Props {}
 
 export const Modal: FC<Props> = ({children }) => {
 	return (

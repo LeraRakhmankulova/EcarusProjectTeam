@@ -1,26 +1,54 @@
-import { observer } from "mobx-react";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import './scroll_custom.css'
 import Checkbox from "../../components/ui/checkbox/checkbox";
 import ModalButton from "../../components/ui/modal-button/button";
 import styles from '../EcoMarket/EcoMarket.module.sass'
-import first_product from '../../assets/images/nike1.png'
-import second_product from '../../assets/images/nike2.png'
-import third_product from '../../assets/images/nike3.png'
-import fourth_product from '../../assets/images/nike4.png'
-import fifth_product from '../../assets/images/nike5.png'
 import PromoCard from "../../components/PromoCard/PromoCard";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import { DataItems } from '../../mocks/ProductMock'
+import { useState } from 'react';
+
+interface ICategoryProps {
+    title: string;
+    checked: boolean;
+}
+const gender: ICategoryProps[] = [
+    { title: "Мужской", checked: false },
+    { title: "Женский", checked: false },
+]
+
+const type: ICategoryProps[] = [
+    { title: "Одежда", checked: false },
+    { title: "Обувь", checked: false },
+    { title: "Аксессуары", checked: false },
+]
+
+const brand: ICategoryProps[] = [
+    { title: "H&M", checked: false },
+    { title: "P&B", checked: false },
+    { title: "Adidas", checked: false },
+    { title: "Nike", checked: false },
+    { title: "Reebok", checked: false },
+    { title: "Puma", checked: false },
+]
+
 
 const EcoMarket = () => {
+    const [genders, setGenders] = useState(gender);
+    const [brands, setBrands] = useState(brand);
+    const [types, setTypes] = useState(type);
 
+    const updateData = (id: number, setItems: any, items: ICategoryProps[]) => {
+        setItems(
+            items.map((item: ICategoryProps, currentId: number) =>
+                currentId === id ? { ...item, checked: !item.checked } : item
+            )
+        )
+    }
     return (
-        
         <div className={styles.page_wrapper}>
-            
             <div className={styles.upper_block_container}>
                 <h1>ЭкоМаркет</h1>
+
                 <div>
                     <ul>
                         <li>
@@ -41,28 +69,37 @@ const EcoMarket = () => {
                     <div className="search_block">
                         <div className={styles.search_type}>
                             <h4>Пол</h4>
-                            <Checkbox title="Женский" />
-                            <Checkbox title="Мужской" />
+                            {genders.map((gender, id) => (
+                                <Checkbox
+                                    isChecked={gender.checked}
+                                    onChange={() => updateData(id, setGenders, genders)}
+                                    label={gender.title}
+                                    id={id}
+                                />))
+                            }
                         </div>
                         <div className={styles.search_type}>
                             <h4>Тип товара</h4>
-                            <Checkbox title="Выбрать все" />
-                            <Checkbox title="Одежда" />
-                            <Checkbox title="Обувь" />
-                            <Checkbox title="Аксессуары" />
+                            <Checkbox id={3} label="Выбрать все" />
+                            {types.map((type, id) => (
+                                <Checkbox
+                                    isChecked={type.checked}
+                                    onChange={() => updateData(id, setTypes, types)}
+                                    label={type.title}
+                                    id={id}
+                                />))
+                            }
                         </div>
                         <div className={styles.search_type}>
                             <h4>Брэнд</h4>
-                            <Checkbox title="H&M" />
-                            <Checkbox title="P&B" />
-                            <Checkbox title="Adidas" />
-                            <Checkbox title="Nike" />
-                            <Checkbox title="Reebok" />
-                            <Checkbox title="Puma" />
-                            <Checkbox title="Adidas" />
-                            <Checkbox title="Nike" />
-                            <Checkbox title="Reebok" />
-                            <Checkbox title="Puma" />
+                            {
+                                brands.map((brand, id) =>
+                                    <Checkbox
+                                        isChecked={brand.checked}
+                                        onChange={() => updateData(id, setBrands, brands)}
+                                        label={brand.title}
+                                        id={id} />)
+                            }
                         </div>
                     </div>
                     <ModalButton text={"Сбросить фильтры"} color={"black"} background={"rgba(62, 80, 114, 0.08)"} width={'100%'} disabled='' onClick='' type='' />
@@ -70,37 +107,17 @@ const EcoMarket = () => {
                 <div className={styles.cards_block}>
                     <div className={styles.card_product}>
                         <PromoCard price='200' />
-                   </div>
-                    <div className={styles.card_product}>
-                        <ProductCard price='1000' brand='NIKE' name='Nike Air Max 2021' category='Мужская обувь' picture={first_product}/>
                     </div>
-                    <div className={styles.card_product}>
-                        <ProductCard price='750' brand='NIKE' name='Nike Air Max 90 Premium' category='Мужская обувь' picture={second_product}/>
-                    </div>
-
-                    <div className={styles.card_product}>
-                        <ProductCard price='1200' brand='Adidas' name='Adidas Alphabounce RC' category='Мужская обувь' picture={third_product}/>
-                    </div>
-                    <div className={styles.card_product}>
-                        <ProductCard price='1000' brand='H&M' name='H&M' category='Мужская одежда' picture={fourth_product}/>
-                    </div>
-                    <div className={styles.card_product}>
-                        <ProductCard price='210' brand='NIKE' name='Nike Air Force 1 Low' category='Мужская обувь' picture={fifth_product}/>
-                    </div>
-                    <div className={styles.card_product}>
-                        <ProductCard price='1200' brand='Adidas' name='Adidas Alphabounce RC' category='Мужская обувь' picture={third_product}/>
-                    </div>
-                    <div className={styles.card_product}>
-                        <ProductCard price='1000' brand='H&M' name='H&M' category='Мужская одежда' picture={fourth_product}/>
-                    </div>
-                    <div className={styles.card_product}>
-                        <ProductCard price='210' brand='NIKE' name='Nike Air Force 1 Low' category='Мужская обувь' picture={fifth_product}/>
-                    </div>
+                    {DataItems.map(item =>
+                        <div className={styles.card_product}>
+                            <ProductCard price={item.price}
+                                brand={item.brand}
+                                name={item.nameDesc}
+                                category={item.category}
+                                picture={item.picture} />
+                        </div>)}
                 </div>
-                
             </div>
-            
-            
         </div>
     );
 };
