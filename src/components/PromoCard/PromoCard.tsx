@@ -2,12 +2,19 @@ import { FC } from 'react';
 import union from '../../assets/images/union.svg'
 import styles from '../PromoCard/PromoCard.module.sass'
 import ModalButton from '../ui/modal-button/button';
+import {useStore} from "../../utils/use-stores-hook";
+import Modal from "../layouts/Modal";
+import {ModalQRCode} from "../modal/ModalQRCode";
 
 interface Props {
     price: string | number
 }
 
 const PromoCard: FC<Props> = ({ price }) => {
+    const { modalStore: { setCurrentModal }, authenticationStore: { authentication, setAuthentication } } = useStore()
+    const handleModalQRCode = () => {
+        setCurrentModal(<Modal children={<ModalQRCode />} />)
+    }
     return (
         <div className={styles.card_product}>
             <div className={styles.promo_card}>
@@ -21,7 +28,7 @@ const PromoCard: FC<Props> = ({ price }) => {
                     </div>
                     <p className={styles.price_text}>Вы можете обменять их на скидку {price} руб.</p>
                 </div>
-                <ModalButton text={"Получить промокод"} color={"white"} background={"#07C88E"} width={'100%'} disabled='' onClick='' type='' />
+                <ModalButton text={"Получить промокод"} color={"white"} background={"#07C88E"} width={'100%'} disabled='' onClick={handleModalQRCode} type='' />
             </div>
         </div>
 
