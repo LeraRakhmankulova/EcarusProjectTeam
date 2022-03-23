@@ -87,6 +87,15 @@ const EcoMarket = () => {
                     <div className={styles.card_product}>
                         <ProductCard price='210' brand='NIKE' name='Nike Air Force 1 Low' category='Мужская обувь' picture={fifth_product}/>
                     </div>
+                    <div className={styles.card_product}>
+                        <ProductCard price='1200' brand='Adidas' name='Adidas Alphabounce RC' category='Мужская обувь' picture={third_product}/>
+                    </div>
+                    <div className={styles.card_product}>
+                        <ProductCard price='1000' brand='H&M' name='H&M' category='Мужская одежда' picture={fourth_product}/>
+                    </div>
+                    <div className={styles.card_product}>
+                        <ProductCard price='210' brand='NIKE' name='Nike Air Force 1 Low' category='Мужская обувь' picture={fifth_product}/>
+                    </div>
                 </div>
                 
             </div>
