@@ -7,21 +7,22 @@ interface ICheckboxProps{
     onChange?: any,
     isChecked?: boolean;
 }
-const Checkbox:FC<ICheckboxProps> = ({id, label, isChecked, onChange}) => {
+
+const Checkbox: FC<ICheckboxProps> = ({id, label, isChecked, onChange}) => {
 
     return (
         <div className="container_wrapper">
             <label className='container'>
                 <input type="checkbox"
-                id = {`${id}`}
-                name={label}
-                value={label}
-                checked={isChecked}
-                onChange={onChange}/>{label}
-                <span className="checkmark"></span>
+                       id={`${id}`}
+                       name={label}
+                       value={label}
+                       checked={isChecked}
+                       onChange={onChange}/>{label}
+                <span className="checkmark"/>
             </label>
         </div>
     )
-}
+};
 
 export default Checkbox;
