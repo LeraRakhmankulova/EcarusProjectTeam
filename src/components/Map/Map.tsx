@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet'
+import {MapContainer, Marker, Popup, TileLayer, ZoomControl} from 'react-leaflet'
 import styles from '../Map/Map.module.sass'
 
 interface Props { }
@@ -18,6 +18,11 @@ const Map: FC<Props> = ({ children }) => {
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
+                    {/*<Marker position={[55.7887, 49.1221]}>*/}
+                    {/*    <Popup>*/}
+                    {/*        A pretty CSS3 popup. <br /> Easily customizable.*/}
+                    {/*    </Popup>*/}
+                    {/*</Marker>*/}
                 </div>
 
                 <div className={styles.children_content}>
