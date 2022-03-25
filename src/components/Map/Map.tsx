@@ -12,7 +12,7 @@ const Map: FC<Props> = ({ children }) => {
                 center={[55.7887, 49.1221]}
                 zoom={3}
                 zoomControl={false}
-                style={{ height: '100vh', width: '100%' }}
+                style={{ height: '100vh', width: '100%', display:'flex', flexDirection:'column-reverse'}}
             >
                 <div className={styles.parent_content}>
                     <TileLayer
@@ -23,7 +23,7 @@ const Map: FC<Props> = ({ children }) => {
                 <div className={styles.children_content}>
                     {children}
                 </div>
-                <ZoomControl position='topright' />
+                <ZoomControl/>
 
             </MapContainer>
         </div>
