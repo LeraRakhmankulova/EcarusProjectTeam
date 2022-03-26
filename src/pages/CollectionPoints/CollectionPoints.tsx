@@ -6,35 +6,21 @@ const CollectionPoints = () => {
 
     return (
         <div>
-            <input placeholder='Поиск'
-                style={{
-                    position: 'absolute',
-                    top: 150,
-                    left: 150,
-                    zIndex: 10000
-                }} className={styles.input}
-            />
-            <select style={{
-                position: 'absolute',
-                top: 150,
-                left: 800,
-                zIndex: 10000
-            }} className={styles.select}>
-                <option value="" disabled selected>Выбрано 3 магазина</option>
-                <option>Пункт 1</option>
-            </select>
-            <select style={{
-                position: 'absolute',
-                top: 150,
-                left: 1100,
-                zIndex: 10000
-            }} className={styles.select}>
-                <option value="" disabled selected>Материалы</option>
-                <option>Пункт 1</option>
-            </select>
+            <div className={styles.main_content}>
+                <input placeholder='Поиск' className={styles.input} />
+                <div className={styles.select_wrapper}>
+                     <select className={styles.select_shop}>
+                        <option value="" disabled selected>Выбрано 3 магазина</option>
+                        <option>Пункт 1</option>
+                    </select>
+                    <select className={styles.select_material}>
+                        <option value="" disabled selected>Материалы</option>
+                        <option>Пункт 1</option>
+                    </select> 
+                </div>
+            </div>
             <Map></Map>
         </div>
-
     );
 };
 
