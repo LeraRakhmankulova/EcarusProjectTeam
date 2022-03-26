@@ -9,6 +9,9 @@ import Modal from "../layouts/Modal";
 import { ModalSign } from "./ModalSign";
 import { ModalInputCode } from "./ModalInputCode";
 import { ModalSignForCompany } from "./ModalSignForCompany";
+import axios from 'axios'
+import React, {useState} from "react";
+import {phone_num} from "../../utils/use-data";
 
 
 export const ModalSignOrRegistration = () => {
@@ -26,6 +29,42 @@ export const ModalSignOrRegistration = () => {
         phone: yup.string().typeError('Должно быть строкой').required('Обязательно')
             .matches(/^([+]?[0-9\s-\(\)]{3,25})*$/i, 'Телефон должен содержать только минимум 3 цифры')
     })
+
+    const url = "https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/account"
+    const [data, setData] = useState({
+        phone_number: ""
+    })
+    function submit() {
+        axios.post(url, {
+            phone_number: data.phone_number
+        })
+            .then(res=> {
+                console.log(res.data);
+            })
+    }
+    function handle(e: any) {
+        let input = null
+        let input = React.createRef();
+        const newdata = {...data}
+        newdata['phone_number'] = input.current.value
+        setData(newdata)
+        console.log(newdata)
+    }
+        // const data = {
+        //     "firstname": "string",
+        //     "lastname": "",
+        //     "username": "",
+        //     "email": "",
+        //     "phone_number": "5678907890",
+        //     "password": "",
+        //     "balance": 0,
+        //     "role": "ADMIN"
+        // };
+        // axios.post('account', data).then(res => {
+        //     console.log(res);
+        // }, err => {
+        //     console.log(err);
+        // })
     return (<div>
         <Formik
             initialValues={{
@@ -56,13 +95,13 @@ export const ModalSignOrRegistration = () => {
                                 name={`phone`}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                value={values.phone} />
+                                value={values.phone} ref={input} />
                             {touched.phone && errors.phone && <p style={{ 'color': 'red' }}>{errors.phone}</p>}
                         </div>
                         <div className={style.button_wrapper}>
                             <div className={style.button_wrapper_content}>
                                 <ModalButton text='Получить код' color='white' background='#07C88E' width='100%'
-                                    disabled={!(isValid || dirty)} onClick='' type={`submit`} />
+                                    disabled={!(isValid || dirty)} onClick={submit} type={`submit`} />
                             </div>
                             <div className={style.link_text_wrapper}>
                                 <div>
