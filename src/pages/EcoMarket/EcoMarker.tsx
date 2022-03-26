@@ -33,6 +33,10 @@ const brand: ICategoryProps[] = [
 
 
 const EcoMarket = () => {
+    const [filterList] = useState(DataItems);
+    const [data, setData] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
+
     const [genders, setGenders] = useState(gender);
     const [brands, setBrands] = useState(brand);
     const [types, setTypes] = useState(type);
