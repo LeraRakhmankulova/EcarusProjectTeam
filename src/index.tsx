@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'mobx-react';
 import mainStore from './stores/mainStore';
 import { ModalConstructor } from './components/modal/ModalConstructor';
+import axios from "axios";
+
+axios.defaults.baseURL = 'https://ecoapp.cloud.technokratos.com/eco-rus/api/v1';
 
 ReactDOM.render(
   <React.StrictMode>

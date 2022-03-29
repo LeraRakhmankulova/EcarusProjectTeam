@@ -6,9 +6,7 @@ import MainPage from './pages/MainPage/MainPage';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import EcoMarket from './pages/EcoMarket/EcoMarker';
 import CollectionPoints from "./pages/CollectionPoints/CollectionPoints";
-import { useState } from 'react';
-import { useEffect } from 'react';
-import axios, { Axios } from 'axios';
+
 
 const App = () => {
  
