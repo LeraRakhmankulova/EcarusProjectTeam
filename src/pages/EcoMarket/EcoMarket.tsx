@@ -31,6 +31,13 @@ const brand: ICategoryProps[] = [
     { title: "Puma", checked: false },
 ]
 
+const allTp: ICategoryProps[] = [
+    { title: "Выбрать все", checked: false }
+]
+
+const allBr: ICategoryProps[] = [
+    { title: "Выбрать все", checked: false }
+]
 
 const EcoMarket = () => {
     const [filterList] = useState(DataItems);
@@ -42,6 +49,8 @@ const EcoMarket = () => {
     const [genders, setGenders] = useState(gender);
     const [brands, setBrands] = useState(brand);
     const [types, setTypes] = useState(type);
+    const [chooseAllTypes, setChooseAllTypes] = useState(allTp)
+    const [chooseAllBrands, setChooseAllBrands] = useState(allBr)
 
     const updateData = (id: number, setItems: any, items: ICategoryProps[]) => {
         setItems(
@@ -54,6 +63,38 @@ const EcoMarket = () => {
         setAllProducts(!isAllProducts)
         setProducts(
             products.map((product: ICategoryProps) =>
+                isAllProducts ? {...product, checked: false} :
+                    {...product, checked: true}
+            )
+        )
+    }
+    const resetFilters = (isAllProducts: boolean) => {
+        setTypes(
+            type.map((product: ICategoryProps) =>
+                isAllProducts ? {...product, checked: false} :
+                    {...product, checked: true}
+            )
+        )
+        setBrands(
+            brand.map((product: ICategoryProps) =>
+                isAllProducts ? {...product, checked: false} :
+                    {...product, checked: true}
+            )
+        )
+        setGenders(
+            genders.map((product: ICategoryProps) =>
+                isAllProducts ? {...product, checked: false} :
+                    {...product, checked: true}
+            )
+        )
+        setChooseAllTypes(
+            allTp.map((product: ICategoryProps) =>
+                isAllProducts ? {...product, checked: false} :
+                    {...product, checked: true}
+            )
+        )
+        setChooseAllBrands(
+            allBr.map((product: ICategoryProps) =>
                 isAllProducts ? {...product, checked: false} :
                     {...product, checked: true}
             )
@@ -95,7 +136,11 @@ const EcoMarket = () => {
                         </div>
                         <div className={styles.search_type}>
                             <h4>Тип товара</h4>
-                            <Checkbox id={3} label="Выбрать все" onChange={() => checkAllProducts(allTypes, setAllTypes, setTypes, types)}/>
+                            {chooseAllTypes.map((allTp, id) => (
+                            <Checkbox id={id} label={allTp.title} isChecked={allTp.checked}
+                                      onChange={() => {updateData(id, setChooseAllTypes, chooseAllTypes);
+                                          checkAllProducts(allTypes, setAllTypes, setTypes, types)}}/>
+                            ))}
                             {types.map((type, id) => (
                                 <Checkbox
                                     isChecked={type.checked}
@@ -107,7 +152,11 @@ const EcoMarket = () => {
                         </div>
                         <div className={styles.search_type}>
                             <h4>Брэнд</h4>
-                            <Checkbox id={3} label="Выбрать все" onChange={() => checkAllProducts(allBrand, setAllBrand, setBrands, brands)}/>
+                            {chooseAllBrands.map((allBr, id) => (
+                                <Checkbox id={id} label={allBr.title} isChecked={allBr.checked}
+                                          onChange={() => {updateData(id, setChooseAllBrands, chooseAllBrands);
+                                              checkAllProducts(allBrand, setAllBrand, setBrands, brands)}}/>
+                            ))}
                             {
                                 brands.map((brand, id) =>
                                     <Checkbox
@@ -118,7 +167,8 @@ const EcoMarket = () => {
                             }
                         </div>
                     </div>
-                    <ModalButton text={"Сбросить фильтры"} color={"black"} background={"rgba(62, 80, 114, 0.08)"} width={'100%'} disabled='' onClick='' type='' />
+                    <ModalButton text={"Сбросить фильтры"} color={"black"} background={"rgba(62, 80, 114, 0.08)"}
+                                 width={'100%'} disabled='' onClick={() => resetFilters(allTypes)} type='' />
                 </div>
                 <div className={styles.cards_block}>
                     <div className={styles.card_product}>
