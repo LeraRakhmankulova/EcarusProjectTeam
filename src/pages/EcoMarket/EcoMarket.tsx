@@ -68,7 +68,7 @@ const EcoMarket = () => {
             )
         )
     }
-    const resetFilters = (isAllProducts: boolean) => {
+    const resetFilters = (isAllProducts: true) => {
         setTypes(
             type.map((product: ICategoryProps) =>
                 isAllProducts ? {...product, checked: false} :
@@ -168,7 +168,7 @@ const EcoMarket = () => {
                         </div>
                     </div>
                     <ModalButton text={"Сбросить фильтры"} color={"black"} background={"rgba(62, 80, 114, 0.08)"}
-                                 width={'100%'} disabled='' onClick={() => resetFilters(allTypes)} type='' />
+                                 width={'100%'} disabled='' onClick={() => resetFilters(true)} type='' />
                 </div>
                 <div className={styles.cards_block}>
                     <div className={styles.card_product}>
