@@ -4,12 +4,12 @@ import Footer from './components/Footer/Footer';
 import PersonalArea from './pages/PersonalArea/PersonalArea';
 import MainPage from './pages/MainPage/MainPage';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
-import EcoMarket from './pages/EcoMarket/EcoMarker';
+import EcoMarket from './pages/EcoMarket/EcoMarket';
 import CollectionPoints from "./pages/CollectionPoints/CollectionPoints";
 
 
 const App = () => {
- 
+
   return (
     <div className={styles.wrapper}>
       <Router>
@@ -28,3 +28,15 @@ const App = () => {
 }
 
 export default App;
+// const [books, setBooks] = useState(null);
+//
+// const apiURL = "https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/materials";
+// axios.defaults.params = {
+//   'user_id': 1,
+//   'page_size': 2
+// };
+// const fetchData = async () => {
+//   const response = await axios.get(apiURL)
+//   setBooks(response.data)
+//   return books
+// }

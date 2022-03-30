@@ -36,6 +36,8 @@ const EcoMarket = () => {
     const [filterList] = useState(DataItems);
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+    const [allTypes, setAllTypes] = useState(false);
+    const [allBrand, setAllBrand] = useState(false);
 
     const [genders, setGenders] = useState(gender);
     const [brands, setBrands] = useState(brand);
@@ -45,6 +47,15 @@ const EcoMarket = () => {
         setItems(
             items.map((item: ICategoryProps, currentId: number) =>
                 currentId === id ? { ...item, checked: !item.checked } : item
+            )
+        )
+    }
+    const checkAllProducts = (isAllProducts: boolean, setAllProducts: any, setProducts:any, products:ICategoryProps[]) => {
+        setAllProducts(!isAllProducts)
+        setProducts(
+            products.map((product: ICategoryProps) =>
+                isAllProducts ? {...product, checked: false} :
+                    {...product, checked: true}
             )
         )
     }
@@ -84,7 +95,7 @@ const EcoMarket = () => {
                         </div>
                         <div className={styles.search_type}>
                             <h4>Тип товара</h4>
-                            <Checkbox id={3} label="Выбрать все" />
+                            <Checkbox id={3} label="Выбрать все" onChange={() => checkAllProducts(allTypes, setAllTypes, setTypes, types)}/>
                             {types.map((type, id) => (
                                 <Checkbox
                                     isChecked={type.checked}
@@ -96,6 +107,7 @@ const EcoMarket = () => {
                         </div>
                         <div className={styles.search_type}>
                             <h4>Брэнд</h4>
+                            <Checkbox id={3} label="Выбрать все" onChange={() => checkAllProducts(allBrand, setAllBrand, setBrands, brands)}/>
                             {
                                 brands.map((brand, id) =>
                                     <Checkbox
