@@ -68,37 +68,14 @@ const EcoMarket = () => {
             )
         )
     }
-    const resetFilters = (isAllProducts: true) => {
-        setTypes(
-            type.map((product: ICategoryProps) =>
-                isAllProducts ? {...product, checked: false} :
-                    {...product, checked: true}
-            )
-        )
-        setBrands(
-            brand.map((product: ICategoryProps) =>
-                isAllProducts ? {...product, checked: false} :
-                    {...product, checked: true}
-            )
-        )
-        setGenders(
-            genders.map((product: ICategoryProps) =>
-                isAllProducts ? {...product, checked: false} :
-                    {...product, checked: true}
-            )
-        )
-        setChooseAllTypes(
-            allTp.map((product: ICategoryProps) =>
-                isAllProducts ? {...product, checked: false} :
-                    {...product, checked: true}
-            )
-        )
-        setChooseAllBrands(
-            allBr.map((product: ICategoryProps) =>
-                isAllProducts ? {...product, checked: false} :
-                    {...product, checked: true}
-            )
-        )
+    const resetFilters = () => {
+        setAllTypes(false)
+        setAllBrand(false)
+        setGenders(gender)
+        setBrands(brand)
+        setTypes(type)
+        setChooseAllTypes(allTp)
+        setChooseAllBrands(allBr)
     }
     return (
         <div className={styles.page_wrapper}>
@@ -168,7 +145,7 @@ const EcoMarket = () => {
                         </div>
                     </div>
                     <ModalButton text={"Сбросить фильтры"} color={"black"} background={"rgba(62, 80, 114, 0.08)"}
-                                 width={'100%'} disabled='' onClick={() => resetFilters(true)} type='' />
+                                 width={'100%'} disabled='' onClick={() => resetFilters()} type='' />
                 </div>
                 <div className={styles.cards_block}>
                     <div className={styles.card_product}>
