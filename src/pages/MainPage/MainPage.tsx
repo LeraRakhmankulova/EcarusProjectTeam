@@ -14,6 +14,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import './swiperStyle.css';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 
 const MainPage = () => {
@@ -58,7 +59,8 @@ const MainPage = () => {
                 </div>
 
                 <div className={styles.inline_blocks}>
-                    <div className={styles.left_block}>
+                <div className={styles.left_block}>
+                    <NavLink to='/points'>
                         <Card title="Пункты сбора"
                             text="Посмотри, где в твоем городе
                         можно сдать вторсырье
@@ -68,8 +70,10 @@ const MainPage = () => {
                             button_color="rgba(62, 80, 114, 0.08)"
                             button_text=""
                             pict_button={rightArrow} />
-                    </div>
-                    <div className={styles.right_block}>
+                    </NavLink>
+                </div>
+                <div className={styles.right_block}>
+                    <NavLink to='/ecomarket'>
                         <Card title="ЭкоМаркет"
                             text="Используй заработанные
                         экокоины для покупки товаровиз переработанных материалов"
@@ -78,10 +82,11 @@ const MainPage = () => {
                             button_color="rgba(62, 80, 114, 0.08)"
                             button_text=""
                             pict_button={rightArrow} />
-                    </div>
+                    </NavLink>
                 </div>
             </div>
-        );
-    };
+        </div>
+    );
+};
 
-    export default MainPage;
+export default MainPage;
