@@ -31,8 +31,9 @@ export const ModalInputCode = () => {
             }}
             onSubmit={(values, errors) => {
                 if (values.code === code) {
-                    setAuthentication(true);
-                } else {
+                    // setAuthentication(true);
+                }
+                else {
                     values.code = '';
                     errors.setStatus('Неверный код');
                 }

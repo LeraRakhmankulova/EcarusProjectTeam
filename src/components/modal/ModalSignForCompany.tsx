@@ -28,7 +28,7 @@ export const ModalSignForCompany = () => {
             }}
             onSubmit={(values, errors) => {
                 if (values.email === email && values.password === passw) {
-                    setAuthentication(true);
+                    // setAuthentication(true);
                 } else {
                     values.email = '';
                     values.password = '';
