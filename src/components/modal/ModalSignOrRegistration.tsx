@@ -9,6 +9,9 @@ import Modal from "../layouts/Modal";
 import { ModalSign } from "./ModalSign";
 import { ModalInputCode } from "./ModalInputCode";
 import { ModalSignForCompany } from "./ModalSignForCompany";
+import {values} from "mobx";
+import axios from "axios";
+import {string} from "yup";
 
 
 export const ModalSignOrRegistration = () => {
@@ -23,15 +26,27 @@ export const ModalSignOrRegistration = () => {
     }
     const { modalStore: { clearCurrentModal, setCurrentModal } } = useStore()
     const validationsSchema = yup.object().shape({
-        phone: yup.string().typeError('Должно быть строкой').required('Обязательно')
-            .matches(/^([+]?[0-9\s-\(\)]{3,25})*$/i, 'Телефон должен содержать только минимум 3 цифры')
+        username: yup.string().typeError('Должно быть строкой').required('Обязательно'),
+        password: yup.string().typeError('Должно быть строкой').required('Введите верные данные')
+            .matches(/[0-9a-zA-Z]{4,}/g, 'Пароль должен состоять из минимум 4 цифр или латинских букв'),
+        passwordConfirmation: yup.string()
+            .oneOf([yup.ref('password')], "Пароли должны совпадать")
     })
     return (<div>
-        <Formik
-            initialValues={{
-                phone: ''
+            <Formik initialValues={{
+                username: '',
+                password: '',
+                passwordConfirmation: ''
             }}
-            onSubmit={handleModalInputCode}
+            onSubmit={(values, errors)=>{axios.post('/account',
+                {
+                    username: values.username,
+                    password: values.password,
+                }).then((r) => {
+                console.log(r);
+                console.log(values.password)
+                // setCurrentModal(<Modal children={<ModalSign />} />)
+            })}}
             validationSchema={validationsSchema}
         >
             {({
@@ -52,16 +67,29 @@ export const ModalSignOrRegistration = () => {
                     </div>
                     <div className={style.content_wrapper}>
                         <div className={style.input_wrapper}>
-                            <Input placeholder='Телефон' type={`text`}
-                                name={`phone`}
+                            <Input placeholder='Имя' type={`text`}
+                                name={`username`}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                value={values.phone} />
-                            {touched.phone && errors.phone && <p style={{ 'color': 'red' }}>{errors.phone}</p>}
+                                value={values.username} />
+                            {touched.username && errors.username && <p style={{ 'color': 'red' }}>{errors.username}</p>}
+                            <Input placeholder='Пароль' type={`password`}
+                                   name={`password`}
+                                   onChange={handleChange}
+                                   onBlur={handleBlur}
+                                   value={values.password} />
+                            {touched.password && errors.password && <p style={{ 'color': 'red' }}>{errors.password}</p>}
+                            <Input placeholder='Повторите пароль' type={`password`}
+                                   name={`passwordConfirmation`}
+                                   onChange={handleChange}
+                                   onBlur={handleBlur}
+                                   value={values.passwordConfirmation} />
+                            {touched.passwordConfirmation && errors.passwordConfirmation &&
+                            <p style={{ 'color': 'red' }}>{errors.passwordConfirmation}</p>}
                         </div>
                         <div className={style.button_wrapper}>
                             <div className={style.button_wrapper_content}>
-                                <ModalButton text='Получить код' color='white' background='#07C88E' width='100%'
+                                <ModalButton text='Зарегистрироваться' color='white' background='#07C88E' width='100%'
                                     disabled={!(isValid || dirty)} onClick='' type={`submit`} />
                             </div>
                             <div className={style.link_text_wrapper}>
