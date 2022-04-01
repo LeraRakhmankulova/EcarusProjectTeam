@@ -2,6 +2,7 @@ import '../../pages/MainPage/MainPage';
 import { FC } from 'react';
 import CardButton from '../ui/card-button/CardButton';
 import styles from './card.module.sass';
+import Move from '../spring/Move';
 
 interface Props {
     title: string;
@@ -23,9 +24,11 @@ const Card: FC<Props> = ({ title, text, main_picture, main_background, button_co
                 <h2>{title}</h2>
                 <p>{text}</p>
                 <div className={styles.card_button_wrapper}>
+                <Move scale={1.5} springConfig={{ mass: 10, tension: 50, friction: 10 }}>
                     <CardButton content={button_text}
                         background={button_color}
                         picture={pict_button} />
+                        </Move>
                 </div>
             </div>
             <div className={styles.card_wrapper_img}>

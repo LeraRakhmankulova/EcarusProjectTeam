@@ -6,6 +6,8 @@ import PromoCard from "../../components/PromoCard/PromoCard";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { DataItems } from '../../mocks/ProductMock'
 import { useState } from 'react';
+import Trail from '../../components/spring/Trail';
+import CardPlug from '../../components/CardPlug/CardPlug';
 
 interface ICategoryProps {
     title: string;
@@ -59,12 +61,12 @@ const EcoMarket = () => {
             )
         )
     }
-    const checkAllProducts = (isAllProducts: boolean, setAllProducts: any, setProducts:any, products:ICategoryProps[]) => {
+    const checkAllProducts = (isAllProducts: boolean, setAllProducts: any, setProducts: any, products: ICategoryProps[]) => {
         setAllProducts(!isAllProducts)
         setProducts(
             products.map((product: ICategoryProps) =>
-                isAllProducts ? {...product, checked: false} :
-                    {...product, checked: true}
+                isAllProducts ? { ...product, checked: false } :
+                    { ...product, checked: true }
             )
         )
     }
@@ -78,90 +80,105 @@ const EcoMarket = () => {
         setChooseAllBrands(allBr)
     }
     return (
-        <div className={styles.page_wrapper}>
-            <div className={styles.upper_block_container}>
-                <h1>ЭкоМаркет</h1>
+        <Trail>
+            <div className={styles.page_wrapper}>
+                <div className={styles.upper_block_container}>
+                    <h1>ЭкоМаркет</h1>
 
-                <div>
-                    <ul>
-                        <li>
-                            <a>По популярности</a>
-                        </li>
-                        <li>
-                            <a>По цене</a>
-                        </li>
-                        <li>
-                            <a>По новизне</a>
-                        </li>
-                    </ul>
+                    <div>
+                        <ul>
+                            <li>
+                                <a>По популярности</a>
+                            </li>
+                            <li>
+                                <a>По цене</a>
+                            </li>
+                            <li>
+                                <a>По новизне</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div className={styles.main_content}>
-                <div className={styles.search_block_wrapper}>
-                    <div className="search_block">
-                        <div className={styles.search_type}>
-                            <h4>Пол</h4>
-                            {genders.map((gender, id) => (
-                                <Checkbox
-                                    isChecked={gender.checked}
-                                    onChange={() => updateData(id, setGenders, genders)}
-                                    label={gender.title}
-                                    id={id}
-                                />))
-                            }
-                        </div>
-                        <div className={styles.search_type}>
-                            <h4>Тип товара</h4>
-                            {chooseAllTypes.map((allTp, id) => (
-                            <Checkbox id={id} label={allTp.title} isChecked={allTp.checked}
-                                      onChange={() => {updateData(id, setChooseAllTypes, chooseAllTypes);
-                                          checkAllProducts(allTypes, setAllTypes, setTypes, types)}}/>
-                            ))}
-                            {types.map((type, id) => (
-                                <Checkbox
-                                    isChecked={type.checked}
-                                    onChange={() => updateData(id, setTypes, types)}
-                                    label={type.title}
-                                    id={id}
-                                />))
-                            }
-                        </div>
-                        <div className={styles.search_type}>
-                            <h4>Брэнд</h4>
-                            {chooseAllBrands.map((allBr, id) => (
-                                <Checkbox id={id} label={allBr.title} isChecked={allBr.checked}
-                                          onChange={() => {updateData(id, setChooseAllBrands, chooseAllBrands);
-                                              checkAllProducts(allBrand, setAllBrand, setBrands, brands)}}/>
-                            ))}
-                            {
-                                brands.map((brand, id) =>
+                <div className={styles.main_content}>
+                    <div className={styles.search_block_wrapper}>
+                        <div className="search_block">
+                            <div className={styles.search_type}>
+                                <h4>Пол</h4>
+                                {genders.map((gender, id) => (
                                     <Checkbox
-                                        isChecked={brand.checked}
-                                        onChange={() => updateData(id, setBrands, brands)}
-                                        label={brand.title}
-                                        id={id} />)
-                            }
+                                        isChecked={gender.checked}
+                                        onChange={() => updateData(id, setGenders, genders)}
+                                        label={gender.title}
+                                        id={id}
+                                    />))
+                                }
+                            </div>
+                            <div className={styles.search_type}>
+                                <h4>Тип товара</h4>
+                                {chooseAllTypes.map((allTp, id) => (
+                                    <Checkbox id={id} label={allTp.title} isChecked={allTp.checked}
+                                        onChange={() => {
+                                            updateData(id, setChooseAllTypes, chooseAllTypes);
+                                            checkAllProducts(allTypes, setAllTypes, setTypes, types)
+                                        }} />
+                                ))}
+                                {types.map((type, id) => (
+                                    <Checkbox
+                                        isChecked={type.checked}
+                                        onChange={() => updateData(id, setTypes, types)}
+                                        label={type.title}
+                                        id={id}
+                                    />))
+                                }
+                            </div>
+                            <div className={styles.search_type}>
+                                <h4>Брэнд</h4>
+                                {chooseAllBrands.map((allBr, id) => (
+                                    <Checkbox id={id} label={allBr.title} isChecked={allBr.checked}
+                                        onChange={() => {
+                                            updateData(id, setChooseAllBrands, chooseAllBrands);
+                                            checkAllProducts(allBrand, setAllBrand, setBrands, brands)
+                                        }} />
+                                ))}
+                                {
+                                    brands.map((brand, id) =>
+                                        <Checkbox
+                                            isChecked={brand.checked}
+                                            onChange={() => updateData(id, setBrands, brands)}
+                                            label={brand.title}
+                                            id={id} />)
+                                }
+                            </div>
                         </div>
+                        <ModalButton text={"Сбросить фильтры"} color={"black"} background={"rgba(62, 80, 114, 0.08)"}
+                            width={'100%'} disabled='' onClick={() => resetFilters()} type='' />
                     </div>
-                    <ModalButton text={"Сбросить фильтры"} color={"black"} background={"rgba(62, 80, 114, 0.08)"}
-                                 width={'100%'} disabled='' onClick={() => resetFilters()} type='' />
-                </div>
-                <div className={styles.cards_block}>
-                    <div className={styles.card_product}>
-                        <PromoCard price='200' />
-                    </div>
-                    {DataItems.map(item =>
+                    <div className={styles.cards_block}>
                         <div className={styles.card_product}>
-                            <ProductCard price={item.price}
-                                brand={item.brand}
-                                name={item.nameDesc}
-                                category={item.category}
-                                picture={item.picture} />
-                        </div>)}
+                            <PromoCard price='200' />
+                        </div>
+                        <div className={styles.card_product}>
+                            <CardPlug/>
+                        </div>
+                        <div className={styles.card_product}>
+                            <CardPlug/>
+                        </div>
+                        <div className={styles.card_product}>
+                            <CardPlug/>
+                        </div>
+                        {DataItems.map(item =>
+                            <div className={styles.card_product}>
+                                <ProductCard price={item.price}
+                                    brand={item.brand}
+                                    name={item.nameDesc}
+                                    category={item.category}
+                                    picture={item.picture} />
+                            </div>)}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Trail>
     );
 };
 

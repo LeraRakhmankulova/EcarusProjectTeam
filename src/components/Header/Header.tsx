@@ -11,6 +11,7 @@ import { ModalSign } from "../modal/ModalSign";
 import { useStore } from "../../utils/use-stores-hook";
 import { name } from "../../utils/use-data";
 import { useState } from 'react';
+import Move from '../spring/Move';
 
 
 const Header = observer(() => {
@@ -22,6 +23,7 @@ const Header = observer(() => {
         setCurrentModal(null)
     }
     return (
+
         <header className={styles.header}>
             <div className={styles.header_content_wrapper}>
                 <div className={styles.header_logo_wrapper}>
@@ -40,10 +42,12 @@ const Header = observer(() => {
                 <nav className={styles.side_part}>
                     {authentication ?
                         <ul>
+
                             <li>
                                 <Icon name='pin' width='24' height='24' />
                                 <p>Казань</p>
                             </li>
+
                             <li>
                                 <img src={money}></img>
                                 <p>1000</p>
@@ -59,7 +63,9 @@ const Header = observer(() => {
                                 <p>Казань</p>
                             </li>
                             <li>
-                                <button onClick={handleModal}>Войти</button>
+                                <Move x={5}>
+                                    <button onClick={handleModal}>Войти</button>
+                                </Move>
                             </li>
                         </ul>}
                 </nav>
