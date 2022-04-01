@@ -5,10 +5,10 @@ import style from '../CardPlug/CardPlugs.module.sass'
 const CardPlug = () => {
     const { background } = useSpring({
         from: {
-            background: 'linear-gradient(146deg, #f0f1f4 10%, #c7c3c3 60%, #e1e1e3 100%)'
+            background: 'linear-gradient(146deg, #f0f1f4 10%, #f0f1f4 90%, #e1e1e3 100%)'
         },
         to: {
-            background: 'linear-gradient(146deg, #e1e1e3 10%, #cccaca 65%, #f0f1f4 100%)'
+            background: 'linear-gradient(146deg, #f0f1f4 10%, #d9d9d9 55%, #f0f1f4 100%)'
         },
         config: {
             duration: 1000,
