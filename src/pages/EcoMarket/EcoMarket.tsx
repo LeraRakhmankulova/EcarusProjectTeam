@@ -155,9 +155,9 @@ const EcoMarket = () => {
                             width={'100%'} disabled='' onClick={() => resetFilters()} type='' />
                     </div>
                     <div className={styles.cards_block}>
-                        <div className={styles.card_product}>
+                        {/* <div className={styles.card_product}>
                             <PromoCard price='200' />
-                        </div>
+                        </div> */}
                         <div className={styles.card_product}>
                             <CardPlug/>
                         </div>
