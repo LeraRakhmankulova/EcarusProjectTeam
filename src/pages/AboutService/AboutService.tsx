@@ -1,7 +1,96 @@
-import React from 'react'
+import axios from "axios"
 
-export default function AboutService() {
+axios.defaults.baseURL = 'https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/'
+axios.interceptors.request.use(config => {
+  const token = window.localStorage.getItem('token')
+  if (token) {
+    return {
+      ...config,
+      headers: {
+        ...(config.headers || {}),
+        Authorization: token,
+        'Content-Type': 'application/json',
+      }
+    }
+  }
+  else {
+    return config;
+  }
+})
+
+axios.interceptors.response.use(response => {
+  return response.data;
+})
+
+interface userProps {
+  id?: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  photo_url?: string,
+  token: string,
+  firstname?: string,
+  lastname?: string,
+  username: string,
+  email: string,
+  phone_number: string,
+  password: string,
+  balance?: number
+  role?: object
+}
+
+const AboutService = () => {
+  const register = () => {
+    const data = {
+      // "id": "456",
+      // "photo_url": "string",
+      "firstname": "Valeria",
+      "lastname": "Valeria",
+      "username": "Valeria1",
+      "email": "Valeria@mail.ru",
+      "phone_number": "+78998998989",
+      "password": "122333",
+      "balance": 0
+    };
+
+    axios.post('account', data).then(res => {
+      console.log(res)
+    },
+      err => {
+        console.log(err)
+      });
+  }
+
+  const login = () => {
+    const data = {
+      "login": "+78998998989",
+      "password": "122333"
+    };
+
+    axios.post('login', data).then((res: any) => {
+      const { token, ...data } = res;
+      window.localStorage.setItem('token', res.token);
+      window.localStorage.setItem('user', JSON.stringify(data));
+      console.log(JSON.stringify(data));
+    }).catch(
+      err => {
+        console.log(err)
+      });
+  }
+
+  const getUser = () => {
+    axios.get('profile').then(res => {
+      console.log(res);
+    }).catch(
+      err => {
+        console.log(err)
+      });
+  }
   return (
-    <div>AboutService</div>
+    <div>
+      <button onClick={register}>register</button>
+      <button onClick={login}>login</button>
+      <button onClick={getUser}>getUser</button>
+    </div>
+
   )
 }
+
+export default AboutService;
