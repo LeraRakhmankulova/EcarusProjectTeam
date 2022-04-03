@@ -37,57 +37,57 @@ interface userProps {
 }
 
 const AboutService = () => {
-  const register = () => {
-    const data = {
-      // "id": "456",
-      // "photo_url": "string",
-      "firstname": "Valeria",
-      "lastname": "Valeria",
-      "username": "Valeria1",
-      "email": "Valeria@mail.ru",
-      "phone_number": "+78998998989",
-      "password": "122333",
-      "balance": 0
-    };
+  // const register = () => {
+  //   const data = {
+  //     // "id": "456",
+  //     // "photo_url": "string",
+  //     "firstname": "Valeria",
+  //     "lastname": "Valeria",
+  //     "username": "Valeria1",
+  //     "email": "Valeria@mail.ru",
+  //     "phone_number": "+78998998989",
+  //     "password": "122333",
+  //     "balance": 0
+  //   };
 
-    axios.post('account', data).then(res => {
-      console.log(res)
-    },
-      err => {
-        console.log(err)
-      });
-  }
+  //   axios.post('account', data).then(res => {
+  //     console.log(res)
+  //   },
+  //     err => {
+  //       console.log(err)
+  //     });
+  // }
 
-  const login = () => {
-    const data = {
-      "login": "+78998998989",
-      "password": "122333"
-    };
+  // const login = () => {
+  //   const data = {
+  //     "login": "+78998998989",
+  //     "password": "122333"
+  //   };
 
-    axios.post('login', data).then((res: any) => {
-      const { token, ...data } = res;
-      window.localStorage.setItem('token', res.token);
-      window.localStorage.setItem('user', JSON.stringify(data));
-      console.log(JSON.stringify(data));
-    }).catch(
-      err => {
-        console.log(err)
-      });
-  }
+  //   axios.post('login', data).then((res: any) => {
+  //     const { token, ...data } = res;
+  //     window.localStorage.setItem('token', res.token);
+  //     window.localStorage.setItem('user', JSON.stringify(data));
+  //     console.log(JSON.stringify(data));
+  //   }).catch(
+  //     err => {
+  //       console.log(err)
+  //     });
+  // }
 
-  const getUser = () => {
-    axios.get('profile').then(res => {
-      console.log(res);
-    }).catch(
-      err => {
-        console.log(err)
-      });
-  }
+  // const getUser = () => {
+  //   axios.get('profile').then(res => {
+  //     console.log(res);
+  //   }).catch(
+  //     err => {
+  //       console.log(err)
+  //     });
+  // }
   return (
     <div>
-      <button onClick={register}>register</button>
-      <button onClick={login}>login</button>
-      <button onClick={getUser}>getUser</button>
+      <button >register</button>
+      <button>login</button>
+      <button >getUser</button>
     </div>
 
   )

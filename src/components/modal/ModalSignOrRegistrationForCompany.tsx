@@ -44,7 +44,7 @@ export const ModalSignOrRegistrationForCompany = () => {
                     <form onSubmit={handleSubmit}>
                         <div className={style.wrapper_title}>
                             <div className={style.modal_title}>
-                                <h3>Вход</h3>
+                                <h3>Регистрация</h3>
                             </div>
                             <div className={style.wrapper_exit_button}>
                                 <button onClick={clearCurrentModal}>

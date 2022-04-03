@@ -9,9 +9,26 @@ import Modal from "../layouts/Modal";
 import { ModalSignOrRegistration } from "./ModalSignOrRegistration";
 import { ModalSignForCompany } from "./ModalSignForCompany";
 import { phone_num, passw } from "../../utils/use-data";
+import axios from "axios";
 
 
 export const ModalSign = () => {
+    const login = (phone: string, password: string) => {
+        const data = {
+          "login": `${phone}`,
+          "password": `${password}`
+        };
+    
+        axios.post('https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/login', data).then((res: any) => {
+          const { token, ...data } = res;
+          window.localStorage.setItem('token', res.token);
+          window.localStorage.setItem('user', JSON.stringify(data));
+          console.log(JSON.stringify(data));
+        }).catch(
+          err => {
+            console.log(err)
+          });
+      }
     const handleModalSignOrRegistration = () => {
         setCurrentModal(<Modal children={<ModalSignOrRegistration />} />)
     }
@@ -32,15 +49,16 @@ export const ModalSign = () => {
                     phone: '',
                     password: ''
                 }}
-                onSubmit={(values, errors) => {
-                    if (values.phone === phone_num && values.password === passw) {
-                        setAuthentication(true);
-                    } else {
-                        values.phone = '';
-                        values.password = '';
-                        errors.setStatus('Неверный телефон или пароль');
-                    }
-                }}
+                // onSubmit={(values, errors) => {
+                //     if (values.phone === phone_num && values.password === passw) {
+                //         setAuthentication(true);
+                //     } else {
+                //         values.phone = '';
+                //         values.password = '';
+                //         errors.setStatus('Неверный телефон или пароль');
+                //     }
+                // }}
+                onSubmit={values => login(values.phone, values.password)}
                 validationSchema={validationsSchema}
             >
                 {({
@@ -92,7 +110,7 @@ export const ModalSign = () => {
                                 <div className={style.button_wrapper_content}>
                                     <ModalButton text='Вход для партнёров' color='black'
                                         background='rgba(62, 80, 114, 0.08)' width='100%'
-                                        disabled='' onClick={handleModalForCompany} type='' />
+                                        disabled='' onClick={login} type='' />
                                 </div>
                             </div>
                         </div>
