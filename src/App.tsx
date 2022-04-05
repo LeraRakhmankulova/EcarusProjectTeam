@@ -24,6 +24,7 @@ const App = () => {
               <Route path='/ecomarket' element={<EcoMarket />} />
               <Route path='/points' element={<CollectionPoints />} />
               <Route path='/about' element={<AboutService />} />
+              <Route path='/lk' element={<PersonalArea />} />
             </Routes>
           </div>
         <Footer />

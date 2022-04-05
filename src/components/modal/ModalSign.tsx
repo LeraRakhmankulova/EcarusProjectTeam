@@ -19,11 +19,17 @@ export const ModalSign = () => {
           "password": `${password}`
         };
     
+//{"id":"dd10cddf-f94a-4699-b21e-e3bebe45710a","photo_url":null,"firstname":null,"lastname":null,"username":"Валерия Рахманкулова","email":"raxmankulova.v@mail.ru","phone_number":"89520362386","password":null,"balance":0,"role":{"name":"USER","localizedName":"Роль пользователь"}}
+
         axios.post('https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/login', data).then((res: any) => {
-          const { token, ...data } = res;
+        //   const { token, ...data } = res;
           window.localStorage.setItem('token', res.token);
           window.localStorage.setItem('user', JSON.stringify(data));
-          console.log(JSON.stringify(data));
+        //   if( res.data.code == 200)
+          console.log(res.data.code)      //   if(response.data.code == 200){
+        //     console.log("Login successfull");
+        //     return (<Redirect to="/Game.js" />);
+        //   console.log(JSON.stringify(data));
         }).catch(
           err => {
             console.log(err)

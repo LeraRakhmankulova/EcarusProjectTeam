@@ -37,26 +37,9 @@ interface userProps {
 }
 
 const AboutService = () => {
-  // const register = () => {
-  //   const data = {
-  //     // "id": "456",
-  //     // "photo_url": "string",
-  //     "firstname": "Valeria",
-  //     "lastname": "Valeria",
-  //     "username": "Valeria1",
-  //     "email": "Valeria@mail.ru",
-  //     "phone_number": "+78998998989",
-  //     "password": "122333",
-  //     "balance": 0
-  //   };
 
-  //   axios.post('account', data).then(res => {
-  //     console.log(res)
-  //   },
-  //     err => {
-  //       console.log(err)
-  //     });
-  // }
+
+
 
   // const login = () => {
   //   const data = {

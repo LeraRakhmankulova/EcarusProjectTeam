@@ -10,7 +10,6 @@ import {ModalSignForCompany} from "./ModalSignForCompany";
 import {ModalInputCode} from "./ModalInputCode";
 
 export const ModalSignOrRegistrationForCompany = () => {
-    
     const handleModalSignForCompany = () => {
         setCurrentModal(<Modal children={<ModalSignForCompany/>}/>)
     }
