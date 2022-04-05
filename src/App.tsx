@@ -9,14 +9,11 @@ import CollectionPoints from "./pages/CollectionPoints/CollectionPoints";
 import AboutService from './pages/AboutService/AboutService';
 import React, { FC, useState } from 'react'
 
-
-
 const App = () => {
 
   return (
     <div className={styles.wrapper}>
       <Router>
-
         <Header />
           <div className={styles.main_content}>
             <Routes>
@@ -34,15 +31,3 @@ const App = () => {
 }
 
 export default App;
-// const [books, setBooks] = useState(null);
-//
-// const apiURL = "https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/materials";
-// axios.defaults.params = {
-//   'user_id': 1,
-//   'page_size': 2
-// };
-// const fetchData = async () => {
-//   const response = await axios.get(apiURL)
-//   setBooks(response.data)
-//   return books
-// }

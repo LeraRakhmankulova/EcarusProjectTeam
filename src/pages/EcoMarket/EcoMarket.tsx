@@ -4,7 +4,7 @@ import ModalButton from "../../components/ui/modal-button/button";
 import styles from '../EcoMarket/EcoMarket.module.sass'
 import PromoCard from "../../components/PromoCard/PromoCard";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import { DataItems } from '../../mocks/ProductMock'
+import { DataItems } from '../../stores/productStore'
 import { useState } from 'react';
 import Trail from '../../components/spring/Trail';
 import CardPlug from '../../components/CardPlug/CardPlug';

@@ -11,25 +11,18 @@ import { ModalSignForCompany } from "./ModalSignForCompany";
 import { phone_num, passw } from "../../utils/use-data";
 import axios from "axios";
 
-
 export const ModalSign = () => {
     const login = (phone: string, password: string) => {
         const data = {
-          "login": `${phone}`,
-          "password": `${password}`
+          login: `${phone}`,
+          password: `${password}`
         };
     
-//{"id":"dd10cddf-f94a-4699-b21e-e3bebe45710a","photo_url":null,"firstname":null,"lastname":null,"username":"Валерия Рахманкулова","email":"raxmankulova.v@mail.ru","phone_number":"89520362386","password":null,"balance":0,"role":{"name":"USER","localizedName":"Роль пользователь"}}
-
-        axios.post('https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/login', data).then((res: any) => {
-        //   const { token, ...data } = res;
+        axios.post('login', data).then((res: any) => {
+          const { token, ...data } = res;
           window.localStorage.setItem('token', res.token);
           window.localStorage.setItem('user', JSON.stringify(data));
-        //   if( res.data.code == 200)
-          console.log(res.data.code)      //   if(response.data.code == 200){
-        //     console.log("Login successfull");
-        //     return (<Redirect to="/Game.js" />);
-        //   console.log(JSON.stringify(data));
+          console.log(res.data.code) 
         }).catch(
           err => {
             console.log(err)
@@ -55,15 +48,6 @@ export const ModalSign = () => {
                     phone: '',
                     password: ''
                 }}
-                // onSubmit={(values, errors) => {
-                //     if (values.phone === phone_num && values.password === passw) {
-                //         setAuthentication(true);
-                //     } else {
-                //         values.phone = '';
-                //         values.password = '';
-                //         errors.setStatus('Неверный телефон или пароль');
-                //     }
-                // }}
                 onSubmit={values => login(values.phone, values.password)}
                 validationSchema={validationsSchema}
             >

@@ -13,21 +13,22 @@ import axios from "axios";
 
 
 export const ModalSignOrRegistration = () => {
-    const register = ( name: string, email:string, phone: string, password: string ) => {
+    const register = (email: string, phone: string, password: string ) => {
         const data = {
-          "username": `${name}`,
-          "email": `${email}`,
-          "phone_number": `${phone}`,
-          "password": `${password}`,
-          "balance": 0
+        //   username: `${name}`,
+          email: `${email}`,
+          phone_number: `${phone}`,
+          password: `${password}`
+        //   balance: 0
         };
-        axios.post('https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/account', data).then(res => {
+        axios.post('account', data).then(res => {
             console.log(res)
           },
             err => {
               console.log(err)
             });
     }
+    
     const handleModalSign = () => {
         setCurrentModal(<Modal children={<ModalSign />} />)
     }
@@ -45,12 +46,12 @@ export const ModalSignOrRegistration = () => {
     return (<div>
         <Formik
             initialValues={{
-                name: '',
+                // name: '',
                 email: '',
                 phone: '',
                 password: ''
             }}
-            onSubmit={values => register(values.name, values.email, values.phone, values.password)}
+            onSubmit={values => register(values.email, values.phone, values.password)}
             validationSchema={validationsSchema}
         >
             {({
@@ -71,12 +72,12 @@ export const ModalSignOrRegistration = () => {
                     </div>
                     <div className={style.content_wrapper}>
                         <div className={style.input_wrapper}>
-                            <Input placeholder='Имя' type={`text`}
+                            {/* <Input placeholder='Имя' type={`text`}
                                 name={`name`}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.name} />
-                            {touched.phone && errors.phone && <p style={{ 'color': 'red' }}>{errors.phone}</p>}
+                            {touched.phone && errors.phone && <p style={{ 'color': 'red' }}>{errors.phone}</p>} */}
                         </div>
                         <div className={style.input_wrapper}>
                             <Input placeholder='Почта' type={`text`}
@@ -104,7 +105,7 @@ export const ModalSignOrRegistration = () => {
                         </div>
                         <div className={style.button_wrapper}>
                             <div className={style.button_wrapper_content}>
-                                <ModalButton text='Получить код' color='white' background='#07C88E' width='100%'
+                                <ModalButton text='Зарегистрироваться' color='white' background='#07C88E' width='100%'
                                     disabled={!(isValid || dirty)} onClick='' type={`submit`} />
                             </div>
                             <div className={style.link_text_wrapper}>

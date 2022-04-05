@@ -39,8 +39,6 @@ interface userProps {
 const AboutService = () => {
 
 
-
-
   // const login = () => {
   //   const data = {
   //     "login": "+78998998989",
@@ -68,9 +66,9 @@ const AboutService = () => {
   // }
   return (
     <div>
-      <button >register</button>
+      {/* <button >register</button>
       <button>login</button>
-      <button >getUser</button>
+      <button >getUser</button> */}
     </div>
 
   )
