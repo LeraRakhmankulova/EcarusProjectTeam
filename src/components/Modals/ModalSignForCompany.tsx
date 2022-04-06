@@ -49,7 +49,7 @@ export const ModalSignForCompany = () => {
                         </div>
                         <div className={style.wrapper_exit_button}>
                             <button onClick={clearCurrentModal}>
-                                <Icon name='close' width='32' height='32' />
+                                <Icon name='out' width='32' height='32' />
                             </button>
                         </div>
                     </div>

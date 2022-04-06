@@ -20,7 +20,7 @@ const Map: FC<Props> = ({ children }) => {
                     />
                     <Marker position={[55.7887, 49.1221]}>
                        <Popup>
-                           Магазин
+                           Переработка
                        </Popup>
                    </Marker>
                 </div>

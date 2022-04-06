@@ -10,6 +10,7 @@ import { ModalSign } from "./ModalSign";
 import { ModalInputCode } from "./ModalInputCode";
 import { ModalSignForCompany } from "./ModalSignForCompany";
 import axios from "axios";
+import close from '../../assets/images/close.svg'
 
 
 export const ModalSignOrRegistration = () => {
@@ -41,7 +42,11 @@ export const ModalSignOrRegistration = () => {
     const { modalStore: { clearCurrentModal, setCurrentModal } } = useStore()
     const validationsSchema = yup.object().shape({
         phone: yup.string().typeError('Должно быть строкой').required('Обязательно')
-            .matches(/^([+]?[0-9\s-\(\)]{3,25})*$/i, 'Телефон должен содержать только минимум 3 цифры')
+            .matches(/^([+]?[0-9\s-\(\)]{3,25})*$/i, 'Телефон должен содержать только минимум 3 цифры'),
+        email: yup.string().typeError('Должно быть строкой').required('Обязательно')
+            .matches(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/, 'Введите верный email'),
+        password: yup.string().typeError('Должно быть строкой').required('Обязательно')
+            .matches(/[0-9a-zA-Z]{4,}/g, 'Пароль должен состоять из минимум 4 символов')
     })
     return (<div>
         <Formik
@@ -66,7 +71,7 @@ export const ModalSignOrRegistration = () => {
                         </div>
                         <div className={style.wrapper_exit_button}>
                             <button onClick={clearCurrentModal}>
-                                <Icon name='close' width='32' height='32' />
+                                <Icon name='out' width='32' height='32' />
                             </button>
                         </div>
                     </div>
@@ -85,7 +90,7 @@ export const ModalSignOrRegistration = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.email} />
-                            {touched.phone && errors.phone && <p style={{ 'color': 'red' }}>{errors.phone}</p>}
+                            {touched.email && errors.email && <p>{errors.email}</p>}
                         </div>
                         <div className={style.input_wrapper}>
                             <Input placeholder='Телефон' type={`text`}
@@ -93,7 +98,7 @@ export const ModalSignOrRegistration = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.phone} />
-                            {touched.phone && errors.phone && <p style={{ 'color': 'red' }}>{errors.phone}</p>}
+                            {touched.phone && errors.phone && <p>{errors.phone}</p>}
                         </div>
                         <div className={style.input_wrapper}>
                             <Input placeholder='Пароль' type={`text`}
@@ -101,7 +106,7 @@ export const ModalSignOrRegistration = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.password} />
-                            {touched.phone && errors.phone && <p style={{ 'color': 'red' }}>{errors.phone}</p>}
+                            {touched.password && errors.password && <p>{errors.password}</p>}
                         </div>
                         <div className={style.button_wrapper}>
                             <div className={style.button_wrapper_content}>

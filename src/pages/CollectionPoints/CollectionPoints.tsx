@@ -3,9 +3,17 @@ import styles from '../CollectionPoints/CollectionPoints.module.sass';
 import cardInfo from '../../assets/images/mapCard.svg'
 import MapCard from '../../components/Cards/MapCard/MapCard';
 import MapCardPlug from '../../components/Plugs/MapCardPlug/MapCardPlug';
+import { useEffect, useState } from 'react';
 
 
 const CollectionPoints = () => {
+    const [isShow, setShow] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShow(() => true)
+        }, 2000);
+    }, [])
 
     return (
         <div>
@@ -23,18 +31,27 @@ const CollectionPoints = () => {
                 </div>
                 <div className={styles.cards}>
                     <div className={styles.card}>
-                        <MapCardPlug />
-                        {/* <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...' /> */}
+                        {
+                            isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...' />: <MapCardPlug />
+                        }
+
                     </div>
                     <div className={styles.card}>
-                        <MapCardPlug />
-                        {/* <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Стекло, бумага, металл, старая одежда, батареи' />*/}
-                    </div> 
-                    <div className={styles.card}>
-                        <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Пластик, стекло, бумага, металл' />
+                        {
+                            isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Стекло, бумага, металл, старая одежда, батареи' /> : <MapCardPlug />
+                        }
+
                     </div>
                     <div className={styles.card}>
-                        <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Стекло, бумага, металл, старая одежда, батареи' />
+                        {
+                            isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Пластик, стекло, бумага, металл' /> : <MapCardPlug />
+                        }
+
+                    </div>
+                    <div className={styles.card}>
+                        {
+                            isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Стекло, бумага, металл, старая одежда, батареи' /> : <MapCardPlug />
+                        }
                     </div>
                 </div>
             </div>

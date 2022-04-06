@@ -51,8 +51,13 @@ const EcoMarket = () => {
     const [chooseAllTypes, setChooseAllTypes] = useState(allTp)
     const [chooseAllBrands, setChooseAllBrands] = useState(allBr)
 
-    const [cards, setCards] = useState();
-    const [loading, setLoading] = useState(false);
+    const [isShow, setShow] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShow(() => true)
+        }, 2000);
+    }, [])
 
     const updateData = (id: number, setItems: any, items: ICategoryProps[]) => {
         setItems(
@@ -158,23 +163,19 @@ const EcoMarket = () => {
                         <div className={styles.card_product}>
                             <PromoCard price='200' />
                         </div>
-                        <div className={styles.card_product}>
-                            <ProductCardPlug />
-                        </div>
-                        <div className={styles.card_product}>
-                            <ProductCardPlug />
-                        </div>
-                        <div className={styles.card_product}>
-                            <ProductCardPlug />
-                        </div>
-                        {DataItems.map(item =>
-                            <div className={styles.card_product}>
-                                <ProductCard price={item.price}
-                                    brand={item.brand}
-                                    name={item.nameDesc}
-                                    category={item.category}
-                                    picture={item.picture} />
-                            </div>)}
+                        {isShow ?
+                            DataItems.map(item =>
+                                <div className={styles.card_product}>
+                                    <ProductCard price={item.price}
+                                        brand={item.brand}
+                                        name={item.nameDesc}
+                                        category={item.category}
+                                        picture={item.picture} />
+                                </div>) :
+                            DataItems.map(item =>
+                                <div className={styles.card_product}>
+                                    <ProductCardPlug />
+                                </div>)}
                     </div>
                 </div>
             </div>

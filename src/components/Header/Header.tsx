@@ -62,7 +62,7 @@ const Header = observer(() => {
                                 <Icon name='pin' width='24' height='24' />
                                 <p>Казань</p>
                             </li>
-                            <li>
+                            <li className={styles.in}>
                                 <Move x={5}>
                                     <button onClick={handleModal}>Войти</button>
                                 </Move>

@@ -69,11 +69,8 @@ const AboutService = () => {
   // }
   return (
     <div>
-      {/* <button >register</button>
-      <button>login</button>
-      <button >getUser</button> */}
-      <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...' />
-      <MapCardPlug />
+     
+     <button>reg</button>
     </div>
 
   )

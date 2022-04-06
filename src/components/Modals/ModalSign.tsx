@@ -10,25 +10,28 @@ import { ModalSignOrRegistration } from "./ModalSignOrRegistration";
 import { ModalSignForCompany } from "./ModalSignForCompany";
 import { phone_num, passw } from "../../utils/use-data";
 import axios from "axios";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 export const ModalSign = () => {
-    
+    const [redirect, setRedirect] = useState(false);
     const login = (phone: string, password: string) => {
         const data = {
-          login: `${phone}`,
-          password: `${password}`
+            login: `${phone}`,
+            password: `${password}`
         };
-    
+
         axios.post('login', data).then((res: any) => {
-          const { token, ...data } = res;
-          window.localStorage.setItem('token', res.token);
-          window.localStorage.setItem('user', JSON.stringify(data));
-          console.log(res.data.code) ;
+            const { token, ...data } = res;
+            window.localStorage.setItem('token', res.token);
+            window.localStorage.setItem('user', JSON.stringify(data));
+            console.log(res.data.code);
+            setRedirect(!redirect);
         }).catch(
-          err => {
-            console.log(err)
-          });
-      }
+            err => {
+                console.log(err)
+            });
+    }
     const handleModalSignOrRegistration = () => {
         setCurrentModal(<Modal children={<ModalSignOrRegistration />} />)
     }
@@ -64,7 +67,7 @@ export const ModalSign = () => {
                             </div>
                             <div className={style.wrapper_exit_button}>
                                 <button onClick={clearCurrentModal}>
-                                    <Icon name='close' width='32' height='32' />
+                                    <Icon name='out' width='32' height='32' />
                                 </button>
                             </div>
                         </div>
@@ -75,14 +78,14 @@ export const ModalSign = () => {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.phone} />
-                                {touched.phone && errors.phone && <p style={{ 'color': 'red' }}>{errors.phone}</p>}
+                                {touched.phone && errors.phone && <p>{errors.phone}</p>}
                                 <Input placeholder='Пароль' type={`password`}
                                     name={"password"}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.password} />
                                 {touched.password && errors.password &&
-                                    <p style={{ 'color': 'red' }}>{errors.password}</p>}
+                                    <p>{errors.password}</p>}
                             </div>
                             <div className={style.button_wrapper}>
                                 <div className={style.button_wrapper_content}>
@@ -96,6 +99,7 @@ export const ModalSign = () => {
                                     </div>
                                     <div>
                                         <a onClick={handleModalSignOrRegistration}>Регистрация</a>
+                                        
                                     </div>
                                 </div>
                                 <div className={style.button_wrapper_content}>
