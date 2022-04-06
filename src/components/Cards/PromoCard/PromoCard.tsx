@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import union from '../../assets/images/union.svg'
+import union from '../../../assets/images/union.svg'
 import styles from '../PromoCard/PromoCard.module.sass'
 import ModalButton from '../../ui/modal-button/button';
 import {useStore} from "../../../utils/use-stores-hook";

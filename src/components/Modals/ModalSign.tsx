@@ -12,6 +12,7 @@ import { phone_num, passw } from "../../utils/use-data";
 import axios from "axios";
 
 export const ModalSign = () => {
+    
     const login = (phone: string, password: string) => {
         const data = {
           login: `${phone}`,
@@ -22,7 +23,7 @@ export const ModalSign = () => {
           const { token, ...data } = res;
           window.localStorage.setItem('token', res.token);
           window.localStorage.setItem('user', JSON.stringify(data));
-          console.log(res.data.code) 
+          console.log(res.data.code) ;
         }).catch(
           err => {
             console.log(err)

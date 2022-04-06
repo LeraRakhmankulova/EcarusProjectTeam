@@ -2,12 +2,12 @@ import './scroll_custom.css'
 import Checkbox from "../../components/ui/checkbox/checkbox";
 import ModalButton from "../../components/ui/modal-button/button";
 import styles from '../EcoMarket/EcoMarket.module.sass'
-import PromoCard from "../../components/Cards/PromoCard/PromoCard";
 import { DataItems } from '../../stores/productStore'
 import { useEffect, useState } from 'react';
 import Trail from '../../utils/use-spring/Trail';
 import ProductCardPlug from '../../components/Plugs/ProductCardPlug/ProductCardPlug';
 import ProductCard from '../../components/Cards/ProductCard/ProductCard';
+import PromoCard from '../../components/Cards/PromoCard/PromoCard';
 
 interface ICategoryProps {
     title: string;
@@ -155,9 +155,9 @@ const EcoMarket = () => {
                             width={'100%'} disabled='' onClick={() => resetFilters()} type='' />
                     </div>
                     <div className={styles.cards_block}>
-                        {/* <div className={styles.card_product}>
+                        <div className={styles.card_product}>
                             <PromoCard price='200' />
-                        </div> */}
+                        </div>
                         <div className={styles.card_product}>
                             <ProductCardPlug />
                         </div>
