@@ -1,8 +1,8 @@
 import { animated, easings, Spring, useSpring } from "react-spring";
-import style from '../CardPlug/CardPlugs.module.sass'
+import style from '../ProductCardPlug/ProductCardPlug.module.sass'
 
 
-const CardPlug = () => {
+const ProductCardPlug = () => {
     const { background } = useSpring({
         from: {
             background: 'linear-gradient(146deg, #e1e1e3 10%, #f0f0f2 90%, #e1e1e3 100%)'
@@ -26,4 +26,4 @@ const CardPlug = () => {
     )
 }
 
-export default CardPlug;
+export default ProductCardPlug;

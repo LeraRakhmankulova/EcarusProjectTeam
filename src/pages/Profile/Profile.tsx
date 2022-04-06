@@ -1,7 +1,6 @@
 import FC from 'react';
-import style from './PersonalArea.module.sass';
+import style from './Profile.module.sass';
 import { NavLink } from 'react-router-dom';
-import AboutPerson from '../../components/aboutPerson/aboutPerson';
 import axios from 'axios';
 
 const PersonalArea = () => {
@@ -20,7 +19,6 @@ return (
             <div className={style.wrapper_title}>
                 <p>Личный кабинет</p>
                 <div>
-                    <AboutPerson name='' phone='' email='' picture='' />
                 </div>
             </div>
         </div>

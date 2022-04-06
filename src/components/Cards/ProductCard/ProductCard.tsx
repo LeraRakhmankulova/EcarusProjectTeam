@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import union from '../../assets/images/union.svg'
+import union from '../../../assets/images/union.svg'
 import styles from '../ProductCard/ProductCard.module.sass'
 
 interface Props {

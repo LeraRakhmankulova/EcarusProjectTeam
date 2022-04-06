@@ -1,7 +1,8 @@
 import Map from '../../components/Map/Map';
 import styles from '../CollectionPoints/CollectionPoints.module.sass';
-import search from '../../assets/images/search.svg'
-import Trail from '../../components/spring/Trail';
+import cardInfo from '../../assets/images/mapCard.svg'
+import MapCard from '../../components/Cards/MapCard/MapCard';
+import MapCardPlug from '../../components/Plugs/MapCardPlug/MapCardPlug';
 
 
 const CollectionPoints = () => {
@@ -19,6 +20,22 @@ const CollectionPoints = () => {
                         <option value="" disabled selected>Материалы</option>
                         <option>Пункт 1</option>
                     </select>
+                </div>
+                <div className={styles.cards}>
+                    <div className={styles.card}>
+                        <MapCardPlug />
+                        {/* <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...' /> */}
+                    </div>
+                    <div className={styles.card}>
+                        <MapCardPlug />
+                        {/* <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Стекло, бумага, металл, старая одежда, батареи' />*/}
+                    </div> 
+                    <div className={styles.card}>
+                        <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Пластик, стекло, бумага, металл' />
+                    </div>
+                    <div className={styles.card}>
+                        <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Стекло, бумага, металл, старая одежда, батареи' />
+                    </div>
                 </div>
             </div>
             <Map></Map>

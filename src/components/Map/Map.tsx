@@ -10,7 +10,7 @@ const Map: FC<Props> = ({ children }) => {
         <div>
             <MapContainer
                 center={[55.7887, 49.1221]}
-                zoom={3}
+                zoom={12}
                 zoomControl={false}
                 style={{ height: '100vh', width: '100%', display:'flex', flexDirection:'column-reverse'}}
             >
@@ -18,11 +18,11 @@ const Map: FC<Props> = ({ children }) => {
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {/*<Marker position={[55.7887, 49.1221]}>*/}
-                    {/*    <Popup>*/}
-                    {/*        A pretty CSS3 popup. <br /> Easily customizable.*/}
-                    {/*    </Popup>*/}
-                    {/*</Marker>*/}
+                    <Marker position={[55.7887, 49.1221]}>
+                       <Popup>
+                           Магазин
+                       </Popup>
+                   </Marker>
                 </div>
 
                 <div className={styles.children_content}>

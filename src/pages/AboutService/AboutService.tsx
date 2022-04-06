@@ -1,4 +1,7 @@
 import axios from "axios"
+import MapCard from "../../components/Cards/MapCard/MapCard"
+import MapCardPlug from "../../components/Plugs/MapCardPlug/MapCardPlug"
+import cardInfo from '../../assets/images/mapCard.svg'
 
 axios.defaults.baseURL = 'https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/'
 axios.interceptors.request.use(config => {
@@ -69,6 +72,8 @@ const AboutService = () => {
       {/* <button >register</button>
       <button>login</button>
       <button >getUser</button> */}
+      <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...' />
+      <MapCardPlug />
     </div>
 
   )

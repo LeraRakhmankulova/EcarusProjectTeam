@@ -2,12 +2,12 @@ import './scroll_custom.css'
 import Checkbox from "../../components/ui/checkbox/checkbox";
 import ModalButton from "../../components/ui/modal-button/button";
 import styles from '../EcoMarket/EcoMarket.module.sass'
-import PromoCard from "../../components/PromoCard/PromoCard";
-import ProductCard from "../../components/ProductCard/ProductCard";
+import PromoCard from "../../components/Cards/PromoCard/PromoCard";
 import { DataItems } from '../../stores/productStore'
-import { useState } from 'react';
-import Trail from '../../components/spring/Trail';
-import CardPlug from '../../components/CardPlug/CardPlug';
+import { useEffect, useState } from 'react';
+import Trail from '../../utils/use-spring/Trail';
+import ProductCardPlug from '../../components/Plugs/ProductCardPlug/ProductCardPlug';
+import ProductCard from '../../components/Cards/ProductCard/ProductCard';
 
 interface ICategoryProps {
     title: string;
@@ -42,9 +42,6 @@ const allBr: ICategoryProps[] = [
 ]
 
 const EcoMarket = () => {
-    const [filterList] = useState(DataItems);
-    const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState([]);
     const [allTypes, setAllTypes] = useState(false);
     const [allBrand, setAllBrand] = useState(false);
 
@@ -53,6 +50,9 @@ const EcoMarket = () => {
     const [types, setTypes] = useState(type);
     const [chooseAllTypes, setChooseAllTypes] = useState(allTp)
     const [chooseAllBrands, setChooseAllBrands] = useState(allBr)
+
+    const [cards, setCards] = useState();
+    const [loading, setLoading] = useState(false);
 
     const updateData = (id: number, setItems: any, items: ICategoryProps[]) => {
         setItems(
@@ -159,13 +159,13 @@ const EcoMarket = () => {
                             <PromoCard price='200' />
                         </div> */}
                         <div className={styles.card_product}>
-                            <CardPlug/>
+                            <ProductCardPlug />
                         </div>
                         <div className={styles.card_product}>
-                            <CardPlug/>
+                            <ProductCardPlug />
                         </div>
                         <div className={styles.card_product}>
-                            <CardPlug/>
+                            <ProductCardPlug />
                         </div>
                         {DataItems.map(item =>
                             <div className={styles.card_product}>

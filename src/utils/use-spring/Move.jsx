@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { animated } from "react-spring";
-import useMove from "../../utils/use-move";
+import useMove from "../use-move";
 
 
 

@@ -1,13 +1,12 @@
 import styles from './App.module.sass';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import PersonalArea from './pages/PersonalArea/PersonalArea';
 import MainPage from './pages/MainPage/MainPage';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import EcoMarket from './pages/EcoMarket/EcoMarket';
 import CollectionPoints from "./pages/CollectionPoints/CollectionPoints";
 import AboutService from './pages/AboutService/AboutService';
-import React, { FC, useState } from 'react'
+import Profile from './pages/Profile/Profile';
 
 const App = () => {
 
@@ -21,7 +20,7 @@ const App = () => {
               <Route path='/ecomarket' element={<EcoMarket />} />
               <Route path='/points' element={<CollectionPoints />} />
               <Route path='/about' element={<AboutService />} />
-              <Route path='/lk' element={<PersonalArea />} />
+              <Route path='/profile' element={<Profile />} />
             </Routes>
           </div>
         <Footer />

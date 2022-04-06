@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import union from '../../assets/images/union.svg'
 import styles from '../PromoCard/PromoCard.module.sass'
-import ModalButton from '../ui/modal-button/button';
-import {useStore} from "../../utils/use-stores-hook";
-import Modal from "../layouts/Modal";
-import {ModalQRCode} from "../modal/ModalQRCode";
+import ModalButton from '../../ui/modal-button/button';
+import {useStore} from "../../../utils/use-stores-hook";
+import Modal from "../../layouts/Modal";
+import {ModalQRCode} from "../../Modals/ModalQRCode";
 
 interface Props {
     price: string | number

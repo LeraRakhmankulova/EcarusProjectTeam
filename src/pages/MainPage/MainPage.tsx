@@ -15,8 +15,8 @@ import 'swiper/css/navigation';
 import './swiperStyle.css';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
-import Trail from '../../components/spring/Trail';
-import Move from '../../components/spring/Move';
+import Trail from '../../utils/use-spring/Trail';
+import Move from '../../utils/use-spring/Move';
  
 
 const MainPage = () => {

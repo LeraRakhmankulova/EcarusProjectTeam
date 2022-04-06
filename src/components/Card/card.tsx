@@ -2,7 +2,7 @@ import '../../pages/MainPage/MainPage';
 import { FC } from 'react';
 import CardButton from '../ui/card-button/CardButton';
 import styles from './card.module.sass';
-import Move from '../spring/Move';
+import Move from '../../utils/use-spring/Move';
 
 interface Props {
     title: string;

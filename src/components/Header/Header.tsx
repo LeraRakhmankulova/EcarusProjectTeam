@@ -7,11 +7,11 @@ import money from '../../assets/images/money.svg';
 import signIn from '../../assets/images/signIn.svg';
 import { observer } from 'mobx-react';
 import Modal from '../layouts/Modal';
-import { ModalSign } from "../modal/ModalSign";
+import { ModalSign } from "../Modals/ModalSign";
 import { useStore } from "../../utils/use-stores-hook";
 import { name } from "../../utils/use-data";
 import { useState } from 'react';
-import Move from '../spring/Move';
+import Move from '../../utils/use-spring/Move';
 
 
 const Header = observer(() => {
