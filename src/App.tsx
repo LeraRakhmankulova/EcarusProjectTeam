@@ -7,9 +7,14 @@ import EcoMarket from './pages/EcoMarket/EcoMarket';
 import CollectionPoints from "./pages/CollectionPoints/CollectionPoints";
 import AboutService from './pages/AboutService/AboutService';
 import Profile from './pages/Profile/Profile';
+import { FC } from 'react';
 
-const App = () => {
+interface Props{
+  props: any
+}
 
+const App:FC<Props> = ({props}) => {
+  
   return (
     <div className={styles.wrapper}>
       <Router>
@@ -19,7 +24,7 @@ const App = () => {
               <Route path='/' element={<MainPage />} />
               <Route path='/ecomarket' element={<EcoMarket />} />
               <Route path='/points' element={<CollectionPoints />} />
-              <Route path='/about' element={<AboutService />} />
+              <Route path='/about' element={<AboutService post={props.posts} func={props.addFunc}/>} />
               <Route path='/profile' element={<Profile />} />
             </Routes>
           </div>

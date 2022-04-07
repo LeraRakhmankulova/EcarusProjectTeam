@@ -3,19 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.module.sass';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'mobx-react';
-import mainStore from './stores/mainStore';
-import { ModalConstructor } from './components/Modals/ModalConstructor';
-import axios from "axios";
+import {addFunc} from '../src/redux/state';
+import state from '../src/redux/state'
 
-axios.defaults.baseURL = 'https://ecoapp.cloud.technokratos.com/eco-rus/api/v1';
+
+addFunc('Hello Lera fron index.ts')
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider {...mainStore}>
-      <App />
-      <ModalConstructor />
-    </Provider>
+      <App props={state}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

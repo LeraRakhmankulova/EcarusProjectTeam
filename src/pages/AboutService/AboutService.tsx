@@ -1,76 +1,28 @@
-import axios from "axios"
-import MapCard from "../../components/Cards/MapCard/MapCard"
-import MapCardPlug from "../../components/Plugs/MapCardPlug/MapCardPlug"
-import cardInfo from '../../assets/images/mapCard.svg'
+import React from 'react';
+import { FC } from 'react';
+import { createRef, useRef } from 'react';
+import styles from '../AboutService/AboutService.module.sass'
 
-axios.defaults.baseURL = 'https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/'
-axios.interceptors.request.use(config => {
-  const token = window.localStorage.getItem('token')
-  if (token) {
-    return {
-      ...config,
-      headers: {
-        ...(config.headers || {}),
-        Authorization: token,
-        'Content-Type': 'application/json',
-      }
-    }
-  }
-  else {
-    return config;
-  }
-})
 
-axios.interceptors.response.use(response => {
-  return response.data;
-})
-
-interface userProps {
-  id?: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  photo_url?: string,
-  token: string,
-  firstname?: string,
-  lastname?: string,
-  username: string,
-  email: string,
-  phone_number: string,
-  password: string,
-  balance?: number
-  role?: object
+interface Props{
+  post: any
+  func: any
 }
 
-const AboutService = () => {
+const AboutService:FC<Props> = ({post, func}) => {
 
 
-  // const login = () => {
-  //   const data = {
-  //     "login": "+78998998989",
-  //     "password": "122333"
-  //   };
-
-  //   axios.post('login', data).then((res: any) => {
-  //     const { token, ...data } = res;
-  //     window.localStorage.setItem('token', res.token);
-  //     window.localStorage.setItem('user', JSON.stringify(data));
-  //     console.log(JSON.stringify(data));
-  //   }).catch(
-  //     err => {
-  //       console.log(err)
-  //     });
-  // }
-
-  // const getUser = () => {
-  //   axios.get('profile').then(res => {
-  //     console.log(res);
-  //   }).catch(
-  //     err => {
-  //       console.log(err)
-  //     });
-  // }
   return (
-    <div>
-     
-     <button>reg</button>
+    <div className={styles.container}>
+      <h1>Add new posts</h1>
+      <div><textarea ></textarea></div>
+      <div>
+        <button onClick={func}>add new</button>
+      </div>
+      <div>
+        <h3>All my posts:</h3>
+        {post.map((el:any) => <div><h5>User id:{el.id} </h5> User message :{el.message}<br/>  Like count : {el.likeCount}</div>)}
+      </div>
     </div>
 
   )
