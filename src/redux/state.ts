@@ -1,5 +1,3 @@
-import { FC } from "react";
-
 let state = {
     posts: [
         { id: 1, message: 'Hello hello my friend', likeCount: 1000 },
@@ -21,5 +19,6 @@ export let addFunc = (messagePost: string) =>{
     }
     state.posts.push(newPost);
 }
-
 export default state;
+
+
