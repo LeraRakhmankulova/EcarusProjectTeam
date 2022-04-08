@@ -9,13 +9,18 @@ import filter_logo from '../../assets/images/filter_logo.svg'
 
 const CollectionPoints = () => {
     const [isShow, setShow] = useState(false);
-
+    const [openCards, setOpenCards] = useState(false)
     useEffect(() => {
         setTimeout(() => {
             setShow(() => true)
         }, 2000);
     }, [])
-
+    function handleFilters() {
+        return
+    }
+    function handleCards() {
+        setOpenCards(!openCards)
+    }
     return (
         <div>
             <div className={styles.main_content}>
@@ -29,33 +34,41 @@ const CollectionPoints = () => {
                         <option value="" disabled selected>Материалы</option>
                         <option>Пункт 1</option>
                     </select>
-                    <button><img src={filter_logo}/></button>
+                    <button className={styles.button_open_filters} onClick={handleFilters}><img src={filter_logo}/></button>
                 </div>
-                <div className={styles.cards}>
-                    <div className={styles.card}>
-                        {
-                            isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...' />: <MapCardPlug />
-                        }
+                <button className={styles.button_open_cards} onClick={handleCards}>Показать 12 пунктов сбора</button>
+                    <div className={styles.cards}>
+                        <div className={styles.card}>
+                            {
+                                isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
+                                                  description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...'/> :
+                                    <MapCardPlug/>
+                            }
 
-                    </div>
-                    <div className={styles.card}>
-                        {
-                            isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Стекло, бумага, металл, старая одежда, батареи' /> : <MapCardPlug />
-                        }
+                        </div>
+                        <div className={styles.card}>
+                            {
+                                isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
+                                                  description='Стекло, бумага, металл, старая одежда, батареи'/> :
+                                    <MapCardPlug/>
+                            }
 
-                    </div>
-                    <div className={styles.card}>
-                        {
-                            isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Пластик, стекло, бумага, металл' /> : <MapCardPlug />
-                        }
+                        </div>
+                        <div className={styles.card}>
+                            {
+                                isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
+                                                  description='Пластик, стекло, бумага, металл'/> : <MapCardPlug/>
+                            }
 
+                        </div>
+                        <div className={styles.card}>
+                            {
+                                isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
+                                                  description='Стекло, бумага, металл, старая одежда, батареи'/> :
+                                    <MapCardPlug/>
+                            }
+                        </div>
                     </div>
-                    <div className={styles.card}>
-                        {
-                            isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88' description='Стекло, бумага, металл, старая одежда, батареи' /> : <MapCardPlug />
-                        }
-                    </div>
-                </div>
             </div>
             <Map></Map>
         </div>
