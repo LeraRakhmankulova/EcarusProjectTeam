@@ -4,6 +4,7 @@ import cardInfo from '../../assets/images/mapCard.svg'
 import MapCard from '../../components/Cards/MapCard/MapCard';
 import MapCardPlug from '../../components/Plugs/MapCardPlug/MapCardPlug';
 import { useEffect, useState } from 'react';
+import filter_logo from '../../assets/images/filter_logo.svg'
 
 
 const CollectionPoints = () => {
@@ -28,6 +29,7 @@ const CollectionPoints = () => {
                         <option value="" disabled selected>Материалы</option>
                         <option>Пункт 1</option>
                     </select>
+                    <button><img src={filter_logo}/></button>
                 </div>
                 <div className={styles.cards}>
                     <div className={styles.card}>
