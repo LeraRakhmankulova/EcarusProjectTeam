@@ -1,45 +1,66 @@
-.input
-  position: absolute
-  z-index: 1000
-  margin: 2em 0 0 14em
-  background-image: url(../../assets/images/search.svg)
-  background-repeat: no-repeat
-  background-position: 1.4em
-  padding: 1.2em 3.3em
-  border-radius: 8px
-  width: 480px
-  border: none
-  box-shadow: 0px 2px 10px rgba(21, 45, 103, 0.12)
-  border-radius: 8px
-.select_wrapper
+@mixin desktop
+  @media screen and (max-width: 1280px)
+    .input
+      width: 100px !important
+    .select_material
+      margin: 2em 50em !important
+    .select_shop
+      margin: 2em 29em !important
+    .cards
+      margin: 6em 0 0 11.6em !important
+      .card
+        margin: 0.5em 0em 0.5em 0em !important
 
-  .select_material
-    cursor: pointer
-    background: white url(../../assets/images/barr.svg) no-repeat right
-    background-position-x: calc(100% - 20px)
-    appearance: none
+
+
+.main_content
+  @include desktop
+  width: 100%
+  .input
+    @include desktop
     position: absolute
+    z-index: 1000
+    margin: 2em 0 0 14em
+    background-image: url(../../assets/images/search.svg)
+    background-repeat: no-repeat
+    background-position: 1.4em
+    padding: 1.2em 3.3em
     border-radius: 8px
-    color: rgba(0, 11, 38, 0.48)
-    width: 260px
-    padding: 1.2em 1em
-    box-shadow: 0px 2px 8px rgba(21, 45, 103, 0.12)
+    width: 480px
     border: none
-    z-index: 10000
-    margin: 2em 79em
-  .select_shop
-    background: white url(../../assets/images/barr.svg) no-repeat right
-    background-position-x: calc(100% - 20px)
-    appearance: none
-    position: absolute
+    box-shadow: 0px 2px 10px rgba(21, 45, 103, 0.12)
     border-radius: 8px
-    color: black
-    width: 260px
-    padding: 1.2em 1em
-    box-shadow: 0px 2px 8px rgba(21, 45, 103, 0.12)
-    border: none
-    z-index: 10000
-    margin: 2em 58em
+  .select_wrapper
+
+    .select_material
+      @include desktop
+      cursor: pointer
+      background: white url(../../assets/images/barr.svg) no-repeat right
+      background-position-x: calc(100% - 20px)
+      appearance: none
+      position: absolute
+      border-radius: 8px
+      color: rgba(0, 11, 38, 0.48)
+      width: 260px
+      padding: 1.2em 1em
+      box-shadow: 0px 2px 8px rgba(21, 45, 103, 0.12)
+      border: none
+      z-index: 10000
+      margin: 2em 79em
+    .select_shop
+      @include desktop
+      background: white url(../../assets/images/barr.svg) no-repeat right
+      background-position-x: calc(100% - 20px)
+      appearance: none
+      position: absolute
+      border-radius: 8px
+      color: black
+      width: 260px
+      padding: 1.2em 1em
+      box-shadow: 0px 2px 8px rgba(21, 45, 103, 0.12)
+      border: none
+      z-index: 10000
+      margin: 2em 58em
 .cards
   position: absolute
   z-index: 1000
