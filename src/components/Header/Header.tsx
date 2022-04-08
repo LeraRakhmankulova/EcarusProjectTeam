@@ -12,6 +12,7 @@ import { useStore } from "../../utils/use-stores-hook";
 import { name } from "../../utils/use-data";
 import { useState } from 'react';
 import Move from '../../utils/use-spring/Move';
+import menu from '../../assets/images/men.svg'
 
 
 const Header = observer(() => {
@@ -25,50 +26,68 @@ const Header = observer(() => {
     return (
 
         <header className={styles.header}>
-            <div className={styles.header_content_wrapper}>
-                <div className={styles.header_logo_wrapper}>
-                    <NavLink to='/'>
-                        <img src={logo} />
-                    </NavLink>
-                </div>
-                <nav className={styles.navbar}>
-                    <ul>
-                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/'>Главная</NavLink></li>
-                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/points'>Пункты сбора</NavLink></li>
-                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/ecomarket'>ЭкоМаркет</NavLink></li>
-                        <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/about'>О сервисе</NavLink></li>
-                    </ul>
-                </nav>
-                <nav className={styles.side_part}>
-                    {authentication ?
+            <div className={styles.container}>
+                <div className={styles.header_content_wrapper}>
+                    <div className={styles.header_logo_wrapper}>
+                        <NavLink to='/'>
+                            <img src={logo} />
+                        </NavLink>
+                    </div>
+                    <nav className={styles.navbar}>
                         <ul>
+                            <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/'>Главная</NavLink></li>
+                            <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/points'>Пункты сбора</NavLink></li>
+                            <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/ecomarket'>ЭкоМаркет</NavLink></li>
+                            <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/about'>О сервисе</NavLink></li>
+                        </ul>
+                    </nav>
+                    <nav className={styles.side_part}>
+                        {authentication ?
+                            <ul>
 
-                            <li>
-                                <Icon name='pin' width='24' height='24' />
-                                <p>Казань</p>
-                            </li>
+                                <li>
+                                    <Icon name='pin' width='24' height='24' />
+                                    <p>Казань</p>
+                                </li>
 
+                                <li>
+                                    <img src={money}></img>
+                                    <p>1000</p>
+                                </li>
+                                <li>
+                                    <img src={avatar}></img>
+                                    <p>{name}</p>
+                                </li>
+                            </ul> :
+                            <ul>
+                                <li className={styles.location}>
+                                    <Icon name='pin' width='24' height='24' />
+                                    <p>Казань</p>
+                                </li>
+                                <li className={styles.in}>
+                                    <Move x={5}>
+                                        <button onClick={handleModal}>Войти</button>
+                                    </Move>
+                                </li>
+                            </ul>}
+                    </nav>
+                    {/* <div className={styles.adaptive_nav}>
+                        <ul>
                             <li>
                                 <img src={money}></img>
+                            </li>
+                            <li>
                                 <p>1000</p>
                             </li>
                             <li>
                                 <img src={avatar}></img>
-                                <p>{name}</p>
                             </li>
-                        </ul> :
-                        <ul>
-                            <li className={styles.location}>
-                                <Icon name='pin' width='24' height='24' />
-                                <p>Казань</p>
+                            <li>
+                                <img src={menu}></img>
                             </li>
-                            <li className={styles.in}>
-                                <Move x={5}>
-                                    <button onClick={handleModal}>Войти</button>
-                                </Move>
-                            </li>
-                        </ul>}
-                </nav>
+                        </ul>
+                    </div> */}
+                </div>
             </div>
         </header>
     )

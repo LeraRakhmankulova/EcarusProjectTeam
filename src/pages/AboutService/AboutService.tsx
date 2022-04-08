@@ -70,7 +70,7 @@ const AboutService = () => {
   return (
     <div>
      
-     <button>reg</button>
+     {/* <button>reg</button> */}
     </div>
 
   )
