@@ -17,11 +17,14 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import Trail from '../../utils/use-spring/Trail';
 import Move from '../../utils/use-spring/Move';
+import Footer from "../../components/Footer/Footer";
+import React from "react";
  
 
 const MainPage = () => {
     return (
         <Trail>
+            <div>
             <div className={styles.content_wrapper}>
                 <div className={styles.swiper_wrapper}>
                     <Swiper
@@ -88,6 +91,8 @@ const MainPage = () => {
                         </NavLink>
                     </div>
                 </div>
+            </div>
+            <Footer/>
             </div>
         </Trail>
     );
