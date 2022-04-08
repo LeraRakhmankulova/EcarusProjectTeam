@@ -1,10 +1,42 @@
 @mixin desktop
   @media screen and (max-width: 1280px)
     .input
+      width: 150px !important
+    .select_material
+      width: 250px !important
+      margin: 2em 54em !important
+    .select_shop
+      width: 250px !important
+      margin: 2em 33em !important
+    .cards
+      margin: 6em 0 0 11.6em !important
+      .card
+        margin: 0.5em 0em 0.5em 0em !important
+
+@mixin laptop
+  @media screen and (max-width: 992px)
+    .input
       width: 100px !important
     .select_material
-      margin: 2em 50em !important
+      width: 200px !important
+      margin: 2em 46em !important
     .select_shop
+      width: 200px !important
+      margin: 2em 29em !important
+    .cards
+      margin: 6em 0 0 11.6em !important
+      .card
+        margin: 0.5em 0em 0.5em 0em !important
+
+@mixin phones
+  @media screen and (max-width: 480px)
+    .input
+      width: 100px !important
+    .select_material
+      width: 200px !important
+      margin: 2em 46em !important
+    .select_shop
+      width: 200px !important
       margin: 2em 29em !important
     .cards
       margin: 6em 0 0 11.6em !important
@@ -12,12 +44,15 @@
         margin: 0.5em 0em 0.5em 0em !important
 
 
-
 .main_content
   @include desktop
+  @include laptop
+  @include phones
   width: 100%
   .input
     @include desktop
+    @include laptop
+    @include phones
     position: absolute
     z-index: 1000
     margin: 2em 0 0 14em
@@ -34,6 +69,8 @@
 
     .select_material
       @include desktop
+      @include laptop
+      @include phones
       cursor: pointer
       background: white url(../../assets/images/barr.svg) no-repeat right
       background-position-x: calc(100% - 20px)
@@ -49,6 +86,8 @@
       margin: 2em 79em
     .select_shop
       @include desktop
+      @include laptop
+      @include phones
       background: white url(../../assets/images/barr.svg) no-repeat right
       background-position-x: calc(100% - 20px)
       appearance: none
@@ -62,10 +101,16 @@
       z-index: 10000
       margin: 2em 58em
 .cards
+  @include desktop
+  @include laptop
+  @include phones
   position: absolute
   z-index: 1000
   margin: 6em 0 0 11.6em
   .card
+    @include desktop
+    @include laptop
+    @include phones
     border-radius: 16px
     margin: 0.5em 0
     background: white
