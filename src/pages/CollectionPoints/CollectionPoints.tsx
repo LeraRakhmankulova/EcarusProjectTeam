@@ -69,7 +69,7 @@ const CollectionPoints = () => {
                     </div>
                 {menuActive ?
                     <div className={styles.cards_phone}>
-                    <div className={styles.card}>
+                    <div className={styles.card_ph}>
                 {
                     isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
                     description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...'/> :
@@ -77,7 +77,7 @@ const CollectionPoints = () => {
                 }
 
                     </div>
-                    <div className={styles.card}>
+                    <div className={styles.card_ph}>
                 {
                     isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
                     description='Стекло, бумага, металл, старая одежда, батареи'/> :
@@ -85,14 +85,14 @@ const CollectionPoints = () => {
                 }
 
                     </div>
-                    <div className={styles.card}>
+                    <div className={styles.card_ph}>
                 {
                     isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
                     description='Пластик, стекло, бумага, металл'/> : <MapCardPlug/>
                 }
 
                     </div>
-                    <div className={styles.card}>
+                    <div className={styles.card_ph}>
                 {
                     isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
                     description='Стекло, бумага, металл, старая одежда, батареи'/> :
