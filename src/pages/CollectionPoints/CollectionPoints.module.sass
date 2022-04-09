@@ -43,9 +43,20 @@
       //margin: 2em 29em !important
       visibility: hidden
     .cards
-      margin: 8em 0 0 2em !important
+      display: none !important
       .card
-        margin: 0.5em 0em 0.5em 0em !important
+        display: none !important
+    .cards_phone
+      display: inline !important
+      position: absolute !important
+      z-index: 1000 !important
+      margin: 6em 0 0 11.6em !important
+      .card
+        display: inline !important
+        border-radius: 16px !important
+        margin: 0.5em 0 !important
+        background: white !important
+        cursor: pointer !important
     .button_open_filters
       margin: 2em 0 0 31em !important
       position: absolute !important
@@ -56,6 +67,7 @@
       border-radius: 8px
       padding: 0.7em
     .button_open_cards
+      font-size: 14px !important
       position: absolute !important
       z-index: 10000 !important
       display: inline !important
@@ -138,3 +150,13 @@
     margin: 0.5em 0
     background: white
     cursor: pointer
+.cards_phone
+  @include desktop
+  @include laptop
+  @include phones
+  display: none
+  .card
+    @include desktop
+    @include laptop
+    @include phones
+    display: none !important
