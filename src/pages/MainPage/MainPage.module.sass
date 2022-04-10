@@ -9,8 +9,14 @@
             display: block       
 
 @mixin laptop 
-    @media screen and (max-width: 992px) 
-        @content
+    @media screen and (max-width: 992px)
+        .swiper_wrapper
+            font-size: 1.5vh
+            padding: 0.5em 0
+            h2
+                font-size: 4vh !important
+        .inline_blocks
+            display: block
 
 @mixin tablets 
     @media screen and (max-width: 768px) 
@@ -38,6 +44,7 @@
     padding-bottom: 7em
     .swiper_wrapper
         @include desktop
+        @include laptop
         margin: 2.5em 1em 0.5em 1em
         button
             margin-top: 1.2em
@@ -48,6 +55,7 @@
 
 .inline_blocks
     @include desktop
+    @include laptop
     display: grid
     grid-template-rows: 1fr
     grid-template-columns: 6fr 6fr
@@ -71,12 +79,14 @@
             margin-top: 2em
             img
                 @include desktop
+                @include laptop
             
     .right_block
         width: 100%
         grid-area: right_block
         img
             @include desktop
+            @include laptop
     a
         color: black
         text-decoration: none
