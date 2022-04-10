@@ -39,14 +39,20 @@
 .container
     width: 100%
 .wrapper
+    @include desktop
+    @include phones
+    @include laptop
     color: #000B26A3
     display: flex
+
     padding: 0 10.5em
     font-size: 16px
     font-weight: normal
     div
+        @include phones
         padding: 0 0.5em
         display: flex
     .icon_wrapper
+        @include phones
         margin-top: 1em
     
