@@ -1,31 +1,56 @@
+@mixin large 
+    @media screen and (max-width: 1600px)
+        .content_wrapper
+            display: none !important    
+ 
 @mixin desktop 
     @media screen and (max-width: 1280px) 
-        .swiper_wrapper
-            font-size: 1.5vh
-            padding: 0.5em 0
-            h2
-                font-size: 4vh !important
-        .inline_blocks
-            display: block       
+        .container
+            margin: 0 6em  
+        .phone_slider
+            display: none !important
 
 @mixin laptop 
     @media screen and (max-width: 992px) 
-        @content
+        .container
+            margin: 0 1em
+        .inline_blocks
+            flex-wrap: wrap
+        .phone_slider
+            display: none !important
 
 @mixin tablets 
     @media screen and (max-width: 768px) 
-        @content
+        // .container
+        //     margin: -18em 0.5em 0 0.5em
+        .inline_blocks
+            flex-wrap: wrap
+            div
+                margin: 0.3em 0
+        .swiper_wrapper
+            display: none
+        .phone_slider
+            display: contents 
     
 @mixin phones 
-   @media screen and (max-width: 480px) 
-        @content
+   @media screen and (max-width: 480px)
+        .container
+            margin: -8em 0.5em 0 0.5em !important
+        .inline_blocks
+            flex-wrap: wrap
+            div
+                margin-top: 1em
+        .swiper_wrapper
+            display: none
+        .phone_slider
+            display: contents 
 
 .content_wrapper
+    @include large
     @include desktop
     @include laptop
     @include tablets
     @include phones
-
     button
         white-space: nowrap
         &:hover
@@ -34,11 +59,8 @@
         &:active
             box-shadow: 0 0 10px #00000024
             transform: translateY(-2px)
-    margin: auto 10em
-    padding-bottom: 7em
+    
     .swiper_wrapper
-        @include desktop
-        margin: 2.5em 1em 0.5em 1em
         button
             margin-top: 1.2em
         img
@@ -47,42 +69,35 @@
             font-size: 5vh
 
 .inline_blocks
-    @include desktop
-    display: grid
-    grid-template-rows: 1fr
-    grid-template-columns: 6fr 6fr
-    grid-template-areas: "left_block right_block"
-    padding: 0 1em 0 0
+    display: flex
+    a
+        color: black
+        text-decoration: none
     div
-        
-        margin: 0.5em
+        margin: 0 0.2em 
         h2
-            font-size: 24px
+            font-size: 1.2em
             white-space: nowrap
         p
             padding: 1.25em 0
             color: rgba(0, 11, 38, 0.56)
         button
             margin-left: 0
-    .left_block
+    
+.container
+    margin: 0em 10em 8em 10em
+
+
+.phone_slider
+    display: none
+    margin: 0 
+    padding: 0
+    width: 100%
+    background: #b3edc8
+    text-align: center
+    justify-content: center
+    img 
         width: 100%
-        grid-area: left_block
-        button
-            margin-top: 2em
-            img
-                @include desktop
-            
-    .right_block
-        width: 100%
-        grid-area: right_block
-        img
-            @include desktop
-    a
-        color: black
-        text-decoration: none
-
-
-
 
     
 

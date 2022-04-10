@@ -32,7 +32,9 @@ const Card: FC<Props> = ({ title, text, main_picture, main_background, button_co
                 </div>
             </div>
             <div className={styles.card_wrapper_img}>
-                <img src={main_picture} alt='' />
+                <div className={styles.container}>
+                    <img src={main_picture} alt='' />
+                </div>
             </div>
         </div>
     )

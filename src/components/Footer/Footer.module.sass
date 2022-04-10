@@ -1,12 +1,47 @@
+@mixin desktop 
+  @media screen and (max-width: 1280px)
+    .wrapper
+        padding: 0 7em
+        font-size: 14px
+
+@mixin laptop 
+  @media screen and (max-width: 1000px)
+    .wrapper
+        padding: 0 2em
+        font-size: 14px
+@mixin tablets 
+  @media screen and (max-width: 768px)
+    .wrapper
+        padding: 0
+        text-align: center
+        justify-content: center
+        flex-wrap: wrap
+        font-size: 16px
+
+@mixin phones 
+  @media screen and (max-width: 480px)
+    .wrapper
+        padding: 0
+        text-align: ce
+        text-align: center
+        justify-content: center
+        flex-wrap: wrap
+        font-size: 16px
+  
 .footer
+    @include desktop
+    @include laptop
+    @include tablets
+    @include phones
     box-shadow: 0px -0.5px 0px rgba(0, 0, 0, 0.12)
     padding-top: 0.5em
      
-    
+.container
+    width: 100%
 .wrapper
     color: #000B26A3
     display: flex
-    margin: 0 10.5em
+    padding: 0 10.5em
     font-size: 16px
     font-weight: normal
     div
