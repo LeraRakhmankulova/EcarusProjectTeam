@@ -1,7 +1,9 @@
 @mixin large 
     @media screen and (max-width: 1600px)
         .content_wrapper
-            display: none !important    
+            display: none !important  
+        .phone_slider
+            
  
 @mixin desktop 
     @media screen and (max-width: 1280px) 
@@ -30,8 +32,7 @@
                 margin: 0.3em 0
         .swiper_wrapper
             display: none
-        .phone_slider
-            display: contents 
+        
     
 @mixin phones 
    @media screen and (max-width: 480px)
@@ -43,8 +44,7 @@
                 margin-top: 1em
         .swiper_wrapper
             display: none
-        .phone_slider
-            display: contents 
+        
 
 .content_wrapper
     @include large
@@ -86,9 +86,10 @@
             color: rgba(0, 11, 38, 0.56)
         button
             margin-left: 0
-
+.container
+    margin: 1em 10em 5em 10em
 .phone_slider
-    display: none
+    display: none !important  
     margin: 0 
     padding: 0
     width: 100%
@@ -97,6 +98,7 @@
     justify-content: center
     img 
         width: 100%
+
 
     
 
