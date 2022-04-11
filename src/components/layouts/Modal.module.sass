@@ -8,22 +8,7 @@
         button 
           font-size: 10px 
 
-// @mixin tablets 
-//   @media screen and (max-width: 768px)
-//     .menu_button
-//       display: contents !important
-//     .hidden_menu
-//       display: contents !important
-//     .navbar
-//       ul
-//         display: none
-//     .main_nav
-//       .location
-//         display: none
-//       .in
-//         display: none
-
-@mixin phones 
+@mixin tablets 
   @media screen and (max-width: 768px)
     .modal_content
         width: 100%
@@ -42,8 +27,9 @@
         // margin: 1em 0 1em 0
         
 
+
 .modal_content
-    @include phones
+    @include tablets
 
 .overlay
     position: fixed
