@@ -69,7 +69,7 @@ const CollectionPoints = () => {
                     </div>
                 {menuActive ?
                     <div className={styles.cards_phone}>
-                    <div className={styles.card_ph}>
+                        <div className={styles.card_ph}>
                 {
                     isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
                     description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...'/> :
@@ -99,7 +99,7 @@ const CollectionPoints = () => {
                     <MapCardPlug/>
                 }
                     </div>
-                    </div> : <div></div>}
+                </div> : <div></div>}
             </div>
             <Map></Map>
         </div>
