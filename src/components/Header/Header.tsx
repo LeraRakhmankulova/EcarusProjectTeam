@@ -41,6 +41,12 @@ const Header = observer(() => {
                             <img src={logo} />
                         </NavLink>
                     </div>
+                    <div className={styles.menu_button}>
+                        <div></div>
+                        <button onClick={() => setMenuActive(!menuActive)}>
+                            <img src={menu} />
+                        </button>
+                    </div>
                     <nav className={styles.navbar}>
                         <ul>
                             <li><NavLink className={({ isActive }) => `${styles.location_link}` + (isActive ? " activated" : null)} to='/'>Главная</NavLink></li>
@@ -80,17 +86,13 @@ const Header = observer(() => {
                         </ul>
                         <ul className={styles.hidden_menu}>
                             <li>
-                                <div className={styles.menu_button}>
-                                    <button onClick={() => setMenuActive(!menuActive)}>
-                                        <img src={menu} />
-                                    </button>
-                                </div>
                                 <div className={styles.menu_wrap}>
-                                    <Menu items={items} active={menuActive} setActive={setMenuActive} />
+                                    <Menu items={items} active={menuActive} setActive={setMenuActive} action={() => setMenuActive(!menuActive)} />
                                 </div>
                             </li>
                         </ul>
-                        {/* } */}
+
+                       
                     </nav>
                     {/* <div className={styles.adaptive_nav}>
                         <ul>

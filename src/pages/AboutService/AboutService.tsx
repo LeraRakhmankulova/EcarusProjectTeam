@@ -67,10 +67,11 @@ const AboutService = () => {
   //       console.log(err)
   //     });
   // }
+
   return (
     <div>
      
-     {/* <button>reg</button> */}
+     {/* <butto>reg</butto> */}
     </div>
 
   )

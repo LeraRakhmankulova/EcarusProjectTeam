@@ -1,6 +1,54 @@
+// @mixin large 
+//     @media screen and (max-width: 1600px)
+//         .page_wrapper
+            
+ 
+// @mixin desktop 
+//     @media screen and (max-width: 1280px) 
+//         .page_wrapper
+//             margin: 6em
+         
+// @mixin laptop 
+//     @media screen and (max-width: 992px) 
+//         .page_wrapper
+//             margin: 3em
+         
+// @mixin tablets 
+//     @media screen and (max-width: 768px) 
+//         .page_wrapper
+//             margin: 1em !important
+           
+@mixin tablets 
+   @media screen and (max-width: 768px)
+        .page_wrapper
+            margin: 0
+            padding: 1em
+        .upper_block_container
+            display: block
+            margin: 0
+            padding: 0
+            .links
+                display: none
+            
+        .search_block_wrapper
+            display: none
+            
+        .main_content
+            width: 100vw
+            margin: 0
+            padding: 0
+        .cards_block
+            display: block
+            width: 100vw
+            margin: 0
+            .card_product
+                width: 100%
+                margin: 0 0 3em 0
+
+.container
+    @include tablets
 .page_wrapper
-    margin: auto 11.5em
-    margin-bottom: 4em
+    margin: 1em 10em 5em 10em
 .upper_block_container
     padding-top: 1em
     display: flex

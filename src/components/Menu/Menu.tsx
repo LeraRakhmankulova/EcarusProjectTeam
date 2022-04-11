@@ -9,9 +9,10 @@ interface Props {
     items: any
     active: any,
     setActive: any
+    action: any
 }
 
-const Menu: FC<Props> = ({ items, active, setActive }) => {
+const Menu: FC<Props> = ({ items, active, setActive, action }) => {
     return (
         <div className={active? `${styles.menu_active}` : `${styles.menu}`}>
             <div className={styles.blur}>
@@ -46,7 +47,7 @@ const Menu: FC<Props> = ({ items, active, setActive }) => {
                         </li> */}
                     </ul>
                     <div>
-                        <button className={styles.close_menu_button}>
+                        <button onClick={action} className={styles.close_menu_button}>
                             <Icon name='close' width={25} height={25}/>
                         </button>
                     </div>

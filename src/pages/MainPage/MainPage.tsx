@@ -20,17 +20,24 @@ import Move from '../../utils/use-spring/Move';
 import Footer from "../../components/Footer/Footer";
 import bgr from '../../assets/images/recl.svg'
 import React from "react";
+import CardButton from '../../components/ui/card-button/CardButton';
 
 
 const MainPage = () => {
     return (
         <Trail>
-            <div>
-                <div className={styles.phone_slider}>
-                    <h3>Сделаем мир чище</h3>
-                    <p>Сдай макулатуру или старую одежду и получи скидку покупку товаров из переработанных материалов</p>
-                    
-                    <img src={bgr} />
+            <div className={styles.main_page}>
+
+                <div className={styles.container_slider}>
+                    <div className={styles.phone_slider}>
+                        <div className={styles.text_card}>
+                            <h3>Сделаем мир чище</h3>
+                            <p>Сдай макулатуру или старую одежду и получи скидку покупку товаров из переработанных материалов</p>
+                        </div>
+                        <div className={styles.but_width}>
+                            <CardButton content='Условия сервиса' background='#07C88E' picture='' /> </div>
+                        <img src={bgr} />
+                    </div>
                 </div>
 
                 <div className={styles.content_wrapper}>
@@ -73,33 +80,31 @@ const MainPage = () => {
                             </Swiper>
                         </div>
 
-                        <div>
-                            <div className={styles.inline_blocks}>
-                                <div className={styles.left_block}>
-                                    <NavLink to='/points'>
-                                        <Card title="Пункты сбора"
-                                            text="Посмотри, где в твоем городе
+                        <div className={styles.inline_blocks}>
+                            <div className={styles.left_block}>
+                                <NavLink to='/points'>
+                                    <Card title="Пункты сбора"
+                                        text="Посмотри, где в твоем городе
                         можно сдать вторсырье
                         на переработку"
-                                            main_picture={first_banner}
-                                            main_background="white"
-                                            button_color="rgba(62, 80, 114, 0.08)"
-                                            button_text=""
-                                            pict_button={rightArrow} />
-                                    </NavLink>
-                                </div>
-                                <div className={styles.right_block}>
-                                    <NavLink to='/ecomarket'>
-                                        <Card title="ЭкоМаркет"
-                                            text="Используй заработанные
+                                        main_picture={first_banner}
+                                        main_background="white"
+                                        button_color="rgba(62, 80, 114, 0.08)"
+                                        button_text=""
+                                        pict_button={rightArrow} />
+                                </NavLink>
+                            </div>
+                            <div className={styles.right_block}>
+                                <NavLink to='/ecomarket'>
+                                    <Card title="ЭкоМаркет"
+                                        text="Используй заработанные
                         экокоины для покупки товаровиз переработанных материалов"
-                                            main_picture={second_banner}
-                                            main_background="white"
-                                            button_color="rgba(62, 80, 114, 0.08)"
-                                            button_text=""
-                                            pict_button={rightArrow} />
-                                    </NavLink>
-                                </div>
+                                        main_picture={second_banner}
+                                        main_background="white"
+                                        button_color="rgba(62, 80, 114, 0.08)"
+                                        button_text=""
+                                        pict_button={rightArrow} />
+                                </NavLink>
                             </div>
                         </div>
                     </div>
