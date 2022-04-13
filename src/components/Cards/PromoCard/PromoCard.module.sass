@@ -1,3 +1,40 @@
+@mixin desktop 
+    @media screen and (max-width: 1280px) 
+        .text_content
+            margin: 5em 0 
+        .promo_card
+            padding: 1em
+        .text_content
+            p
+                font-size: 12px
+
+@mixin laptop 
+    @media screen and (max-width: 992px) 
+        .text_content
+            margin: 4.5em 0 !important
+        .promo_card
+            padding: 0.6em !important
+        .text_content
+            p
+                font-size: 10px !important
+
+
+@mixin tablets 
+    @media screen and (max-width: 768px)
+        .text_content
+            margin: 8em 0 !important
+        .promo_card
+            padding: 1.5em !important
+        .text_content
+            p
+                font-size: 14px !important
+
+
+body
+    @include laptop
+    @include desktop
+    @include tablets
+
 .union_wrapper
     display: flex
     margin: -0.5em 0 0 0.2em
@@ -8,10 +45,11 @@
     margin: 1.25em 0.3em
     border-radius: 10px
 
+
 .promo_card
+    padding: 1em
     margin: 0
     background: #FFFFFF
-    padding: 1em
     border: 1px solid rgba(62, 80, 114, 0.12)
     box-shadow: 0px 12px 32px rgba(121, 121, 121, 0.12), 0px 4px 24px rgba(21, 45, 103, 0.12)
     border-radius: 16px
@@ -30,7 +68,7 @@
     padding: 0
 
 .text_content
-    margin: 6.3em 0
+    margin: 6.5em 0
     text-align: center
     p
         font-family: 'Inter'

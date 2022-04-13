@@ -91,7 +91,7 @@ const EcoMarket = () => {
                     <div className={styles.upper_block_container}>
                         <h1>ЭкоМаркет</h1>
 
-                        <div className={styles.links}>
+                        {/* <div className={styles.links}>
                             <ul>
                                 <li>
                                     <a>По популярности</a>
@@ -103,7 +103,7 @@ const EcoMarket = () => {
                                     <a>По новизне</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className={styles.main_content}>

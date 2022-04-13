@@ -1,32 +1,23 @@
-// @mixin large 
-//     @media screen and (max-width: 1600px)
-//         .page_wrapper
-            
- 
-// @mixin desktop 
-//     @media screen and (max-width: 1280px) 
-//         .page_wrapper
-//             margin: 6em
-         
-// @mixin laptop 
-//     @media screen and (max-width: 992px) 
-//         .page_wrapper
-//             margin: 3em
-         
-// @mixin tablets 
-//     @media screen and (max-width: 768px) 
-//         .page_wrapper
-//             margin: 1em !important
-           
+@mixin desktop 
+    @media screen and (max-width: 1280px) 
+        .container
+            margin: 0 8em   
+        .card_product 
+            margin: 0 0.3em 1em 0.3em !important 
+
+@mixin laptop 
+    @media screen and (max-width: 992px) 
+        .container
+            margin: 0 2em !important
 @mixin tablets 
    @media screen and (max-width: 768px)
         .page_wrapper
             padding: 0 !important
             margin: 0 !important
         .upper_block_container
+            padding: 0.2em 0 0.5em 0
             display: block
             margin: 0
-            padding: 0
             .links
                 display: none
             
@@ -34,24 +25,28 @@
             display: none
             
         .main_content
-            width: 100vw
-            margin: 0
-            padding: 0 1em
+            display: flex !important
         .cards_block
             display: block
-            width: 100vw
-            margin: 0
+            width: 95%
+            margin: 0 !important
             .card_product
-                width: 95%
+                width: 100%
                 margin: 0
+                padding: 0 0 3em 0 !important
+        h1
+            font-size: 30px !important
+
+
+body
+    @include laptop
+    @include desktop
+    @include tablets
 
 .container
-    @include tablets
-    background: green
-.page_wrapper
-    margin: 1em 10em 5em 10em
+    margin: 1em 11%
 .upper_block_container
-    padding-top: 1em
+    padding: 1em 0 3em 0
     display: flex
     justify-content: space-between
     h1
@@ -102,11 +97,13 @@
         margin-bottom: 1em
 .cards_block
     display: flex
-    margin: 0 0 0 2em
+    margin: 0 0 0 1.5em
     flex-wrap: wrap
+    padding: 0 !important
     .card_product 
+        padding: 0 0.5em 0.5em 0.5em !important
+        margin: 0 !important
         cursor: pointer
-        margin: 0 0.75em 3.25em 0.75em
         width: 30.3%
         &:hover
             transform: translateY(-2px)
