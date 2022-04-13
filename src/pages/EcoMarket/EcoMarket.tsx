@@ -108,6 +108,8 @@ const EcoMarket = () => {
 
                     <div className={styles.main_content}>
                         <div className={styles.search_block_wrapper}>
+
+
                             <div className="search_block">
                                 <div className={styles.search_type}>
                                     <h4>Пол</h4>
@@ -157,6 +159,8 @@ const EcoMarket = () => {
                                     }
                                 </div>
                             </div>
+
+
                             <ModalButton text={"Сбросить фильтры"} color={"black"} background={"rgba(62, 80, 114, 0.08)"}
                                 width={'100%'} disabled='' onClick={() => resetFilters()} type='' />
                         </div>
@@ -180,6 +184,7 @@ const EcoMarket = () => {
                         </div>
                     </div>
                 </div>
+                
             </div>
         </Trail>
     );
