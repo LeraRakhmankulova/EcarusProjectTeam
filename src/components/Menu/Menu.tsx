@@ -34,7 +34,7 @@ const Menu: FC<Props> = ({ items, active, setActive, action }) => {
                         </li>
                         {items.map((el: any) =>
                             <li>
-                                <NavLink to={el.href}>{el.value}</NavLink>
+                                <NavLink to={el.href} onClick={action}>{el.value}</NavLink>
                             </li>)}
                             <li>
                                 <NavLink to=''>Выйти</NavLink>

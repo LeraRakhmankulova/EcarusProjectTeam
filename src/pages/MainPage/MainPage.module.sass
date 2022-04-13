@@ -1,103 +1,47 @@
-@mixin large 
-    @media screen and (max-width: 2000px) 
-        .phone_slider
-            display: none
 @mixin desktop 
     @media screen and (max-width: 1280px) 
         .container
             margin: 0 6em  
+           
 
 @mixin laptop 
     @media screen and (max-width: 992px) 
         .container
             margin: 0 1em
-        .inline_blocks
-            flex-wrap: wrap
 
 @mixin tablets 
     @media screen and (max-width: 768px)
         .container
-            margin: 0 1em
-        .phone_slider
-            display: contents !important
-        .inline_blocks
-            margin-top: -14em 
-            flex-wrap: wrap
+            margin: 0 
+        .blocks
+            margin: 0.8em
             div
-                margin: 0.3em 0
-        .swiper_wrapper
-            display: none
+                margin: 0 0 0.5em 0
+                border-radius: 16px
+                z-index: 3000
+                background: white
+            flex-wrap: wrap
+            margin-top: -14em
            
 @mixin phones 
    @media screen and (max-width: 480px)
-        .phone_slider
-            display: contents !important
-           
-
-        .inline_blocks
-            margin-top: -8em
-        .container
-            margin: 0em 0.5em 0 0.5em !important
-        
-.main_page
-    @include large
+        .blocks
+            margin-top: -10em
+body
     @include laptop
     @include desktop
     @include tablets
     @include phones
-.content_wrapper
-    button
-        white-space: nowrap
-        &:hover
-            box-shadow: 0 0 10px #1f1d1d0f
-            transform: translateY(-1px)
-        &:active
-            box-shadow: 0 0 10px #00000024
-            transform: translateY(-2px)
-    
-    .swiper_wrapper
 
-        button
-            margin-top: 1.2em
-        img
-            border-radius: 20px
-        h2
-            font-size: 5vh
-
-.inline_blocks
-    display: flex
-    a
-        color: black
-        text-decoration: none
-
-    div
-        margin: 0 0.2em 
-        h2
-            font-size: 1.2em
-            white-space: nowrap
-        p
-            padding: 1.25em 0
-            color: rgba(0, 11, 38, 0.56)
-        button
-            margin-left: 0
+button
+    cursor: pointer
 .container
-    margin: 1em 10em 5em 10em
+    margin: 3em 10em 
+.blocks
+    display: flex
 
-.container_slider
-    background: #b3edc8
-.phone_slider
-    width: 100%
-    text-align: center
-    justify-content: center
-    img
-        width: 100%
-    .but_width
-        padding: 0 0.5em
-        button
-            width: 100%
-    .text_card
-        text-align: left
-        padding: 0.5em 1em
+
+
     
 
 

@@ -1,12 +1,12 @@
 import styles from './App.module.sass';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import MainPage from './pages/MainPage/MainPage';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import EcoMarket from './pages/EcoMarket/EcoMarket';
 import CollectionPoints from "./pages/CollectionPoints/CollectionPoints";
 import AboutService from './pages/AboutService/AboutService';
 import Profile from './pages/Profile/Profile';
+import MainPage from './pages/MainPage/MainPage';
 
 const App = () => {
 
@@ -23,7 +23,7 @@ const App = () => {
               <Route path='/profile' element={<Profile />} />
             </Routes>
           </div>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </div>
   );
