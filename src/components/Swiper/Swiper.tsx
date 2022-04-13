@@ -12,16 +12,15 @@ import './sliderStyle.sass';
 import SliderCard from '../Cards/SliderCards/SliderCard';
 import Icon from '../Icon/Icon';
 
-const SwiperBanner = () =>{
+const SwiperBanner = () => {
     return (
         <div >
             <div className={styles.slider}>
-            <div className={styles.slider__navigation}>
-                    <div className="swiper-button-prev-u">
-                        <Icon name='prev' width='20' height='20' />
-                    </div>
-                    <div className="swiper-button-next-u">
-                        <Icon name='next' width='20' height='20' />
+                <div className={styles.slider__navigation}>
+                    <div className={styles.left_arrow}>
+                        <div className="swiper-button-prev-u">
+                            <Icon name='prev' width='20' height='20' />
+                        </div>
                     </div>
                 </div>
                 <Swiper
@@ -57,7 +56,13 @@ const SwiperBanner = () =>{
                             background_color='#BFF0DE' />
                     </SwiperSlide>
                 </Swiper>
-                
+                {/* <div className={styles.slider__navigation}>
+                    <div className={styles.right_arrow}>
+                        <div className="swiper-button-next-u">
+                            <Icon name='next' width='20' height='20' />
+                        </div>
+                    </div>
+                </div> */}
             </div>
         </div>
     )
