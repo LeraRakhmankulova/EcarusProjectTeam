@@ -1,20 +1,26 @@
 @mixin tablets 
     @media screen and (max-width: 768px)
-        .slider__navigation
+        .navigation
             display: none !important
+@mixin laptop 
+    @media screen and (max-width: 1150px) 
+        .navigation 
+          top: 140px !important
+
 body
     @include tablets
+    @include laptop
 
-.slider
-  display: flex
-  justify-content: space-between
+.slider 
+  margin-top: -40px
 
+  .navigation 
+    display: flex
+    justify-content: space-between
+    align-items: center
+    position: relative
+    top: 180px
+    z-index: 2
+    cursor: pointer
+  
 
-.slider__navigation
-  padding-top: 10.5%
-  position: absolute
-  z-index: 1000
-  .left_arrow
-    margin-left: -13px
-  .right_arrow
-    margin-left: 74% !important

@@ -36,13 +36,14 @@
                 padding: 0 0 3em 0 !important
         h1
             font-size: 30px !important
-
+        
 
 body
     @include laptop
     @include desktop
     @include tablets
-
+.page_wrapper
+    z-index: 10
 .container
     margin: 1em 11%
 .upper_block_container
@@ -109,6 +110,14 @@ body
             transform: translateY(-2px)
         &:active
             transform: translateY(-3px)
+
+.filter
+    width: 100%
+    position: absolute !important
+    .text
+        
+        width: 100%
+        background: red !important
 
 
 

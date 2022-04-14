@@ -1,17 +1,49 @@
-.swiper-button-next-u, .swiper-button-prev-u
+@mixin desktop 
+    @media screen and (max-width: 1280px) 
+        .swiper-button-prev-u,
+        .swiper-button-next-u 
+          width: 38px
+          height: 38px
+        // .swiper-button-prev-u 
+        //   margin-left: -22px
+        // .swiper-button-next-u 
+        //   margin-right: -22px      
+
+@mixin laptop 
+    @media screen and (max-width: 1150px) 
+        .container
+            margin: 0 1em
+body
+    @include desktop
+    @include laptop
+  
+.swiper-button-prev-u,
+.swiper-button-next-u 
+  width: 44px
+  height: 44px
+  background: #FFFFFF
+  border: none
+  border-radius: 50px
+  box-shadow: 0 4px 24px rgba(0, 11, 38, 0.12)
+
+.swiper-button-prev-u 
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-left: -22px
+
+.swiper-button-next-u 
   display: flex
   align-items: center
   justify-content: center
-  cursor: pointer
-  width: 40px
-  height: 40px
-  background-size: 100% auto
-  box-shadow: 0px 4px 24px rgba(0, 11, 38, 0.12)
-  background: #FFFFFF
-  border-radius: 50px
-  z-index: 2
-.swiper-button-next-u::after, .swiper-button-prev-u::after
-  display: none
+  margin-right: -22px
 
+.swiper-button-prev-u.swiper-button-disabled,
+.swiper-button-next-u.swiper-button-disabled 
+  opacity: 1
+
+
+.swiper-button-prev::after, .swiper-button-next::after 
+  display: none
 
 

@@ -12,12 +12,6 @@ const AboutService = () => {
 
   return (
     <div>
-      <button onClick={() => setMenuActive(!menuActive)}>
-        аКтивиЗиРую
-      </button>
-      <div >
-        <BottomSheet active={menuActive} setActive={setMenuActive} action={() => setMenuActive(!menuActive)} />
-      </div>
     </div>
 
   )

@@ -12,7 +12,6 @@ interface Props {
     action: any
 }
 
-
 const BottomSheet: FC<Props> = ({ active, setActive, action }) => {
     const genders = [
         { title: "Мужской", checked: false },
@@ -47,17 +46,15 @@ const BottomSheet: FC<Props> = ({ active, setActive, action }) => {
             <div className={styles.blur}>
                 <div className={styles.menu_content}>
                     <div className={styles.links}>
-                    <ul>
-                                <li>
-                                    <a>По популярности</a>
-                                </li>
-                                <li>
-                                    <a>По цене</a>
-                                </li>
-                                <li>
-                                    <a>По новизне</a>
-                                </li>
-                            </ul>
+                            <li>
+                                <a>По популярности</a>
+                            </li>
+                            <li>
+                                <a>По цене</a>
+                            </li>
+                            <li>
+                                <a>По новизне</a>
+                            </li>
                     </div>
                     <div className="search_block">
                         <div className={styles.search_type}>
@@ -103,13 +100,8 @@ const BottomSheet: FC<Props> = ({ active, setActive, action }) => {
                     </div>
                     <div className={styles.button_area}>
                         <button className={styles.apply}>Применить</button>
-                        <button className={styles.reset}>Сбросить фильтры</button>
+                        <button onClick={action} className={styles.reset}>Сбросить фильтры</button>
                     </div>
-                </div>
-                <div>
-                    <button onClick={action} className={styles.close_menu_button}>
-                        <Icon name='close' width={25} height={25} />
-                    </button>
                 </div>
             </div>
         </div>
