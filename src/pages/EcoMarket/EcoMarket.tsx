@@ -8,7 +8,7 @@ import Trail from '../../utils/use-spring/Trail';
 import ProductCardPlug from '../../components/Plugs/ProductCardPlug/ProductCardPlug';
 import ProductCard from '../../components/Cards/ProductCard/ProductCard';
 import PromoCard from '../../components/Cards/PromoCard/PromoCard';
-import BottomSheet from '../../components/BottomSheet/BottomSheet';
+import CustomSheet from '../../components/CustomSheet/CustomSheet';
 
 interface ICategoryProps {
     title: string;
@@ -43,9 +43,9 @@ const allBr: ICategoryProps[] = [
 ]
 
 const EcoMarket = () => {
+    const [open, setOpen] = useState(false)
     const [allTypes, setAllTypes] = useState(false);
     const [allBrand, setAllBrand] = useState(false);
-    const [menuActive, setMenuActive] = useState(false);
     const [genders, setGenders] = useState(gender);
     const [brands, setBrands] = useState(brand);
     const [types, setTypes] = useState(type);
@@ -53,7 +53,6 @@ const EcoMarket = () => {
     const [chooseAllBrands, setChooseAllBrands] = useState(allBr)
 
     const [isShow, setShow] = useState(false);
-
     useEffect(() => {
         setTimeout(() => {
             setShow(() => true)
@@ -88,17 +87,12 @@ const EcoMarket = () => {
     return (
         <Trail>
             <div className={styles.container}>
-            <div className={styles.filter}>
-                    <div className={styles.text}>
-                        <BottomSheet active={menuActive} setActive={setMenuActive} action={() => setMenuActive(!menuActive)} />
-                    </div>
-                </div>
                 <div className={styles.page_wrapper}>
                     
                     <div className={styles.upper_block_container}>
                         <h1>ЭкоМаркет</h1>
 
-                        {/* <div className={styles.links}>
+                        <div className={styles.links}>
                             <ul>
                                 <li>
                                     <a>По популярности</a>
@@ -110,14 +104,14 @@ const EcoMarket = () => {
                                     <a>По новизне</a>
                                 </li>
                             </ul>
-                        </div> */}
+                        </div>
                         
                     </div>
 
-                    <button onClick={() => setMenuActive(!menuActive)}>
+                    <button onClick={() => setOpen(!open)}>
                         Фильтры
                     </button>
-                    
+                    <CustomSheet open={open} setOpen={setOpen}/>
                     <div className={styles.main_content}>
                         
                         <div className={styles.search_block_wrapper}>
@@ -201,7 +195,7 @@ const EcoMarket = () => {
                     </div>
                     
                 </div>
-                
+              
             </div>
         </Trail>
     );
