@@ -107,10 +107,12 @@ const EcoMarket = () => {
                         </div>
                         
                     </div>
+                    <div className={styles.hidden_button}>
+                        <button className={styles.filters_button} onClick={() => setOpen(!open)}>
+                            Фильтры
+                        </button>
+                    </div> 
 
-                    <button onClick={() => setOpen(!open)}>
-                        Фильтры
-                    </button>
                     <CustomSheet open={open} setOpen={setOpen}/>
                     <div className={styles.main_content}>
                         

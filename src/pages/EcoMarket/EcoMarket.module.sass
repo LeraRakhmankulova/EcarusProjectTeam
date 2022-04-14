@@ -1,9 +1,14 @@
+@mixin all 
+    @media screen and (max-width: 3080px) 
+        .hidden_button
+            display: none !important
 @mixin desktop 
     @media screen and (max-width: 1280px) 
         .container
             margin: 0 8em   
         .card_product 
-            margin: 0 0.3em 1em 0.3em !important 
+            margin: 0 0.3em 1em 0.3em !important
+        
 
 @mixin laptop 
     @media screen and (max-width: 992px) 
@@ -28,7 +33,7 @@
             display: flex !important
         .cards_block
             display: block
-            width: 95%
+            width: 100%
             margin: 0 !important
             .card_product
                 width: 100%
@@ -36,12 +41,18 @@
                 padding: 0 0 3em 0 !important
         h1
             font-size: 30px !important
+        .hidden_button
+            display: contents !important
+        
         
 
 body
+    @include all
     @include laptop
     @include desktop
     @include tablets
+
+        
 .page_wrapper
     z-index: 10
 .container
@@ -120,5 +131,13 @@ body
         background: red !important
 
 
-
+.filters_button
+    background: rgba(62, 80, 114, 0.08)
+    border-radius: 8px
+    color: black
+    padding: 1em 
+    border: none
+    font-size: 16px
+    width: 100%
+    margin-bottom: 1.5em
 
