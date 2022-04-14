@@ -18,9 +18,6 @@ const CollectionPoints = () => {
             setShow(() => true)
         }, 2000);
     }, [])
-    function handleFilters() {
-        return
-    }
     return (
         <div>
             <div className={styles.main_content}>

@@ -12,7 +12,7 @@ const Map: FC<Props> = ({ children }) => {
                 center={[55.7887, 49.1221]}
                 zoom={12}
                 zoomControl={false}
-                style={{ height: '100vh', width: '100%', display:'flex', flexDirection:'column-reverse'}}
+                style={{ height: '100vh', width: '100vw', display:'flex', flexDirection:'column-reverse'}}
             >
                 <div className={styles.parent_content}>
                     <TileLayer
