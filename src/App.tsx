@@ -23,7 +23,7 @@ const App = () => {
               <Route path='/profile' element={<Profile />} />
             </Routes>
           </div>
-        {/* <Footer /> */}
+         <Footer />
       </Router>
     </div>
   );

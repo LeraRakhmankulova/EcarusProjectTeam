@@ -5,9 +5,11 @@ import MapCard from '../../components/Cards/MapCard/MapCard';
 import MapCardPlug from '../../components/Plugs/MapCardPlug/MapCardPlug';
 import { useEffect, useState } from 'react';
 import filter_logo from '../../assets/images/filter_logo.svg'
+import CustomSheet from "../../components/CustomSheet/CustomSheet";
 
 
 const CollectionPoints = () => {
+    const [open, setOpen] = useState(false)
     const [isShow, setShow] = useState(false);
     const [openCards, setOpenCards] = useState(false)
     const [menuActive, setMenuActive] = useState(false);
@@ -32,7 +34,8 @@ const CollectionPoints = () => {
                         <option value="" disabled selected>Материалы</option>
                         <option>Пункт 1</option>
                     </select>
-                    <button className={styles.button_open_filters} onClick={handleFilters}><img src={filter_logo}/></button>
+                    <button className={styles.button_open_filters} onClick={() => setOpen(!open)}><img src={filter_logo}/></button>
+                    <CustomSheet open={open} setOpen={setOpen}/>
                 </div>
                 <button className={styles.button_open_cards} onClick={()=>setMenuActive(!menuActive)}>Показать 12 пунктов сбора</button>
                     <div className={styles.cards}>

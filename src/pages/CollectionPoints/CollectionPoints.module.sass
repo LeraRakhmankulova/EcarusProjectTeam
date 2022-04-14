@@ -36,8 +36,8 @@
 @mixin phones
   @media screen and (max-width: 480px)
     .input
-      margin: 2em 0 0 3em !important
-      width: 275px !important
+      //margin: 2em 3em 3em 3em !important
+      width: 50% !important
     .select_material
       //width: 200px !important
       //margin: 6em 0 0 2em!important
@@ -62,14 +62,14 @@
         cursor: pointer !important
         z-index: 1000000 !important
     .button_open_filters
-      margin: 2em 0 0 31em !important
+      margin: 2em 20em 0 40em !important
       position: absolute !important
       z-index: 10000 !important
       display: inline !important
       background: white
-      border: none
+      //border: none
       border-radius: 8px
-      padding: 0.7em
+      padding: 0.7em 0 0.7em 0
     .button_open_cards
       border-radius: 8px
       width: 100%
@@ -142,6 +142,7 @@
       z-index: 10000
       margin: 2em 58em
     .button_open_filters
+      @include phones
       display: none
 
 .cards
