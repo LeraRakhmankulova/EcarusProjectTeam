@@ -1,28 +1,30 @@
 import React from 'react';
 import { FC } from 'react';
 import { createRef, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { isContext } from 'vm';
 import styles from '../AboutService/AboutService.module.sass'
-
 
 interface Props{
   post: any
   func: any
 }
 
-const AboutService:FC<Props> = ({post, func}) => {
+const AboutService = () => {
 
-
+  const dispatch = useDispatch();
+  const cash = useSelector(state => state.cash.cash)
+  const addCash = ()  => {
+    dispatch({type:'ADD_CASH', payload: 5})
+  }
+  const getCash = () => {
+    dispatch({type: 'GET_CASH', payload: 5})
+  }
   return (
     <div className={styles.container}>
-      <h1>Add new posts</h1>
-      <div><textarea ></textarea></div>
-      <div>
-        <button onClick={func}>add new</button>
-      </div>
-      <div>
-        <h3>All my posts:</h3>
-        {post.map((el:any) => <div><h5>User id:{el.id} </h5> User message :{el.message}<br/>  Like count : {el.likeCount}</div>)}
-      </div>
+      <p>{cash}</p>
+      <button onClick={addCash}>plus</button>
+      <button onClick={getCash}>minus</button>
     </div>
 
   )

@@ -8,13 +8,11 @@ import CollectionPoints from "./pages/CollectionPoints/CollectionPoints";
 import AboutService from './pages/AboutService/AboutService';
 import Profile from './pages/Profile/Profile';
 import { FC } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-interface Props{
-  props: any
-}
 
-const App:FC<Props> = ({props}) => {
-  
+const App = () => {
+ 
   return (
     <div className={styles.wrapper}>
       <Router>
@@ -24,7 +22,7 @@ const App:FC<Props> = ({props}) => {
               <Route path='/' element={<MainPage />} />
               <Route path='/ecomarket' element={<EcoMarket />} />
               <Route path='/points' element={<CollectionPoints />} />
-              <Route path='/about' element={<AboutService post={props.posts} func={props.addFunc}/>} />
+              <Route path='/about' element={<AboutService />} />
               <Route path='/profile' element={<Profile />} />
             </Routes>
           </div>
