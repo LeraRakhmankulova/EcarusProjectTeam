@@ -25,7 +25,12 @@ const CollectionPoints = () => {
                 <div className={styles.select_wrapper}>
                     <select className={styles.select_shop}>
                         <option value="" disabled selected>Выбрано 3 магазина</option>
-                        <option>Пункт 1</option>
+                        <option>Выбрать все</option>
+                        <option>H&M</option>
+                        <option>P&B</option>
+                        <option>Adidas</option>
+                        <option>Nike</option>
+                        <option>Reebok</option>
                     </select>
                     <select className={styles.select_material}>
                         <option value="" disabled selected>Материалы</option>
