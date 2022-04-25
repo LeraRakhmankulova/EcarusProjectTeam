@@ -6,6 +6,7 @@ import MapCardPlug from '../../components/Plugs/MapCardPlug/MapCardPlug';
 import { useEffect, useState } from 'react';
 import filter_logo from '../../assets/images/filter_logo.svg'
 import CustomSheet from "../../components/CustomSheet/CustomSheet";
+import BigMapCard from '../../components/Cards/BigMapCard/BigMapCard';
 
 
 const CollectionPoints = () => {
@@ -42,6 +43,7 @@ const CollectionPoints = () => {
                 <button className={styles.button_open_cards} onClick={()=>setMenuActive(!menuActive)}>Показать 12 пунктов сбора</button>
                     <div className={styles.cards}>
                         <div className={styles.card}>
+                        {/* <BigMapCard />  */}
                             {
                                 isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
                                                   description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...'/> :
@@ -70,6 +72,9 @@ const CollectionPoints = () => {
                                                   description='Стекло, бумага, металл, старая одежда, батареи'/> :
                                     <MapCardPlug/>
                             }
+                        </div>
+                        <div>
+                            
                         </div>
                     </div>
                 {menuActive ?
