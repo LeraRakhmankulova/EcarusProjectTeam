@@ -1,20 +1,8 @@
-import FC from 'react';
 import styles from './Profile.module.sass';
 import { NavLink, Route, Router, Routes } from 'react-router-dom';
-import axios from 'axios';
 import avatar from '../../assets/images/main_avatar.png'
-import CardButton from '../../components/ui/card-button/CardButton';
 
 const PersonalArea = () => {
-    // const getUser = () => {
-    // }
-    // axios.get('https://ecoapp.cloud.technokratos.com/eco-rus/api/v1/profile').then((res: any) => {
-    //     console.log(res);
-    // }).catch(
-    //     err => {
-    //         console.log(err)
-    //     });
-
     return (
         <div className={styles.wrapper}>
             <h1>Личный кабинет</h1>
@@ -39,13 +27,6 @@ const PersonalArea = () => {
                     </nav>
                 </div>
             </div>
-
-            {/* <div className={style.content_wrapper}>
-                <div>
-                    
-                    <button onClick={() => getUser}>on Click</button>
-                </div>
-            </div> */}
         </div>
     )
 };

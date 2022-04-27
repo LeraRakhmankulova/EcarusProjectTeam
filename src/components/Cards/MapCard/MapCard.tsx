@@ -5,7 +5,7 @@ import { FC } from 'react';
 interface Props{
     picture: string,
     address: string,
-    description: string
+    description: string, 
 }
 
 const MapCard:FC<Props> = ({picture, address, description}) => {

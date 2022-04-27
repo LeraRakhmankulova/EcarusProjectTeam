@@ -1,14 +1,20 @@
+import { FC, useState } from 'react';
 import image from '../../../assets/images/rabbish.svg'
 import Icon from '../../Icon/Icon';
 import styles from '../BigMapCard/BigMapCard.module.sass'
 
-const BigMapCard = () => {
+interface Props {
+  setOpenCards: any,
+  openCards: boolean
+}
+
+const BigMapCard:FC<Props> = ({setOpenCards, openCards}) => {
   return (
     <div className={styles.just}>
-      <div className={styles.back_btn}>
-        <Icon name='back' width={15} height={20}/>
+      <button className={styles.back_btn} onClick={() => setOpenCards(!openCards)}>
+        <Icon name='back' width={15} height={20} />
         <p>Вернуться назад</p>
-      </div>
+      </button>
       <div className={styles.big_card_info}>
         <div className={styles.image}>
           <img src={image} />

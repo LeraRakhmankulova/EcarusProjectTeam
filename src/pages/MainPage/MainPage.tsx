@@ -1,13 +1,9 @@
-import { Navigation } from 'swiper';
-
 import first_banner from '../../assets/images/map.svg';
 import second_banner from '../../assets/images/reduce.svg';
-
 import styles from './MainPage.module.sass';
 import Trail from '../../utils/use-spring/Trail';
 import SwiperBanner from '../../components/Swiper/Swiper';
 import BannerCard from '../../components/Cards/BannerCard/BannerCard';
-
 
 const MainPage = () => {
     return (
