@@ -1,9 +1,6 @@
 import '../../../pages/MainPage/MainPage';
 import { FC } from 'react';
-import CardButton from '../../ui/card-button/CardButton';
 import styles from './BannerCard.module.sass';
-import Move from '../../../utils/use-spring/Move';
-import Icon from '../../Icon/Icon';
 import { NavLink } from 'react-router-dom';
 
 interface Props {

@@ -1,5 +1,4 @@
 import styles from '../MapCard/MapCard.module.sass'
-import image from '../../assets/images/mapCard.svg'
 import { FC } from 'react';
 
 interface Props{

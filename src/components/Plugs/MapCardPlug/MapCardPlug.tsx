@@ -1,7 +1,6 @@
 import { animated, easings, useSpring } from 'react-spring';
 import styles from '../MapCardPlug/MapCardPlug.module.sass'
 
-
 const MapCardPlug = () => {
     const { background } = useSpring({
         from: {
@@ -27,8 +26,6 @@ const MapCardPlug = () => {
                 <animated.div className={styles.plug_content} style={{ background, width: 200, height: 15, borderRadius: 8, }} />
                 <animated.div className={styles.plug_content} style={{ background, width: 200, height: 15, borderRadius: 8, }} />
             </div>
-            
-           
         </div>
     )
 }

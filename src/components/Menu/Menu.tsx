@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { NavLink } from 'react-router-dom'
 import Icon from '../Icon/Icon'
 import avatar from '../../assets/images/ava.svg';
@@ -14,7 +14,7 @@ interface Props {
 
 const Menu: FC<Props> = ({ items, active, setActive, action }) => {
     return (
-        <div className={active? `${styles.menu_active}` : `${styles.menu}`}>
+        <div className={active ? `${styles.menu_active}` : `${styles.menu}`}>
             <div className={styles.blur}>
                 <div className={styles.menu_content}>
                     <ul>
@@ -27,6 +27,7 @@ const Menu: FC<Props> = ({ items, active, setActive, action }) => {
                                     Алексей Петрович
                                     <div className={styles.money}>
                                         <img src={money} width={22}></img>
+                                        <Icon name='money' width={22} height={22} />
                                         <h5>1000</h5>
                                     </div>
                                 </div>
@@ -36,19 +37,13 @@ const Menu: FC<Props> = ({ items, active, setActive, action }) => {
                             <li>
                                 <NavLink to={el.href} onClick={action}>{el.value}</NavLink>
                             </li>)}
-                            <li>
-                                <NavLink to=''>Выйти</NavLink>
-                            </li>
-                        {/* <li>
-                            <div className={styles.button_wrapp}>
-                                <NavLink to='/'>
-                                </NavLink>
-                            </div>
-                        </li> */}
+                        <li>
+                            <NavLink to=''>Выйти</NavLink>
+                        </li>
                     </ul>
                     <div>
                         <button onClick={action} className={styles.close_menu_button}>
-                            <Icon name='close' width={25} height={25}/>
+                            <Icon name='close' width={25} height={25} />
                         </button>
                     </div>
                 </div>

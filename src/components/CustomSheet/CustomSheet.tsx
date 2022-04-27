@@ -3,47 +3,14 @@ import {FC, useState} from "react"
 import styles from '../CustomSheet/CustomSheet.module.sass'
 import 'react-spring-bottom-sheet/dist/style.css'
 import Checkbox from '../../components/ui/checkbox/checkbox';
-
-
-interface ICategoryProps {
-    title: string;
-    checked: boolean;
-}
-
-const gender: ICategoryProps[] = [
-    {title: "Мужской", checked: false},
-    {title: "Женский", checked: false},
-]
-
-const type: ICategoryProps[] = [
-    {title: "Одежда", checked: false},
-    {title: "Обувь", checked: false},
-    {title: "Аксессуары", checked: false},
-]
-
-const brand: ICategoryProps[] = [
-    {title: "H&M", checked: false},
-    {title: "P&B", checked: false},
-    {title: "Adidas", checked: false},
-    {title: "Nike", checked: false},
-    {title: "Reebok", checked: false},
-    {title: "Puma", checked: false},
-]
-
-const allTp: ICategoryProps[] = [
-    {title: "Выбрать все", checked: false}
-]
-
-const allBr: ICategoryProps[] = [
-    {title: "Выбрать все", checked: false}
-]
+import {gender, type, brand, allTp, allBr, ICategoryProps } from '../../stores/marketStore'
 
 interface Props {
     open: any,
     setOpen: any
 }
 
-const AboutService: FC<Props> = ({open, setOpen}) => {
+const PointSheet: FC<Props> = ({open, setOpen}) => {
     const [allTypes, setAllTypes] = useState(false);
     const [allBrand, setAllBrand] = useState(false);
     const [genders, setGenders] = useState(gender);
@@ -51,7 +18,6 @@ const AboutService: FC<Props> = ({open, setOpen}) => {
     const [types, setTypes] = useState(type);
     const [chooseAllTypes, setChooseAllTypes] = useState(allTp)
     const [chooseAllBrands, setChooseAllBrands] = useState(allBr)
-
 
     const updateData = (id: number, setItems: any, items: ICategoryProps[]) => {
         setItems(
@@ -68,15 +34,6 @@ const AboutService: FC<Props> = ({open, setOpen}) => {
                     {...product, checked: true}
             )
         )
-    }
-    const resetFilters = () => {
-        setAllTypes(false)
-        setAllBrand(false)
-        setGenders(gender)
-        setBrands(brand)
-        setTypes(type)
-        setChooseAllTypes(allTp)
-        setChooseAllBrands(allBr)
     }
     return (
         <>
@@ -163,4 +120,4 @@ const AboutService: FC<Props> = ({open, setOpen}) => {
     );
 };
 
-export default AboutService;
+export default PointSheet;

@@ -2,19 +2,14 @@ import styles from './Header.module.sass';
 import logo from '../../assets/images/logo.svg';
 import { NavLink } from 'react-router-dom';
 import Icon from '../Icon/Icon';
-import avatar from '../../assets/images/avatar.svg';
-import money from '../../assets/images/money.svg';
-import signIn from '../../assets/images/signIn.svg';
 import { observer } from 'mobx-react';
 import Modal from '../layouts/Modal';
 import { ModalSign } from "../Modals/ModalSign";
 import { useStore } from "../../utils/use-stores-hook";
-import { name } from "../../utils/use-data";
 import { useState } from 'react';
 import Move from '../../utils/use-spring/Move';
 import menu from '../../assets/images/men.svg'
 import Menu from '../Menu/Menu';
-
 
 const Header = observer(() => {
     const items = [
@@ -32,7 +27,6 @@ const Header = observer(() => {
         setCurrentModal(null)
     }
     return (
-
         <header className={styles.header}>
             <div className={styles.container}>
                 <div className={styles.header_content_wrapper}>
@@ -56,23 +50,6 @@ const Header = observer(() => {
                         </ul>
                     </nav>
                     <nav className={styles.side_part}>
-                        {/* {authentication ?
-                            <ul>
-
-                                <li>
-                                    <Icon name='pin' width='24' height='24' />
-                                    <p>Казань</p>
-                                </li>
-
-                                <li>
-                                    <img src={money}></img>
-                                    <p>1000</p>
-                                </li>
-                                <li>
-                                    <img src={avatar}></img>
-                                    <p>{name}</p>
-                                </li>
-                            </ul> : */}
                         <ul className={styles.main_nav}>
                             <li className={styles.location}>
                                 <Icon name='pin' width='24' height='24' />
@@ -91,25 +68,7 @@ const Header = observer(() => {
                                 </div>
                             </li>
                         </ul>
-
-                       
                     </nav>
-                    {/* <div className={styles.adaptive_nav}>
-                        <ul>
-                            <li>
-                                <img src={money}></img>
-                            </li>
-                            <li>
-                                <p>1000</p>
-                            </li>
-                            <li>
-                                <img src={avatar}></img>
-                            </li>
-                            <li>
-                                <img src={menu}></img>
-                            </li>
-                        </ul>
-                    </div> */}
                 </div>
             </div>
         </header>

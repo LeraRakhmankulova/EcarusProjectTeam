@@ -20,6 +20,21 @@ const CollectionPoints = () => {
         }, 2000);
     }, [])
 
+    const card = (<div className={styles.card} onClick={() => setOpenCards(!openCards)}>
+        {
+            isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
+                description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...' /> :
+                <MapCardPlug />
+        }</div>)
+
+    const cardsInfo = (<div className={styles.card_ph}>
+        {
+            isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
+                description='Стекло, бумага, металл, старая одежда, батареи' /> :
+                <MapCardPlug />
+        }
+    </div>)
+
     return (
         <div>
             <div className={styles.main_content}>
@@ -38,7 +53,9 @@ const CollectionPoints = () => {
                         <option value="" disabled selected>Материалы</option>
                         <option>Пункт 1</option>
                     </select>
-                    <button className={styles.button_open_filters} onClick={() => setOpen(!open)}><img src={filter_logo} /></button>
+                    <button className={styles.button_open_filters} onClick={() => setOpen(!open)}>
+                        <img src={filter_logo} />
+                    </button>
                     <CustomSheet open={open} setOpen={setOpen} />
                 </div>
                 <button className={styles.button_open_cards} onClick={() => setMenuActive(!menuActive)}>Показать 12 пунктов сбора</button>
@@ -46,72 +63,14 @@ const CollectionPoints = () => {
                     {openCards === true ? (<BigMapCard setOpenCards={setOpenCards} openCards={openCards} />)
                         : (
                             <>
-                                <div className={styles.card} onClick={() => setOpenCards(!openCards)}>
-                                    {
-                                        isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
-                                            description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...' /> :
-                                            <MapCardPlug />
-                                    }
-
-                                </div>
-                                <div className={styles.card} onClick={() => setOpenCards(!openCards)}>
-                                    {
-                                        isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
-                                            description='Стекло, бумага, металл, старая одежда, батареи' /> :
-                                            <MapCardPlug />
-                                    }
-
-                                </div>
-                                <div className={styles.card} onClick={() => setOpenCards(!openCards)}>
-                                    {
-                                        isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
-                                            description='Пластик, стекло, бумага, металл' /> : <MapCardPlug />
-                                    }
-
-                                </div>
-                                <div className={styles.card} onClick={() => setOpenCards(!openCards)}>
-                                    {
-                                        isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
-                                            description='Стекло, бумага, металл, старая одежда, батареи' /> :
-                                            <MapCardPlug />
-                                    }
-                                </div>
+                                {card}{card}
+                                {card}{card}
                             </>)}
                 </div>
-
-
                 {menuActive ?
                     <div className={styles.cards_phone}>
-                        <div className={styles.card_ph}>
-                            {
-                                isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
-                                    description='Пластик, стекло, бумага, металл, старая одежда, батареи, аккумуляторы...' /> :
-                                    <MapCardPlug />
-                            }
-
-                        </div>
-                        <div className={styles.card_ph}>
-                            {
-                                isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
-                                    description='Стекло, бумага, металл, старая одежда, батареи' /> :
-                                    <MapCardPlug />
-                            }
-
-                        </div>
-                        <div className={styles.card_ph}>
-                            {
-                                isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
-                                    description='Пластик, стекло, бумага, металл' /> : <MapCardPlug />
-                            }
-
-                        </div>
-                        <div className={styles.card_ph}>
-                            {
-                                isShow ? <MapCard picture={cardInfo} address='ул.Кремлёвская, 88'
-                                    description='Стекло, бумага, металл, старая одежда, батареи' /> :
-                                    <MapCardPlug />
-                            }
-                        </div>
+                        {cardsInfo}{cardsInfo}
+                        {cardsInfo}{cardsInfo}
                     </div> : <div></div>}
             </div>
             <Map></Map>

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import image from '../../../assets/images/rabbish.svg'
 import Icon from '../../Icon/Icon';
 import styles from '../BigMapCard/BigMapCard.module.sass'
