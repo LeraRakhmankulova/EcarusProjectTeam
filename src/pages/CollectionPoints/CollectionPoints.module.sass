@@ -10,10 +10,12 @@
       margin: 2em 33em !important
     .cards
       margin: 6em 0 0 11.6em !important
+
       .card
         margin: 0.5em 0em 0.5em 0em !important
     .card_ph
       display: none
+
       .card_ph
         display: none
 
@@ -24,27 +26,23 @@
       width: 100px !important
     .select_material
       width: 200px !important
-      margin: 6em 0 0 2em!important
+      margin: 6em 0 0 2em !important
     .select_shop
       width: 200px !important
-      margin: 2em 29em 2em 18em!important
+      margin: 2em 29em 2em 18em !important
     .cards
       margin: 8em 0 0 2em !important
+
       .card
         margin: 0.5em 0em 0.5em 0em !important
 
 @mixin phones
   @media screen and (max-width: 480px)
     .input
-      //margin: 2em 3em 3em 3em !important
       width: 50% !important
     .select_material
-      //width: 200px !important
-      //margin: 6em 0 0 2em!important
       visibility: hidden
     .select_shop
-      //width: 200px !important
-      //margin: 2em 29em !important
       visibility: hidden
     .cards
       display: none !important
@@ -53,9 +51,9 @@
       position: absolute !important
       z-index: 1000000 !important
       margin: 6em 0 0 1.6em !important
-      border-radius: 16px 
+      border-radius: 16px
+
       .card_ph
-         //overflow-x: scroll
         display: inline
         background: white !important
         border-radius: 16px !important
@@ -90,6 +88,7 @@
   @include laptop
   @include phones
   width: 100%
+
   .input
     @include desktop
     @include laptop
@@ -106,8 +105,10 @@
     border: none
     box-shadow: 0px 2px 10px rgba(21, 45, 103, 0.12)
     border-radius: 8px
+
   .button_open_cards
     display: none
+
   .select_wrapper
 
     .select_material
@@ -127,6 +128,7 @@
       border: none
       z-index: 10000
       margin: 2em 79em
+
     .select_shop
       @include desktop
       @include laptop
@@ -143,8 +145,8 @@
       border: none
       z-index: 10000
       margin: 2em 58em
+
     .button_open_filters
-      //@include phones
       display: none
 
 .cards
@@ -154,6 +156,7 @@
   position: absolute
   z-index: 1000
   margin: 6em 0 0 11.6em
+
   .card
     @include desktop
     @include laptop
@@ -162,54 +165,63 @@
     margin: 0.5em 0
     background: white
     cursor: pointer
+
 .cards_phone
   @include phones
+
   .card_ph
     @include phones
 
 
-
-
 .just
-    max-width: 345px
+  max-width: 345px
+
 .back_btn
-    display: flex
-    cursor: pointer
-    margin: 1em 0
-    border: none
-    background: none
-    p
-      margin: 0 0.7em
-      padding: 0
-      font-weight: 500
-      font-size: 16px
-      color: #5780EA
+  display: flex
+  cursor: pointer
+  margin: 1em 0
+  border: none
+  background: none
+
+  p
+    margin: 0 0.7em
+    padding: 0
+    font-weight: 500
+    font-size: 16px
+    color: #5780EA
+
 .big_card_info
-    background: white
-    box-shadow: 0px 0px 15px rgba(21, 45, 103, 0.12)
-    box-sizing: border-box
+  background: white
+  box-shadow: 0px 0px 15px rgba(21, 45, 103, 0.12)
+  box-sizing: border-box
+  border-radius: 20px
+
+  h3
+    padding: 0
+    margin: 0
+
+  .image
+    width: 100%
+
+    img
+      width: 100%
+      max-width: 385px
+      border-radius: 20px 20px 0 0
+
+  .information
+    padding: 1em
     border-radius: 20px
-    h3
-        padding: 0
-        margin: 0
-    .image
-        width: 100%
-        img
-            width: 100%
-            max-width: 385px
-            border-radius: 20px 20px 0 0
-    .information
-        padding: 1em
-        border-radius: 20px
-        background: white
-    .items
-        width: 70%
-        padding: 1em 0
-        display: flex
-        flex-wrap: wrap
-        .item
-            padding: 0.3em
-            font-size: 12px
-            background: rgba(62, 80, 114, 0.08)
-            border-radius: 20px
-            margin: 0.3em 0.3em
+    background: white
+
+  .items
+    width: 70%
+    padding: 1em 0
+    display: flex
+    flex-wrap: wrap
+
+    .item
+      padding: 0.3em
+      font-size: 12px
+      background: rgba(62, 80, 114, 0.08)
+      border-radius: 20px
+      margin: 0.3em 0.3em
